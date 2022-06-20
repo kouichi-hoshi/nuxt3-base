@@ -1,6 +1,3 @@
-<script setup>
-</script>
-
 <template>
   <div class="l-container m-6">
     <div class="l-header mb-6">
@@ -12,5 +9,3 @@
     </main>
   </div>
 </template>
-
-

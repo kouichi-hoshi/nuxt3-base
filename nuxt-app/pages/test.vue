@@ -6,6 +6,14 @@
 
 <script>
 export default {
-  name: 'testPage'
+  name: 'testPage',
+  data: () => ({
+    title: 'Test',
+  }),
+  head() {
+    return {
+      title: this.title,
+    }
+  },
 }
 </script>
