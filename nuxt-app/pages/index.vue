@@ -7,13 +7,9 @@
 </template>
 
 <script>
-import ContentIndex from '~/components/ContentIndex.vue'
-
 export default {
   name: 'indexPage',
-  components: {
-    ContentIndex
-  },
+  components: {},
   data: () => ({
     title: 'Home',
   }),
