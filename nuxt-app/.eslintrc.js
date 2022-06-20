@@ -12,8 +12,12 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
-    'vue'
+    'vue',
+    'prettier',
+    'stylelint-prettier'
   ],
   rules: {
+    'prettier/prettier': 'error',
+    'prettier/prettier': true
   }
 }

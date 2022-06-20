@@ -1,8 +1,11 @@
 {
   "cSpell.words": [
+    "FACTFULNESS",
+    "lintfix",
     "Nuxt",
     "nuxtjs",
     "stylelint",
-    "tailwindcss"
+    "tailwindcss",
+    "Vuetify"
   ]
 }
