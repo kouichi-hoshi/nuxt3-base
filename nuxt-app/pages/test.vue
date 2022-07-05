@@ -1,19 +1,19 @@
 <template>
-  <div>
-    <h1>test page</h1>
-  </div>
+  <NuxtLayout>
+    <article class="main">test.vue テンプレート</article>
+  </NuxtLayout>
 </template>
 
 <script>
 export default {
-  name: 'testPage',
+  name: "testPage",
   data: () => ({
-    title: 'Test',
+    title: "Test",
   }),
   head() {
     return {
       title: this.title,
-    }
+    };
   },
-}
+};
 </script>

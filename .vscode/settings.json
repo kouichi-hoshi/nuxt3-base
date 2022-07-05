@@ -6,6 +6,7 @@
     "nuxtjs",
     "stylelint",
     "tailwindcss",
+    "VITE",
     "Vuetify"
   ]
 }
