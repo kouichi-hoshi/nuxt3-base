@@ -1,11 +1,5 @@
 <template>
-  <div
-    v-for="(item, key) in items"
-    class="scroll-in"
-    :class="cardClass"
-    :key="key"
-    v-scroll
-  >
+  <div v-for="(item, key) in items" :class="cardClass" :key="key">
     <a :href="item.href">
       <p>
         <img
@@ -35,42 +29,42 @@ export default {
        * @param {Object} items.href このアイテムのリンク先URL
        */
       type: Object,
-      required: true
+      required: true,
     },
     imgPath: {
       // 画像の格納場所のパス
       type: String,
-      required: true
+      required: true,
     },
     noImage: {
       // 画像がない場合に代りに表示するダミー画像のパス
       type: String,
-      default: '/images/common/no-image.png'
+      default: "/images/common/no-image.png",
     },
     cardClass: {
       type: String,
-      default: ''
+      default: "",
     },
     aspect: {
       type: String,
-      default: 'aspect-[3/2]'
+      default: "aspect-[3/2]",
     },
     titleTagName: {
       type: String,
       default: () => {
-        return 'h4'
-      }
+        return "h4";
+      },
     },
     titleClass: {
       type: String,
-      default: ''
-    }
-  }
-}
+      default: "",
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/css/mixin.scss';
+@use "../assets/css/mixin.scss";
 
 .scroll-in {
   @include mixin.scrollTransform();

@@ -32,7 +32,7 @@ const siteText = import.meta.env.VITE_SITE_TEXT;
 
 <template>
   <div class="l-container">
-    <div class="l-header bg-slate-100" :class="{ slideUp: isNavFadeIn }">
+    <div class="l-header">
       <baseHeader :base-header-slot="baseHeaderSlot">
         <template v-slot:logo>
           <logoMark class="logo-size" />
@@ -82,33 +82,19 @@ const siteText = import.meta.env.VITE_SITE_TEXT;
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      isNavFadeIn: false,
-      options: {
-        threshold: [0.1],
-      },
-      isIntersectingElement: false,
-    };
-  },
-};
-</script>
-
 <style lang="scss" scoped>
 // .l-container {
 // }
 .l-header {
   // $h-nav-h: 100px;
   // height: $h-nav-h;
-  .l-base-header {
-    // position: fixed;
-    // top: 0;
-    // width: 100%;
-    // z-index: 2;
-    // transition: transform 0.4s;
-  }
+  // .l-base-header {
+  // position: fixed;
+  // top: 0;
+  // width: 100%;
+  // z-index: 2;
+  // transition: transform 0.4s;
+  // }
   // &.slideUp .l-base-header {
   //   transform: translateY(-$h-nav-h);
   // }

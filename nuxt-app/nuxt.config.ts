@@ -1,17 +1,17 @@
-import { defineNuxtConfig } from 'nuxt'
+import { defineNuxtConfig } from "nuxt"
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxt/content'
+    "@nuxtjs/tailwindcss",
+    // '@nuxt/content'
   ],
   tailwindcss: {
-    cssPath: '~/assets/css/tailwind.css',
-    configPath: 'tailwind.config.js',
+    cssPath: "~/assets/css/tailwind.css",
+    configPath: "tailwind.config.js",
     exposeConfig: false,
     config: {},
     injectPosition: 0,
     viewer: true,
-  }
+  },
 })

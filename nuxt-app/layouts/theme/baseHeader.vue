@@ -1,5 +1,5 @@
 <template>
-  <header class="l-base-header flex items-center bg-slate-100 p-8">
+  <header class="l-base-header flex items-center p-8">
     <div v-if="checkSlot('logo')" class="l-base-header__logo mr-2">
       <slot name="logo" />
     </div>
@@ -30,7 +30,7 @@ export default {
   methods: {
     checkSlot(item) {
       if (this.baseHeaderSlot[item] === true) {
-        return true;
+        return true
       }
     },
   },
