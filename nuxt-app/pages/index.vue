@@ -40,7 +40,7 @@
 
 <script>
 import itemsSample from "../models/itemsSample.js";
-import headline from "../components/cHeadline.vue";
+import cHeadline from "../components/cHeadline.vue";
 import repeatCard from "../components/repeatCard.vue";
 
 export default {
@@ -53,6 +53,6 @@ export default {
       itemsPath,
     };
   },
-  components: { repeatCard, headline },
+  components: { repeatCard, cHeadline },
 };
 </script>
