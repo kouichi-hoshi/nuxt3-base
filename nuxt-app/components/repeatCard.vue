@@ -1,19 +1,22 @@
 <template>
   <div v-for="(item, key) in items" :class="cardClass" :key="key">
-    <a :href="item.href">
-      <p>
-        <img
-          :src="item.fileName ? imgPath + item.fileName : noImage"
-          :alt="item.title"
-          class="object-cover"
-          :class="aspect"
-        />
-      </p>
-      <component :is="titleTagName" :class="titleClass">
-        {{ item.title }}
-      </component>
-      <p>{{ item.text }}</p>
-    </a>
+    <intersectionOA class="mask-1">
+      <a :href="item.href">
+          <p>
+          <img
+            :src="item.fileName ? imgPath + item.fileName : noImage"
+            :alt="item.title"
+            class="object-cover"
+            :class="aspect"
+          />
+        </p>
+        <component :is="titleTagName" :class="titleClass">
+          {{ item.title }}
+        </component>
+        <p>{{ item.text }}</p>
+      </a>
+    </intersectionOA>
+
   </div>
 </template>
 
