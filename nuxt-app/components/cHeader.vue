@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'HeadLine',
+  name: 'cHeader',
   props: {
     tagName: {
       type: String,
@@ -17,7 +17,7 @@ export default {
     class: {
       type: String,
       default: () => {
-        return 'headline'
+        return 'c-header w-fit mx-auto text-6xl'
       }
     }
   }

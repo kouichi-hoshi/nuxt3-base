@@ -1,9 +1,12 @@
 <template>
   <NuxtLayout>
     <article class="main">
+        <header class="mb-8 py-8">
+          <cHeader class="text-6xl w-fit mx-auto"> Home </cHeader>
+        </header>
       <section class="items container mx-auto">
-        <header class="mb-8">
-          <headline class="items__title text-center text-4xl"> Item </headline>
+        <header class="mb-8 py-8">
+          <cHeadline class="items__header"> Items </cHeadline>
         </header>
         <div
           class="items__item-wrap grid grid-cols-2 gap-6 md:grid-cols-3 xl:grid-cols-4"
@@ -37,7 +40,7 @@
 
 <script>
 import itemsSample from "../models/itemsSample.js";
-import headline from "../components/headline.vue";
+import headline from "../components/cHeadline.vue";
 import repeatCard from "../components/repeatCard.vue";
 
 export default {
