@@ -1,0 +1,14 @@
+{
+  "cSpell.words": [
+    "FACTFULNESS",
+    "lintfix",
+    "Nuxt",
+    "nuxtjs",
+    "stylelint",
+    "tailwindcss",
+    "VITE",
+    "Vuetify"
+  ],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
