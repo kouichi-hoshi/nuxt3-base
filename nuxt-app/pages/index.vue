@@ -1,9 +1,9 @@
 <template>
   <NuxtLayout>
-    <article class="main">
-        <header class="mb-8 py-8">
-          <cHeader class="text-6xl w-fit mx-auto"> Home </cHeader>
-        </header>
+    <article class="home">
+      <header class="mb-8 py-8">
+        <cHeader class="text-6xl w-fit mx-auto"> Home </cHeader>
+      </header>
       <section class="items container mx-auto">
         <header class="mb-8 py-8">
           <cHeadline class="items__header"> Items </cHeadline>

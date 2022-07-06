@@ -1,12 +1,34 @@
+<script setup>
+import dayjs from 'dayjs'
+
+// 投稿日をフォーマット
+function formatDate(setDate) {
+  return dayjs(setDate).format('YYYY/MM/DD')
+}
+
+// datetime属性をフォーマット
+function formatDateTime(setDate) {
+  return dayjs(setDate).format('YYYY-MM-DD')
+}
+
+const { data } = await useAsyncData('blog', () => queryContent('/').find())
+</script>
 
 <template>
   <NuxtLayout>
-    <article class="main">
-      <header class="mb-8 py-8">
-        <cHeader class="text-6xl w-fit mx-auto"> Blog Entry</cHeader>
-      </header>
-      <section class="items container mx-auto">
+    <article class="blog container mx-auto">
+      <section>
         <ContentDoc />
+      </section>
+      <section class="mt-12">
+        <h2>ブログ一覧</h2>
+        <ul>
+          <li v-for="(post, key) in data" :key="key" class="flex">
+            <a :href="post._path">
+              <time :datetime="formatDateTime(post.postDate)">{{formatDate(post.postDate)}}</time> {{post.title}}
+            </a>
+          </li>
+        </ul>
       </section>
     </article>
   </NuxtLayout>

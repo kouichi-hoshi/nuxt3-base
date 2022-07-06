@@ -26,6 +26,7 @@
     "stylelint-config-standard-scss": "^4.0.0"
   },
   "dependencies": {
+    "@nuxtjs/dayjs": "^1.4.1",
     "prettier-plugin-tailwind": "^2.2.12",
     "sass": "^1.52.3",
     "sass-loader": "^13.0.0"
