@@ -39,6 +39,30 @@ const { data } = await useAsyncData('blog', () => queryContent('/').find())
   &-content
   h2 {
     font-size: 3rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    margin-top: 3rem;
+    font-size: 2rem;
+  }
+  h4 {
+    margin-top: 1.6rem;
+    font-size: 1.6rem;
+  }
+  p, ul {
+    margin-bottom: 1rem;
+  }
+  hr {
+    margin: 5rem 0;
+  }
+  table {
+    border-collapse: collapse;
+    th,td {
+      border: solid gray 1px;
+      padding: 0.5rem 1rem;
+      text-align: center;
+    }
   }
 }
 </style>
