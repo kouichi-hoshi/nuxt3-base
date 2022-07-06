@@ -39,20 +39,20 @@
 </style>
 
 <script>
-import itemsSample from "../models/itemsSample.js";
-import cHeadline from "../components/cHeadline.vue";
-import repeatCard from "../components/repeatCard.vue";
+import itemsSample from '../models/itemsSample.js'
+import cHeadline from '../components/cHeadline.vue'
+import repeatCard from '../components/repeatCard.vue'
 
 export default {
   setup() {
-    const items = itemsSample; // Itemセクションで表示するデータ
-    const itemsPath = "/images/sample/"; //Itemセクションで表示する画像のパス
+    const items = itemsSample // Itemセクションで表示するデータ
+    const itemsPath = '/images/sample/' //Itemセクションで表示する画像のパス
 
     return {
       items,
-      itemsPath,
-    };
+      itemsPath
+    }
   },
-  components: { repeatCard, cHeadline },
-};
+  components: { repeatCard, cHeadline }
+}
 </script>

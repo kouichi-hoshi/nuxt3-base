@@ -25,7 +25,10 @@ const { data } = await useAsyncData('blog', () => queryContent('/').find())
         <ul>
           <li v-for="(post, key) in data" :key="key" class="flex">
             <a :href="post._path">
-              <time :datetime="formatDateTime(post.postDate)">{{formatDate(post.postDate)}}</time> {{post.title}}
+              <time :datetime="formatDateTime(post.postDate)">{{
+                formatDate(post.postDate)
+              }}</time>
+              {{ post.title }}
             </a>
           </li>
         </ul>
@@ -36,8 +39,7 @@ const { data } = await useAsyncData('blog', () => queryContent('/').find())
 
 <style lang="scss">
 .blog {
-  &-content
-  h2 {
+  &-content h2 {
     font-size: 3rem;
     margin-top: 4rem;
     margin-bottom: 1rem;
@@ -50,7 +52,8 @@ const { data } = await useAsyncData('blog', () => queryContent('/').find())
     margin-top: 1.6rem;
     font-size: 1.6rem;
   }
-  p, ul {
+  p,
+  ul {
     margin-bottom: 1rem;
   }
   hr {
@@ -58,7 +61,8 @@ const { data } = await useAsyncData('blog', () => queryContent('/').find())
   }
   table {
     border-collapse: collapse;
-    th,td {
+    th,
+    td {
       border: solid gray 1px;
       padding: 0.5rem 1rem;
       text-align: center;
@@ -68,20 +72,20 @@ const { data } = await useAsyncData('blog', () => queryContent('/').find())
 </style>
 
 <script>
-import itemsSample from "../models/itemsSample.js";
-import cHeadline from "../components/cHeadline.vue";
-import repeatCard from "../components/repeatCard.vue";
+import itemsSample from '../models/itemsSample.js'
+import cHeadline from '../components/cHeadline.vue'
+import repeatCard from '../components/repeatCard.vue'
 
 export default {
   setup() {
-    const items = itemsSample; // Itemセクションで表示するデータ
-    const itemsPath = "/images/sample/"; //Itemセクションで表示する画像のパス
+    const items = itemsSample // Itemセクションで表示するデータ
+    const itemsPath = '/images/sample/' //Itemセクションで表示する画像のパス
 
     return {
       items,
-      itemsPath,
-    };
+      itemsPath
+    }
   },
-  components: { repeatCard, cHeadline },
-};
+  components: { repeatCard, cHeadline }
+}
 </script>

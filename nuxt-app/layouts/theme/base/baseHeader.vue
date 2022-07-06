@@ -20,21 +20,21 @@
 
 <script>
 export default {
-  name: "BaseHeader",
+  name: 'BaseHeader',
   props: {
     baseHeaderSlot: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
   },
   methods: {
     checkSlot(item) {
       if (this.baseHeaderSlot[item] === true) {
         return true
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

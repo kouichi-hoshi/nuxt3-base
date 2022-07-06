@@ -15,32 +15,32 @@
 </template>
 
 <script>
-import checkLinkType from "../../../functions/checkLinkType.js";
+import checkLinkType from '../../../functions/checkLinkType.js'
 
 export default {
-  name: "BaseNavigation",
+  name: 'BaseNavigation',
   props: {
     links: {
       type: Array,
-      required: true,
+      required: true
     },
     tagName: {
       type: String,
       default: () => {
-        return "li";
-      },
+        return 'li'
+      }
     },
     class: {
       type: String,
       default: () => {
-        return "";
-      },
-    },
+        return ''
+      }
+    }
   },
   data() {
     return {
-      checkLinkType,
-    };
-  },
-};
+      checkLinkType
+    }
+  }
+}
 </script>

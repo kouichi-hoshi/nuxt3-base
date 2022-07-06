@@ -92,6 +92,5 @@ export default {
   &.mask-35.show {
     clip-path: inset(0 0 0 0);
   }
-
 }
 </style>

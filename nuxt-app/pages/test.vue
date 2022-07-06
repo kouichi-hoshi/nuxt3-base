@@ -4,22 +4,21 @@
       <header class="mb-8 py-8">
         <cHeader> Test </cHeader>
       </header>
-      <section class="items container mx-auto">
-      </section>
+      <section class="items container mx-auto"></section>
     </article>
   </NuxtLayout>
 </template>
 
 <script>
 export default {
-  name: "testPage",
+  name: 'testPage',
   data: () => ({
-    title: "Test",
+    title: 'Test'
   }),
   head() {
     return {
-      title: this.title,
-    };
-  },
-};
+      title: this.title
+    }
+  }
+}
 </script>
