@@ -17,7 +17,7 @@ const { data } = await useAsyncData('blog', () => queryContent('/').find())
 <template>
   <NuxtLayout>
     <article class="blog container mx-auto">
-      <section>
+      <section class="blog-content">
         <ContentDoc />
       </section>
       <section class="mt-12">
@@ -34,19 +34,13 @@ const { data } = await useAsyncData('blog', () => queryContent('/').find())
   </NuxtLayout>
 </template>
 
-<style lang="scss" scoped>
-// .main {
-//   .items {
-//     &__item-wrap {
-//       display: flex;
-//       flex-wrap: wrap;
-//       gap: 1rem;
-//     }
-//     &__item {
-//       flex: 0 1 calc((100% - 2rem) / 3);
-//     }
-//   }
-// }
+<style lang="scss">
+.blog {
+  &-content
+  h2 {
+    font-size: 3rem;
+  }
+}
 </style>
 
 <script>
