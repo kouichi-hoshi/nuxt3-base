@@ -1,10 +1,10 @@
 <script setup>
 import linkData from "../models/linkData.js";
 import snsLinkData from "../models/snsLinkData.js";
-import baseHeader from "../layouts/theme/baseHeader.vue";
-import baseTitle from "../layouts/theme/baseTitle.vue";
-import baseNavigation from "../layouts/theme/baseNavigation.vue";
-import baseFooter from "../layouts/theme/baseFooter.vue";
+import baseHeader from "../layouts/theme/base/baseHeader.vue";
+import baseTitle from "../layouts/theme/base/baseTitle.vue";
+import baseNavigation from "../layouts/theme/base/baseNavigation.vue";
+import baseFooter from "../layouts/theme/base/baseFooter.vue";
 import logoMark from "../components/logoMark.vue";
 
 // baseHeaderのslotの有効化/無効化を設定

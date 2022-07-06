@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import checkLinkType from "../../functions/checkLinkType.js";
+import checkLinkType from "../../../functions/checkLinkType.js";
 
 export default {
   name: "BaseNavigation",
