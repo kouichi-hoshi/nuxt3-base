@@ -3,12 +3,12 @@
     :modules="[EffectFade, Autoplay]"
     effect="fade"
     @swiper="onSwiper"
-    :loop="true"
-    :autoplay="true"
+    :loop="slideOption.loop"
+    :autoplay="slideOption.autoplay"
   >
-    <template v-for="(item, key) in items" :key="key">
+    <template v-for="(item, key) in slideItems" :key="key">
       <swiper-slide>
-        <img class="object-cover" :class="aspect" :src="item" :alt="key" />
+        <img class="object-cover" :class="slideAspect" :src="item" :alt="key" />
       </swiper-slide>
     </template>
   </swiper>
@@ -26,7 +26,7 @@ import 'swiper/css/autoplay'
 export default {
   name: 'SwiperVue',
   props: {
-    items: {
+    slideItems: {
       /**
        *itemsの構造の説明
        * @param {Object} items.title タイトル、名前、見出しなどの短い文字列
@@ -37,9 +37,18 @@ export default {
       type: Object,
       required: true
     },
-    aspect: {
+    slideOption: {
+      type: Object,
+      default: {
+        loop: true,
+        autoplay: {
+          delay: 5000
+        }
+      }
+    },
+    slideAspect: {
       type: String,
-      default: 'aspect-[16/9]'
+      default: 'aspect-[16/9]' // TailwindCSSのclassを使用
     }
   },
   setup() {

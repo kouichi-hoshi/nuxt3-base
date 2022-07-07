@@ -2,7 +2,11 @@
   <NuxtLayout>
     <article class="home">
       <div class="slide">
-        <swiperVue :items="slideItems" :aspect="aspect" />
+        <swiperVue
+          :slide-items="slideItems"
+          :slide-option="slideOption"
+          :slide-aspect="slideAspect"
+        />
       </div>
       <header class="mb-8 py-8">
         <cHeader class="text-6xl w-fit mx-auto"> Home </cHeader>
@@ -49,25 +53,39 @@ import swiperVue from '../components/swiperVue.vue'
 
 export default {
   setup() {
-    const items = itemsSample // Itemセクションで表示するデータ
-    const itemsPath = '/images/sample/' //Itemセクションで表示する画像のパス
+    /**
+     * repeatCard
+     */
+    const items = itemsSample // repeatCardで表示するデータ
+    const itemsPath = '/images/sample/' //repeatCardで表示する画像のパス
 
-    const slideData = {
-      images: ['007.jpg', '008.jpg', '009.jpg', '011.jpg', '013.jpg'], // スライドで表示する画像
-      src: '/images/sample/', // 画像のパス
-      aspect: 'aspect-[16/7]' //スライド画像のアスペクトレシオの設定
+    /**
+     * swiperVue
+     */
+    const fileName = ['007.jpg', '008.jpg', '009.jpg', '011.jpg', '013.jpg'] // スライドで表示する画像
+    const filePath = '/images/sample/' // 画像の格納場所
+    const slideAspect = 'aspect-[16/7]' //スライド画像のアスペクトレシオの設定
+
+    // Swiperのオプション
+    const slideOption = {
+      loop: true,
+      autoplay: {
+        delay: 4500
+      }
     }
-    // スライド画像のパスとファイル名を結合し配列に格納する
-    const slideItems = slideData.images.map((img) => {
-      return slideData.src + img
+
+    // src属性にセットするデータを生成
+    // スライド画像のパスとファイル名を結合する
+    const slideItems = fileName.map((img) => {
+      return filePath + img
     })
-    const aspect = slideData.aspect
 
     return {
       items,
       itemsPath,
-      slideItems,
-      aspect
+      slideAspect,
+      slideOption,
+      slideItems
     }
   },
   components: {
