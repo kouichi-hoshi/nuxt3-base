@@ -33,7 +33,6 @@ export default {
   methods: {
     scroll(target, options) {
       const callBack = (entries) => {
-        console.log(entries[0])
         // if (entries[0].isIntersecting === false) {
         this.isIntersecting = entries[0].isIntersecting
         // }

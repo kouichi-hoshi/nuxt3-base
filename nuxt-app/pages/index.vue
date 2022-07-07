@@ -1,26 +1,12 @@
 <template>
   <NuxtLayout>
     <article class="home">
+      <div class="slide">
+        <swiperVue :items="slideItems" :aspect="aspect" />
+      </div>
       <header class="mb-8 py-8">
         <cHeader class="text-6xl w-fit mx-auto"> Home </cHeader>
       </header>
-
-      <swiper
-        :slides-per-view="3"
-        :space-between="50"
-        @swiper="onSwiper"
-        @slideChange="onSlideChange"
-      >
-        <template v-for="(item, key) in items" :key="key">
-          <swiper-slide>
-            <img
-              :src="item.fileName ? itemsPath + item.fileName : noImage"
-              alt=""
-            />
-          </swiper-slide>
-        </template>
-      </swiper>
-
       <section class="items container mx-auto">
         <header class="mb-8 py-8">
           <cHeadline class="items__header"> Items </cHeadline>
@@ -59,31 +45,35 @@
 import itemsSample from '../models/itemsSample.js'
 import cHeadline from '../components/cHeadline.vue'
 import repeatCard from '../components/repeatCard.vue'
-import { Swiper, SwiperSlide } from 'swiper/vue' // Import Swiper Vue.js components
-import 'swiper/css' // Import Swiper styles
+import swiperVue from '../components/swiperVue.vue'
 
 export default {
   setup() {
     const items = itemsSample // Itemセクションで表示するデータ
     const itemsPath = '/images/sample/' //Itemセクションで表示する画像のパス
-    const onSwiper = (swiper) => {
-      console.log(swiper)
+
+    const slideData = {
+      images: ['007.jpg', '008.jpg', '009.jpg', '011.jpg', '013.jpg'], // スライドで表示する画像
+      src: '/images/sample/', // 画像のパス
+      aspect: 'aspect-[16/7]' //スライド画像のアスペクトレシオの設定
     }
-    const onSlideChange = () => {
-      console.log('slide change')
-    }
+    // スライド画像のパスとファイル名を結合し配列に格納する
+    const slideItems = slideData.images.map((img) => {
+      return slideData.src + img
+    })
+    const aspect = slideData.aspect
+
     return {
       items,
       itemsPath,
-      onSwiper,
-      onSlideChange
+      slideItems,
+      aspect
     }
   },
   components: {
     repeatCard,
     cHeadline,
-    Swiper,
-    SwiperSlide
+    swiperVue
   }
 }
 </script>
