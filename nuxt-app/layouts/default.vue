@@ -35,7 +35,7 @@ const siteText = import.meta.env.VITE_SITE_TEXT
     <div class="l-header">
       <baseHeader :base-header-slot="baseHeaderSlot">
         <template v-slot:logo>
-          <logoMark class="logo-size" />
+          <logoMark class="logo-w-40" />
         </template>
         <template v-slot:title>
           <baseTitle :site-title="siteTitle" class="text-xl font-bold" />
@@ -61,7 +61,7 @@ const siteText = import.meta.env.VITE_SITE_TEXT
     <div class="l-footer">
       <baseFooter :base-footer-slot="baseFooterSlot">
         <template v-slot:logo>
-          <logoMark class="logo-size" />
+          <logoMark class="logo-w-50" />
         </template>
         <template v-slot:title>
           <baseTitle :site-title="siteTitle" class="text-xl font-bold" />
@@ -81,32 +81,3 @@ const siteText = import.meta.env.VITE_SITE_TEXT
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-// .l-container {
-// }
-.l-header {
-  // $h-nav-h: 100px;
-  // height: $h-nav-h;
-  // .l-base-header {
-  // position: fixed;
-  // top: 0;
-  // width: 100%;
-  // z-index: 2;
-  // transition: transform 0.4s;
-  // }
-  // &.slideUp .l-base-header {
-  //   transform: translateY(-$h-nav-h);
-  // }
-  .logo-size {
-    width: 40px;
-  }
-}
-// .l-main {
-// }
-.l-footer {
-  .logo-size {
-    width: 40px;
-  }
-}
-</style>

@@ -1,6 +1,6 @@
 <template>
   <footer class="l-base-footer container mx-auto py-24">
-    <div v-if="checkSlot('logo')" class="l-base-footer__logo mb-2">
+    <div v-if="checkSlot('logo')" class="l-base-footer__logo mr-2">
       <slot name="logo" />
     </div>
     <div v-if="checkSlot('title')" class="l-base-footer__title">
@@ -36,3 +36,35 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.l-base-footer {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-template-rows: auto auto;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'logo title navigation'
+    'logo text navigation';
+
+  &__logo {
+    grid-area: logo;
+    display: grid;
+  }
+
+  &__title {
+    grid-area: title;
+  }
+
+  &__text {
+    grid-area: text;
+  }
+
+  &__navigation {
+    grid-area: navigation;
+    display: grid;
+    align-items: center;
+  }
+}
+</style>
