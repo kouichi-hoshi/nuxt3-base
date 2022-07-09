@@ -1,6 +1,6 @@
 <template>
-  <div v-for="(item, key) in items" :class="cardClass" :key="key">
-    <intersectionOA class="mask-1">
+  <div v-for="(item, key) in items" :key="key">
+    <intersectionOA :class="innerClass" :observe="observe">
       <a :href="item.href">
         <p>
           <img
@@ -43,7 +43,7 @@ export default {
       type: String,
       default: '/images/common/no-image.png'
     },
-    cardClass: {
+    innerClass: {
       type: String,
       default: ''
     },
@@ -60,6 +60,13 @@ export default {
     titleClass: {
       type: String,
       default: ''
+    },
+    observe: {
+      // 親コンポーネントからintersectionOAへ observe の文字列（ture）を渡す → intersectionOAでscrollメソッドが実行される
+      type: Boolean,
+      default: () => {
+        return false
+      }
     }
   }
 }

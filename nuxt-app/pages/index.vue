@@ -19,7 +19,8 @@
           class="items__item-wrap grid grid-cols-2 gap-6 md:grid-cols-3 xl:grid-cols-4"
         >
           <repeatCard
-            card-class="items__item"
+            observe
+            inner-class="items__item mask mask-1"
             :items="items"
             :imgPath="itemsPath"
             titleClass="mt-2 text-xl"

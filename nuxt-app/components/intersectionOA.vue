@@ -1,10 +1,5 @@
 <template>
-  <component
-    :is="tagName"
-    class="mask"
-    :class="isIntersecting ? 'show' : ''"
-    ref="target"
-  >
+  <component :is="tagName" :class="[isIntersecting ? 'show' : '']" ref="target">
     <slot></slot>
   </component>
 </template>
@@ -18,24 +13,31 @@ export default {
       default: () => {
         return 'div'
       }
+    },
+    observe: {
+      // trueの場合　scrollメソッドが実行される
+      type: Boolean,
+      default: () => {
+        return false
+      }
     }
   },
   data: () => ({
     isIntersecting: false,
     options: {
-      threshold: [0.00001]
+      threshold: [0, 0.25, 0.5, 0.75, 1]
     }
   }),
   mounted() {
-    const target = this.$refs.target
-    this.scroll(target, this.options)
+    if (this.observe) {
+      const target = this.$refs.target
+      this.scroll(target, this.options)
+    }
   },
   methods: {
     scroll(target, options) {
       const callBack = (entries) => {
-        // if (entries[0].isIntersecting === false) {
         this.isIntersecting = entries[0].isIntersecting
-        // }
       }
       const observer = new window.IntersectionObserver(callBack, options)
       observer.observe(target)
@@ -53,42 +55,52 @@ export default {
     transition-timing-function: ease-in-out;
   }
   &.mask-1 {
-    clip-path: inset(0 99.999% 0 0);
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
   }
 
   &.mask-1.show {
+    opacity: 1;
     clip-path: inset(0 0 0 0);
   }
 
   &.mask-2 {
-    clip-path: inset(0 0 0 99.999%);
+    opacity: 0;
+    clip-path: inset(0 0 0 100%);
   }
 
   &.mask-2.show {
+    opacity: 1;
     clip-path: inset(0 0 0 0);
   }
 
   &.mask-3 {
-    clip-path: inset(49.999% 0 49.999% 0);
+    opacity: 0;
+    clip-path: inset(50% 0 50% 0);
   }
 
   &.mask-3.show {
+    opacity: 1;
     clip-path: inset(0 0 0 0);
   }
 
   &.mask-4 {
+    opacity: 0;
     clip-path: circle(0.5% at center);
   }
 
   &.mask-4.show {
+    opacity: 1;
     clip-path: circle(100% at center);
   }
 
   &.mask-5 {
-    clip-path: inset(0 0 99.999% 0);
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
   }
 
-  &.mask-35.show {
+  &.mask-5.show {
+    opacity: 1;
     clip-path: inset(0 0 0 0);
   }
 }
