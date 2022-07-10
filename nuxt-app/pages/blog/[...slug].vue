@@ -72,9 +72,9 @@ const { data } = await useAsyncData('blog', () => queryContent('/').find())
 </style>
 
 <script>
-import itemsSample from '../models/itemsSample.js'
-import cHeadline from '../components/cHeadline.vue'
-import repeatCard from '../components/repeatCard.vue'
+import itemsSample from '../../models/itemsSample.js'
+import cHeadline from '../../components/cHeadline.vue'
+import repeatCard from '../../components/repeatCard.vue'
 
 export default {
   setup() {

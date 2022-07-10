@@ -1,14 +1,18 @@
 export default [
   {
-    label: "home",
-    href: "/",
+    label: 'home',
+    href: '/'
   },
   {
-    label: "Test",
-    href: "/test",
+    label: 'Cafe',
+    href: '/cafe-page'
   },
   {
-    label: "Blog",
-    href: "/blog",
+    label: 'Test',
+    href: '/test'
   },
-];
+  {
+    label: 'Blog',
+    href: '/blog'
+  }
+]
