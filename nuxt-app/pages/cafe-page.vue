@@ -33,8 +33,8 @@ const slideItems = fileName.map((img) => {
 </script>
 
 <template>
-  <article class="cafe">
-    <NuxtLayout name="custom">
+  <NuxtLayout name="custom">
+    <article class="cafe">
       <div class="slide">
         <swiperVue
           :slide-items="slideItems"
@@ -61,6 +61,6 @@ const slideItems = fileName.map((img) => {
           />
         </div>
       </section>
-    </NuxtLayout>
-  </article>
+    </article>
+  </NuxtLayout>
 </template>
