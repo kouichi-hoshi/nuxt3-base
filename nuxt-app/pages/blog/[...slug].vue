@@ -20,20 +20,20 @@ const { data } = await useAsyncData('blog', () => queryContent('/').find())
       <section class="blog-content">
         <ContentDoc />
       </section>
-      <section class="mt-12">
-        <h2>ブログ一覧</h2>
-        <ul>
-          <li v-for="(post, key) in data" :key="key" class="flex">
-            <a :href="post._path">
-              <time :datetime="formatDateTime(post.postDate)">{{
-                formatDate(post.postDate)
-              }}</time>
-              {{ post.title }}
-            </a>
-          </li>
-        </ul>
-      </section>
     </article>
+    <section class="container mx-auto mt-12">
+      <h2>ブログ一覧</h2>
+      <ul>
+        <li v-for="(post, key) in data" :key="key" class="flex">
+          <a :href="post._path">
+            <time :datetime="formatDateTime(post.postDate)">{{
+              formatDate(post.postDate)
+            }}</time>
+            {{ post.title }}
+          </a>
+        </li>
+      </ul>
+    </section>
   </NuxtLayout>
 </template>
 
