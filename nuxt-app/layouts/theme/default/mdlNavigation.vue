@@ -18,7 +18,7 @@
 import checkLinkType from '../../../functions/checkLinkType.js'
 
 export default {
-  name: 'BaseNavigation',
+  name: 'MdlNavigation',
   props: {
     links: {
       type: Array,

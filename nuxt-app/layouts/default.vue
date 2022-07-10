@@ -1,22 +1,22 @@
 <script setup>
 import linkData from '../models/linkData.js'
 import snsLinkData from '../models/snsLinkData.js'
-import baseHeader from '../layouts/theme/base/baseHeader.vue'
-import baseTitle from '../layouts/theme/base/baseTitle.vue'
-import baseNavigation from '../layouts/theme/base/baseNavigation.vue'
-import baseFooter from '../layouts/theme/base/baseFooter.vue'
+import mdlHeader from '../layouts/theme/default/mdlHeader.vue'
+import mdlTitle from '../layouts/theme/default/mdlTitle.vue'
+import mdlNavigation from '../layouts/theme/default/mdlNavigation.vue'
+import mdlFooter from '../layouts/theme/default/mdlFooter.vue'
 import logoMark from '../components/logoMark.vue'
 
-// baseHeaderのslotの有効化/無効化を設定
-const baseHeaderSlot = {
+// headerのslotの有効化/無効化を設定
+const headerSlot = {
   logo: true,
   title: true,
   text: true,
   navigation: true
 }
 
-// baseFooterのslotの有効化/無効化を設定
-const baseFooterSlot = {
+// footerのslotの有効化/無効化を設定
+const footerSlot = {
   logo: true,
   title: true,
   text: true,
@@ -33,25 +33,25 @@ const siteText = import.meta.env.VITE_SITE_TEXT
 <template>
   <div class="l-container">
     <div class="l-header">
-      <baseHeader :base-header-slot="baseHeaderSlot">
+      <mdlHeader :header-slot="headerSlot">
         <template v-slot:logo>
           <logoMark class="logo-w-40" />
         </template>
         <template v-slot:title>
-          <baseTitle :site-title="siteTitle" class="text-xl font-bold" />
+          <mdlTitle :mdl-title="siteTitle" class="text-xl font-bold" />
         </template>
         <template v-slot:text>
           <p>{{ siteText }}</p>
         </template>
         <template v-slot:navigation>
-          <nav class="base-navigation flex justify-end">
+          <nav class="flex justify-end">
             <ul class="flex">
-              <baseNavigation :links="linkData" :class="'ml-6'" />
-              <baseNavigation :links="snsLinkData" :class="'ml-6'" />
+              <mdlNavigation :links="linkData" :class="'ml-6'" />
+              <mdlNavigation :links="snsLinkData" :class="'ml-6'" />
             </ul>
           </nav>
         </template>
-      </baseHeader>
+      </mdlHeader>
     </div>
 
     <main class="l-main">
@@ -59,25 +59,25 @@ const siteText = import.meta.env.VITE_SITE_TEXT
     </main>
 
     <div class="l-footer">
-      <baseFooter :base-footer-slot="baseFooterSlot">
+      <mdlFooter :footer-slot="footerSlot">
         <template v-slot:logo>
           <logoMark class="logo-w-50" />
         </template>
         <template v-slot:title>
-          <baseTitle :site-title="siteTitle" class="text-xl font-bold" />
+          <mdlTitle :mdl-title="siteTitle" class="text-xl font-bold" />
         </template>
         <template v-slot:text>
           <p>{{ siteText }}</p>
         </template>
         <template v-slot:navigation>
-          <nav class="base-navigation flex justify-end">
+          <nav class="flex justify-end">
             <ul class="flex">
-              <baseNavigation class="ml-6" :links="linkData" />
-              <baseNavigation class="ml-6" :links="snsLinkData" />
+              <mdlNavigation class="ml-6" :links="linkData" />
+              <mdlNavigation class="ml-6" :links="snsLinkData" />
             </ul>
           </nav>
         </template>
-      </baseFooter>
+      </mdlFooter>
     </div>
   </div>
 </template>

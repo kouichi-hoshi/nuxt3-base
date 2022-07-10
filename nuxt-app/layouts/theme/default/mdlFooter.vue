@@ -1,18 +1,15 @@
 <template>
-  <footer class="l-base-footer container mx-auto py-24">
-    <div v-if="checkSlot('logo')" class="l-base-footer__logo mr-2">
+  <footer class="mdl-footer container mx-auto py-24">
+    <div v-if="checkSlot('logo')" class="mdl-footer__logo mr-2">
       <slot name="logo" />
     </div>
-    <div v-if="checkSlot('title')" class="l-base-footer__title">
+    <div v-if="checkSlot('title')" class="mdl-footer__title">
       <slot name="title" />
     </div>
-    <div v-if="checkSlot('text')" class="l-base-footer__text mr-2">
+    <div v-if="checkSlot('text')" class="mdl-footer__text mr-2">
       <slot name="text" />
     </div>
-    <div
-      v-if="checkSlot('navigation')"
-      class="l-base-footer__navigation flex-1"
-    >
+    <div v-if="checkSlot('navigation')" class="mdl-footer__navigation flex-1">
       <slot name="navigation" />
     </div>
   </footer>
@@ -20,16 +17,16 @@
 
 <script>
 export default {
-  name: 'BaseFooter',
+  name: 'MdlFooter',
   props: {
-    baseFooterSlot: {
+    footerSlot: {
       type: Object,
       required: true
     }
   },
   methods: {
     checkSlot(item) {
-      if (this.baseFooterSlot[item] === true) {
+      if (this.footerSlot[item] === true) {
         return true
       }
     }
@@ -38,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.l-base-footer {
+.mdl-footer {
   display: grid;
   grid-template-columns: auto auto 1fr;
   grid-template-rows: auto auto;

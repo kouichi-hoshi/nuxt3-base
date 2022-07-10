@@ -1,11 +1,12 @@
 <template>
-  <component :is="tagName" :class="class">{{ siteTitle }}</component>
+  <component :is="tagName" :class="class">{{ mdlTitle }}</component>
 </template>
 
 <script>
 export default {
+  name: 'MdlTitle',
   props: {
-    siteTitle: {
+    mdlTitle: {
       type: String,
       required: true
     },
