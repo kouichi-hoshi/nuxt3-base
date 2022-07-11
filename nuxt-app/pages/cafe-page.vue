@@ -33,8 +33,20 @@ const slideItems = fileName.map((img) => {
 </script>
 
 <template>
-  <NuxtLayout name="custom">
+  <NuxtLayout name="cafe">
     <article class="cafe">
+      <section class="key-visual flex justify-center items-center">
+        <h2>Stella Cafe</h2>
+        <p>カフェ</p>
+        <p>
+          <img
+            class="key-visual__main-img"
+            src="/images/cafe-page/cafe.jpg"
+            alt=""
+          />
+        </p>
+      </section>
+
       <div class="slide">
         <swiperVue
           :slide-items="slideItems"
@@ -64,3 +76,14 @@ const slideItems = fileName.map((img) => {
     </article>
   </NuxtLayout>
 </template>
+
+<style lang="scss" scoped>
+.cafe {
+  .key-visual {
+    height: 100vh;
+    &__main-img {
+      width: 30vw;
+    }
+  }
+}
+</style>
