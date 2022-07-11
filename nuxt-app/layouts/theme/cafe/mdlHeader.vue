@@ -1,5 +1,5 @@
 <template>
-  <header class="mdl-header flex items-center p-8">
+  <header class="mdl-header flex items-center">
     <div v-if="checkSlot('logo')" class="mdl-header__logo mr-2">
       <slot name="logo" />
     </div>

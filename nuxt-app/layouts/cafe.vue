@@ -1,17 +1,17 @@
 <script setup>
 import linkData from '../models/linkData.js'
 import snsLinkData from '../models/snsLinkData.js'
-import mdlHeader from '../layouts/theme/custom/mdlHeader.vue'
-import mdlTitle from '../layouts/theme/custom/mdlTitle.vue'
-import mdlNavigation from '../layouts/theme/custom/mdlNavigation.vue'
-import mdlFooter from '../layouts/theme/custom/mdlFooter.vue'
+import mdlHeader from '../layouts/theme/cafe/mdlHeader.vue'
+import mdlTitle from '../layouts/theme/cafe/mdlTitle.vue'
+import mdlNavigation from '../layouts/theme/cafe/mdlNavigation.vue'
+import mdlFooter from '../layouts/theme/cafe/mdlFooter.vue'
 import logoMark from '../components/logoMark.vue'
 
 // headerのslotの有効化/無効化を設定
 const headerSlot = {
   logo: true,
-  title: true,
-  text: true,
+  title: false,
+  text: false,
   navigation: true
 }
 
@@ -35,7 +35,7 @@ const siteText = import.meta.env.VITE_SITE_TEXT
     <div class="l-header">
       <mdlHeader :header-slot="headerSlot">
         <template v-slot:logo>
-          <logoMark class="logo-w-40" />
+          <logoMark class="fixed logo-w-40 top-8 left-8 z-10" />
         </template>
         <template v-slot:title>
           <mdlTitle :mdl-title="siteTitle" class="text-xl font-bold" />
@@ -44,10 +44,10 @@ const siteText = import.meta.env.VITE_SITE_TEXT
           <p>{{ siteText }}</p>
         </template>
         <template v-slot:navigation>
-          <nav class="flex justify-end">
+          <nav class="absolute p-8 right-0 z-10">
             <ul class="flex">
-              <mdlNavigation :links="linkData" :class="'ml-6'" />
-              <mdlNavigation :links="snsLinkData" :class="'ml-6'" />
+              <mdlNavigation :links="linkData" :class="'ml-4'" />
+              <mdlNavigation :links="snsLinkData" :class="'ml-4'" />
             </ul>
           </nav>
         </template>
@@ -81,3 +81,11 @@ const siteText = import.meta.env.VITE_SITE_TEXT
     </div>
   </div>
 </template>
+
+<style lang="scss">
+@use '../assets/css/cssCustomProperties.css';
+
+.l-container {
+  background: var(--mainColor);
+}
+</style>
