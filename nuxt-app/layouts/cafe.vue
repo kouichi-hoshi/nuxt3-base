@@ -1,27 +1,9 @@
 <script setup>
 import linkData from '../models/linkData.js'
 import snsLinkData from '../models/snsLinkData.js'
-import mdlHeader from '../layouts/theme/cafe/mdlHeader.vue'
 import mdlTitle from '../layouts/theme/cafe/mdlTitle.vue'
 import mdlNavigation from '../layouts/theme/cafe/mdlNavigation.vue'
-import mdlFooter from '../layouts/theme/cafe/mdlFooter.vue'
 import logoMark from '../components/logoMark.vue'
-
-// headerのslotの有効化/無効化を設定
-const headerSlot = {
-  logo: true,
-  title: false,
-  text: false,
-  navigation: true
-}
-
-// footerのslotの有効化/無効化を設定
-const footerSlot = {
-  logo: true,
-  title: true,
-  text: true,
-  navigation: true
-}
 
 // サイトのタイトルを取得
 const siteTitle = import.meta.env.VITE_SITE_TITLE
@@ -33,57 +15,33 @@ const siteText = import.meta.env.VITE_SITE_TEXT
 <template>
   <div class="l-container">
     <div class="l-header relative z-10">
-      <mdlHeader :header-slot="headerSlot">
-        <template v-slot:logo>
-          <logoMark class="logo-w-40 fixed top-4 :top-8 left-4 md:left-8" />
-        </template>
-        <template v-slot:title>
-          <mdlTitle :mdl-title="siteTitle" class="text-xl font-bold" />
-        </template>
-        <template v-slot:text>
-          <p>{{ siteText }}</p>
-        </template>
-        <template v-slot:navigation>
-          <nav class="pl-28 pt-6 hidden md:block">
-            <ul class="flex">
-              <mdlNavigation :links="linkData" :class="'ml-4'" />
-              <mdlNavigation :links="snsLinkData" :class="'ml-4'" />
-            </ul>
-          </nav>
-        </template>
-        <template v-slot:hamburgerButton>
-          <HamburgerButton
-            btn-id="btn01"
-            class="u-fixed top-4 md:top-8 right-4 md:right-8"
-          />
-        </template>
-      </mdlHeader>
+      <logoMark class="logo-w-40 fixed top-4 :top-8 left-4 md:left-8" />
+      <nav class="pl-28 pt-6 hidden md:block">
+        <ul class="flex">
+          <mdlNavigation :links="linkData" :class="'ml-4'" />
+          <mdlNavigation :links="snsLinkData" :class="'ml-4'" />
+        </ul>
+      </nav>
+      <HamburgerButton
+        btn-id="btn01"
+        class="u-fixed top-4 md:top-8 right-4 md:right-8"
+      />
     </div>
 
     <main class="l-main">
       <slot />
     </main>
 
-    <div class="l-footer">
-      <mdlFooter :footer-slot="footerSlot">
-        <template v-slot:logo>
-          <logoMark class="logo-w-50" />
-        </template>
-        <template v-slot:title>
-          <mdlTitle :mdl-title="siteTitle" class="text-xl font-bold" />
-        </template>
-        <template v-slot:text>
-          <p>{{ siteText }}</p>
-        </template>
-        <template v-slot:navigation>
-          <nav class="hidden md:flex justify-end">
-            <ul class="flex">
-              <mdlNavigation class="ml-6" :links="linkData" />
-              <mdlNavigation class="ml-6" :links="snsLinkData" />
-            </ul>
-          </nav>
-        </template>
-      </mdlFooter>
+    <div class="l-footer container mx-auto py-24">
+      <logoMark class="logo-w-50" />
+      <mdlTitle :mdl-title="siteTitle" class="text-xl font-bold" />
+      <p>{{ siteText }}</p>
+      <nav class="hidden md:flex justify-end">
+        <ul class="flex">
+          <mdlNavigation class="ml-6" :links="linkData" />
+          <mdlNavigation class="ml-6" :links="snsLinkData" />
+        </ul>
+      </nav>
     </div>
   </div>
 </template>
@@ -95,5 +53,9 @@ const siteText = import.meta.env.VITE_SITE_TEXT
 .l-container {
   background: map-get(variables.$theme-cafe-colors, 'mainColor');
   position: relative;
+}
+.btn-trigger {
+  transform-origin: right top;
+  transform: scale(0.5);
 }
 </style>

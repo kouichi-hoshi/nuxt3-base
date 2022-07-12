@@ -49,6 +49,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../assets/css/variables.scss';
+
 /*=============================
 .btn-trigger
 =============================*/
@@ -57,7 +59,7 @@ export default {
   width: 50px;
   height: 44px;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.7);
+  // background: rgba(0, 0, 0, 0.7);
   border: solid 15px transparent;
   box-sizing: content-box !important;
 }
@@ -66,7 +68,8 @@ export default {
   left: 0;
   width: 100%;
   height: 4px;
-  background-color: #fff;
+  // background-color: #fff;
+  background: map-get(variables.$theme-cafe-colors, 'accentColor') !important;
   border-radius: 4px;
 }
 .btn-trigger,

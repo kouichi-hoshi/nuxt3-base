@@ -15,7 +15,7 @@ const itemsPath = '/images/sample/' //repeatCardで表示する画像のパス
  */
 const fileName = ['007.jpg', '008.jpg', '009.jpg', '011.jpg', '013.jpg'] // スライドで表示する画像
 const filePath = '/images/sample/' // 画像の格納場所
-const slideAspect = 'aspect-[16/6]' //スライド画像のアスペクトレシオの設定
+const slideAspect = 'aspect-[3/2]' //スライド画像のアスペクトレシオの設定
 
 // Swiperのオプション
 const slideOption = {
@@ -121,7 +121,7 @@ const slideItems = fileName.map((img) => {
   }
   .slide {
     background: map-get(variables.$theme-cafe-colors, 'accentColor');
-    color: #fff;
+    color: map-get(variables.$theme-cafe-colors, 'mainColor');
     @include sectionSpace();
   }
 }
