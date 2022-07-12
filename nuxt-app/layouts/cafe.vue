@@ -32,10 +32,10 @@ const siteText = import.meta.env.VITE_SITE_TEXT
 
 <template>
   <div class="l-container">
-    <div class="l-header">
+    <div class="l-header relative z-10">
       <mdlHeader :header-slot="headerSlot">
         <template v-slot:logo>
-          <logoMark class="fixed logo-w-40 top-8 left-8 z-10" />
+          <logoMark class="logo-w-40 fixed top-4 :top-8 left-4 md:left-8" />
         </template>
         <template v-slot:title>
           <mdlTitle :mdl-title="siteTitle" class="text-xl font-bold" />
@@ -44,12 +44,18 @@ const siteText = import.meta.env.VITE_SITE_TEXT
           <p>{{ siteText }}</p>
         </template>
         <template v-slot:navigation>
-          <nav class="absolute p-8 right-0 z-10">
+          <nav class="pl-28 pt-6 hidden md:block">
             <ul class="flex">
               <mdlNavigation :links="linkData" :class="'ml-4'" />
               <mdlNavigation :links="snsLinkData" :class="'ml-4'" />
             </ul>
           </nav>
+        </template>
+        <template v-slot:hamburgerButton>
+          <HamburgerButton
+            btn-id="btn01"
+            class="u-fixed top-4 md:top-8 right-4 md:right-8"
+          />
         </template>
       </mdlHeader>
     </div>
@@ -70,7 +76,7 @@ const siteText = import.meta.env.VITE_SITE_TEXT
           <p>{{ siteText }}</p>
         </template>
         <template v-slot:navigation>
-          <nav class="flex justify-end">
+          <nav class="hidden md:flex justify-end">
             <ul class="flex">
               <mdlNavigation class="ml-6" :links="linkData" />
               <mdlNavigation class="ml-6" :links="snsLinkData" />
@@ -82,10 +88,12 @@ const siteText = import.meta.env.VITE_SITE_TEXT
   </div>
 </template>
 
-<style lang="scss">
-@use '../assets/css/cssCustomProperties.css';
+<style lang="scss" scoped>
+@use '../assets/css/variables.scss';
+@use '../assets/css/utility.scss';
 
 .l-container {
-  background: var(--mainColor);
+  background: map-get(variables.$theme-cafe-colors, 'mainColor');
+  position: relative;
 }
 </style>

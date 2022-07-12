@@ -1,16 +1,19 @@
 <template>
-  <header class="mdl-header flex items-center">
-    <div v-if="checkSlot('logo')" class="mdl-header__logo mr-2">
+  <header class="mdl-header">
+    <div v-if="checkSlot('logo')" class="mdl-header__logo">
       <slot name="logo" />
     </div>
-    <div v-if="checkSlot('title')" class="mdl-header__title mr-4">
+    <div v-if="checkSlot('title')" class="mdl-header__title">
       <slot name="title" />
     </div>
-    <div v-if="checkSlot('text')" class="mdl-header__text mr-2">
+    <div v-if="checkSlot('text')" class="mdl-header__text">
       <slot name="text" />
     </div>
-    <div v-if="checkSlot('navigation')" class="mdl-header__navigation flex-1">
+    <div v-if="checkSlot('navigation')" class="mdl-header__navigation">
       <slot name="navigation" />
+    </div>
+    <div class="mdl-header__hamburger-button">
+      <slot name="hamburgerButton" />
     </div>
   </header>
 </template>
@@ -33,3 +36,18 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@use '../assets/css/variables.scss';
+
+.mdl-header__hamburger-button {
+  .btn-trigger {
+    transform-origin: right top;
+    transform: scale(0.5);
+    background: transparent;
+    span {
+      background: map-get(variables.$theme-cafe-colors, 'accentColor');
+    }
+  }
+}
+</style>

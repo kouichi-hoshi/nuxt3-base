@@ -1,11 +1,13 @@
-// color
-// $mainColor: #ede7de;
-// $subColor: #fcf5ed;
-// $accentColor: #fcf5ed;
+// TailwindCSS BreakPoint
+$screenSm: 640px;
+$screenMd: 768px;
+$screenLg: 1024px;
+$screenXl: 1280px;
+$screen2xl: 1536px;
 
-// //BreakPoint
-// $screenSm: 640px;
-// $screenMd: 768px;
-// $screenLg: 1024px;
-// $screenXl: 1280px;
-// $screen2xl: 1536px;
+// theme cafe
+$theme-cafe-colors: (
+  mainColor: #edebe6,
+  subColor: #b77743,
+  accentColor: black
+);

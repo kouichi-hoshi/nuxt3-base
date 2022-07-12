@@ -1,7 +1,7 @@
 :root {
-  --mainColor: #edebe6;
-  --subColor: #fcf5ed;
-  --accentColor: #fcf5ed;
+  /* --mainColor: ;
+  --subColor: ;
+  --accentColor: ; */
 
   /* TailwindCSS BreakPoint */
   --screenSm: 640px;

@@ -64,18 +64,3 @@ const slideItems = fileName.map((img) => {
     </article>
   </NuxtLayout>
 </template>
-
-<style lang="scss" scoped>
-// .main {
-//   .items {
-//     &__item-wrap {
-//       display: flex;
-//       flex-wrap: wrap;
-//       gap: 1rem;
-//     }
-//     &__item {
-//       flex: 0 1 calc((100% - 2rem) / 3);
-//     }
-//   }
-// }
-</style>
