@@ -88,7 +88,6 @@ const slideItems = fileName.map((img) => {
 <style lang="scss" scoped>
 @use '../assets/css/mixin.scss';
 @use '../assets/css/variables.scss';
-@use '../assets/css/utility.scss';
 
 .cafe {
   @mixin sectionSpace($mb: 48px, $mbMd: 96px) {

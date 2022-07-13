@@ -48,7 +48,6 @@ const siteText = import.meta.env.VITE_SITE_TEXT
 
 <style lang="scss" scoped>
 @use '../assets/css/variables.scss';
-@use '../assets/css/utility.scss';
 
 .l-container {
   background: map-get(variables.$theme-cafe-colors, 'mainColor');
