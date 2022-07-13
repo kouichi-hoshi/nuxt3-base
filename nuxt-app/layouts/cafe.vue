@@ -4,6 +4,7 @@ import snsLinkData from '../models/snsLinkData.js'
 import mdlTitle from '../layouts/theme/cafe/mdlTitle.vue'
 import mdlNavigation from '../layouts/theme/cafe/mdlNavigation.vue'
 import logoMark from '../components/logoMark.vue'
+import { BeakerIcon } from '@heroicons/vue/solid'
 
 // サイトのタイトルを取得
 const siteTitle = import.meta.env.VITE_SITE_TITLE
@@ -20,6 +21,7 @@ const siteText = import.meta.env.VITE_SITE_TEXT
         <ul class="flex">
           <mdlNavigation :links="linkData" :class="'ml-4'" />
           <mdlNavigation :links="snsLinkData" :class="'ml-4'" />
+          <li class="ml-4"><BeakerIcon class="h-5 w-5 text-blue-500" /></li>
         </ul>
       </nav>
       <HamburgerButton
