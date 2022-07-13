@@ -8,9 +8,9 @@ export default defineNuxtConfig({
     '~/assets/css/utility.scss'
   ],
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxtjs/dayjs'],
+  buildModules: ['@nuxtjs/google-fonts'],
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
-    configPath: 'tailwind.config.js',
     exposeConfig: false,
     config: {},
     injectPosition: 0,

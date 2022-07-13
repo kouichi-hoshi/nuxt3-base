@@ -89,6 +89,8 @@ const slideItems = fileName.map((img) => {
 @use '../assets/css/mixin.scss';
 @use '../assets/css/variables.scss';
 
+@import url(map-get(variables.$theme-cafe-fonts, 'url'));
+
 .cafe {
   @mixin sectionSpace($mb: 48px, $mbMd: 96px) {
     margin-bottom: $mb;
@@ -101,12 +103,18 @@ const slideItems = fileName.map((img) => {
     @include mixin.mq-md {
       height: 80vh;
     }
-    &__text {
-    }
     &__title {
+      font-family: map-get(variables.$theme-cafe-fonts, 'familyEn');
+      font-weight: map-get(variables.$theme-cafe-fonts, 'weight');
       line-height: clamp(3.8rem, 2.067rem + 8.67vw, 9rem);
       font-size: clamp(3.8rem, 2.067rem + 8.67vw, 9rem);
     }
+
+    &__sub-title {
+      font-family: map-get(variables.$theme-cafe-fonts, 'familyJp');
+      font-size: 1.2rem;
+    }
+
     &__img-wrap {
       height: 100%;
     }
