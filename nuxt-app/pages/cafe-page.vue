@@ -3,6 +3,7 @@ import itemsSample from '../models/itemsSample.js'
 import cHeadline from '../components/cHeadline.vue'
 import repeatCard from '../components/repeatCard.vue'
 import swiperVue from '../components/swiperVue.vue'
+import intersectionOA from '../components/intersectionOA.vue'
 
 /**
  * repeatCard
@@ -36,17 +37,24 @@ const slideItems = fileName.map((img) => {
   <NuxtLayout name="cafe">
     <article class="cafe">
       <section
-        class="first-view container u-maxWidth1340 relative mx-auto md:flex items-center pt-16 px-4 pb-16 md:p-0"
+        class="first-view container u-maxWidth1340 relative mx-auto md:flex items-center"
       >
-        <div class="first-view__text z-10 mb-4">
-          <h2 class="first-view__title">
+        <div class="first-view__title-wrap z-10 p-4">
+          <intersectionOA observe tag-name="h2" class="first-view__title move">
             Third Wave <br class="hidden md:block" />Cafe
-          </h2>
-          <p class="first-view__sub-title">サードウェーブ カフェ</p>
+          </intersectionOA>
+          <intersectionOA
+            observe
+            tag-name="p"
+            class="first-view__sub-title move ml-4"
+            >サードウェーブ カフェ</intersectionOA
+          >
         </div>
-        <p class="first-view__img-wrap md:absolute top-0 right-0">
-          <img
-            class="first-view__img"
+        <p class="first-view__img-wrap md:absolute top-0 right-0 left-auto">
+          <intersectionOA
+            observe
+            tagName="img"
+            class="first-view__img move"
             src="/images/cafe-page/cafe.jpg"
             alt=""
           />
@@ -73,8 +81,7 @@ const slideItems = fileName.map((img) => {
           class="items__item-wrap grid grid-cols-2 gap-6 md:grid-cols-3 xl:grid-cols-4"
         >
           <repeatCard
-            observe
-            inner-class="items__item mask mask-1"
+            inner-class="items__item"
             :items="items"
             :imgPath="itemsPath"
             titleClass="mt-2 text-xl"
@@ -85,14 +92,30 @@ const slideItems = fileName.map((img) => {
   </NuxtLayout>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use '../assets/css/mixin.scss';
 @use '../assets/css/variables.scss';
 
 @import url(map-get(variables.$theme-cafe-fonts, 'url'));
 
+@mixin move($move: 60px, $dur: 0.6s, $delay: 0s, $opa: 0.4) {
+  &.move {
+    transition: 1s ease-in-out;
+    transform: translateX($move);
+    transition-duration: $dur;
+    transition-delay: $delay;
+    opacity: $opa;
+    @include mixin.mq-md {
+    }
+  }
+  &.move.active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .cafe {
-  @mixin sectionSpace($mb: 48px, $mbMd: 96px) {
+  @mixin sectionSpace($mb: 4rem, $mbMd: 14rem) {
     margin-bottom: $mb;
     @include mixin.mq-md {
       margin-bottom: $mbMd;
@@ -101,31 +124,40 @@ const slideItems = fileName.map((img) => {
 
   .first-view {
     @include mixin.mq-md {
-      height: 80vh;
+      height: 60vh;
     }
     &__title {
       font-family: map-get(variables.$theme-cafe-fonts, 'familyEn');
       font-weight: map-get(variables.$theme-cafe-fonts, 'weight');
-      line-height: clamp(3.8rem, 2.067rem + 8.67vw, 9rem);
-      font-size: clamp(3.8rem, 2.067rem + 8.67vw, 9rem);
+      line-height: clamp(3.6rem, 2.467rem + 5.67vw, 7rem);
+      font-size: clamp(3.6rem, 2.467rem + 5.67vw, 7rem);
+      text-shadow: 1px 1px 0
+        rgba(map-get(variables.$theme-cafe-colors, 'mainColor'), 0.4);
+      @include move($move: -40px, $opa: 0.1);
     }
 
     &__sub-title {
       font-family: map-get(variables.$theme-cafe-fonts, 'familyJp');
       font-size: 1.2rem;
+      @include move($move: -40px, $delay: 0.6s, $opa: 0);
     }
 
-    &__img-wrap {
-      height: 100%;
-    }
     &__img {
+      object-fit: cover;
+      height: 60vh;
+      width: 100vw;
       @include mixin.mq-md {
-        max-width: revert;
-        max-height: 100%;
+        object-position: 50% 80%;
+        width: 42vw;
       }
+      @include mixin.mq-lg {
+        width: 33vw;
+      }
+      @include move($delay: 1s, $opa: 0);
     }
     @include sectionSpace();
   }
+
   .slide {
     background: map-get(variables.$theme-cafe-colors, 'accentColor');
     color: map-get(variables.$theme-cafe-colors, 'mainColor');

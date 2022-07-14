@@ -1,5 +1,9 @@
 <template>
-  <component :is="tagName" :class="[isIntersecting ? 'show' : '']" ref="target">
+  <component
+    :is="tagName"
+    :class="[isIntersecting ? 'active' : '']"
+    ref="target"
+  >
     <slot></slot>
   </component>
 </template>
@@ -15,7 +19,7 @@ export default {
       }
     },
     observe: {
-      // trueの場合　scrollメソッドが実行される
+      // trueの場合 scrollメソッドが実行される
       type: Boolean,
       default: () => {
         return false
@@ -47,61 +51,82 @@ export default {
 </script>
 
 <style lang="scss">
+.get-active {
+  &.active {
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+  }
+}
+
 .mask {
   object-fit: cover;
   max-width: 100%;
-  &.show {
+  &.active {
     transition-duration: 0.6s;
     transition-timing-function: ease-in-out;
   }
   &.mask-1 {
-    opacity: 0;
+    // opacity: 0;
     clip-path: inset(0 100% 0 0);
   }
 
-  &.mask-1.show {
-    opacity: 1;
+  &.mask-1.active {
+    // opacity: 1;
     clip-path: inset(0 0 0 0);
   }
 
   &.mask-2 {
-    opacity: 0;
+    // opacity: 0;
     clip-path: inset(0 0 0 100%);
   }
 
-  &.mask-2.show {
-    opacity: 1;
+  &.mask-2.active {
+    // opacity: 1;
     clip-path: inset(0 0 0 0);
   }
 
   &.mask-3 {
-    opacity: 0;
+    // opacity: 0;
     clip-path: inset(50% 0 50% 0);
   }
 
-  &.mask-3.show {
-    opacity: 1;
+  &.mask-3.active {
+    // opacity: 1;
     clip-path: inset(0 0 0 0);
   }
 
   &.mask-4 {
-    opacity: 0;
+    // opacity: 0;
     clip-path: circle(0.5% at center);
   }
 
-  &.mask-4.show {
-    opacity: 1;
+  &.mask-4.active {
+    // opacity: 1;
     clip-path: circle(100% at center);
   }
 
   &.mask-5 {
-    opacity: 0;
+    // opacity: 0;
     clip-path: inset(0 0 100% 0);
   }
 
-  &.mask-5.show {
-    opacity: 1;
+  &.mask-5.active {
+    // opacity: 1;
     clip-path: inset(0 0 0 0);
   }
+}
+
+@mixin move-y($initial: 40px) {
+  transform: translateX($initial);
+  &.active {
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+  }
+  &.move-y-l.active {
+    transform: translateY(0);
+  }
+}
+.move-y-l {
+  @include move-y();
 }
 </style>

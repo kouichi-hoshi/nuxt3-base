@@ -14,9 +14,9 @@ const siteText = import.meta.env.VITE_SITE_TEXT
 
 <template>
   <div class="l-container">
-    <div class="l-header relative z-10">
-      <logoMark class="logo-w-40 fixed top-4 :top-8 left-4 md:left-8" />
-      <nav class="pl-28 pt-6 hidden md:block">
+    <div class="l-header relative z-10 md:mb-24">
+      <logoMark class="logo-w-40 fixed top-4 md:top-8 left-4 md:left-8" />
+      <nav class="pl-28 pt-10 hidden md:block">
         <ul class="flex">
           <mdlNavigation :links="linkData" :class="'ml-4'" />
           <mdlNavigation :links="snsLinkData" :class="'ml-4'" />
