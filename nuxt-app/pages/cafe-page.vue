@@ -37,8 +37,23 @@ const slideItems = fileName.map((img) => {
   <NuxtLayout name="cafe">
     <article class="cafe">
       <section
-        class="first-view container u-maxWidth1340 relative mx-auto md:flex items-center"
+        class="first-view container u-maxWidth1340 relative pt-16 mx-auto md:flex items-center"
       >
+        <intersectionOA
+          observe
+          tag-name="svg"
+          class="first-view__bg-img"
+          width="301"
+          height="353"
+          viewBox="0 0 301
+          353"
+        >
+          <use
+            href="/assets/images/common/coffee-30293.svg#symbol"
+            :fill="color"
+          />
+        </intersectionOA>
+
         <div class="first-view__title-wrap z-10 p-4">
           <intersectionOA observe tag-name="h2" class="first-view__title move">
             Third Wave <br class="hidden md:block" />Cafe
@@ -46,7 +61,7 @@ const slideItems = fileName.map((img) => {
           <intersectionOA
             observe
             tag-name="p"
-            class="first-view__sub-title move ml-4"
+            class="first-view__sub-title mask mask-1 ml-4"
             >サードウェーブ カフェ</intersectionOA
           >
         </div>
@@ -98,7 +113,7 @@ const slideItems = fileName.map((img) => {
 
 @import url(map-get(variables.$theme-cafe-fonts, 'url'));
 
-@mixin move($move: 60px, $dur: 0.6s, $delay: 0s, $opa: 0.4) {
+@mixin anime($move: 60px, $dur: 0.6s, $delay: 1s, $opa: 0.4) {
   &.move {
     transition: 1s ease-in-out;
     transform: translateX($move);
@@ -113,47 +128,84 @@ const slideItems = fileName.map((img) => {
     opacity: 1;
   }
 }
-
-.cafe {
-  @mixin sectionSpace($mb: 4rem, $mbMd: 14rem) {
-    margin-bottom: $mb;
-    @include mixin.mq-md {
-      margin-bottom: $mbMd;
-    }
+.mask {
+  object-fit: cover;
+  max-width: 100%;
+  &.active {
+    transition-duration: 0.6s;
+    transition-delay: 3s;
+    transition-timing-function: ease-in-out;
+  }
+  &.mask-1 {
+    clip-path: inset(0 100% 0 0);
   }
 
+  &.mask-1.active {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@mixin sectionSpace($mb: 4rem, $mbMd: 14rem) {
+  margin-bottom: $mb;
+  @include mixin.mq-md {
+    margin-bottom: $mbMd;
+  }
+}
+
+.cafe {
   .first-view {
     @include mixin.mq-md {
       height: 60vh;
     }
+
+    &__bg-img {
+      opacity: 0.8;
+      position: absolute;
+      color: rgba(map-get(variables.$theme-cafe-colors, 'mainColor'), 0);
+      fill: rgba(#4c453e, 1);
+      transform: scale(180%) rotate(15deg) translate(40%);
+      @include mixin.mq-md {
+        transform: scale(170%) rotate(15deg) translate(100%, -10%);
+      }
+      &.active {
+        transition: 1s ease-in-out;
+        transition-delay: 0.5s;
+        transition-duration: 0.6s;
+        opacity: 0.2;
+      }
+    }
+
     &__title {
       font-family: map-get(variables.$theme-cafe-fonts, 'familyEn');
       font-weight: map-get(variables.$theme-cafe-fonts, 'weight');
       line-height: clamp(3.6rem, 2.467rem + 5.67vw, 7rem);
       font-size: clamp(3.6rem, 2.467rem + 5.67vw, 7rem);
       text-shadow: 1px 1px 0
-        rgba(map-get(variables.$theme-cafe-colors, 'mainColor'), 0.4);
-      @include move($move: -40px, $opa: 0.1);
+        rgba(map-get(variables.$theme-cafe-colors, 'mainColor'), 0.6);
+      @include anime($move: -40px, $delay: 1.5s, $opa: 0);
     }
 
     &__sub-title {
       font-family: map-get(variables.$theme-cafe-fonts, 'familyJp');
       font-size: 1.2rem;
-      @include move($move: -40px, $delay: 0.6s, $opa: 0);
+      // @include anime($move: -100px, $delay: 3s, $opa: 0);
     }
 
     &__img {
       object-fit: cover;
-      height: 60vh;
+      height: 68vh;
       width: 100vw;
       @include mixin.mq-md {
         object-position: 50% 80%;
         width: 42vw;
       }
       @include mixin.mq-lg {
-        width: 33vw;
+        width: 36vw;
       }
-      @include move($delay: 1s, $opa: 0);
+      @include mixin.mq-xl {
+        width: 30vw;
+      }
+      @include anime($delay: 1.5s, $opa: 0);
     }
     @include sectionSpace();
   }

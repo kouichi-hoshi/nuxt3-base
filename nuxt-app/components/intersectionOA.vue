@@ -115,18 +115,4 @@ export default {
     clip-path: inset(0 0 0 0);
   }
 }
-
-@mixin move-y($initial: 40px) {
-  transform: translateX($initial);
-  &.active {
-    transition-duration: 1s;
-    transition-timing-function: ease-in-out;
-  }
-  &.move-y-l.active {
-    transform: translateY(0);
-  }
-}
-.move-y-l {
-  @include move-y();
-}
 </style>
