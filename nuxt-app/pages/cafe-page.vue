@@ -37,39 +37,40 @@ const slideItems = fileName.map((img) => {
   <NuxtLayout name="cafe">
     <article class="cafe">
       <section
-        class="first-view container u-maxWidth1340 relative pt-16 mx-auto md:flex items-center"
+        class="first-view container u-maxWidth1340 relative mx-auto md:flex items-center"
       >
         <intersectionOA
           observe
           tag-name="svg"
-          class="first-view__bg-img"
+          class="first-view__bg-img anime-01"
           width="301"
           height="353"
           viewBox="0 0 301
           353"
         >
-          <use
-            href="/assets/images/common/coffee-30293.svg#symbol"
-            :fill="color"
-          />
+          <use href="/assets/images/common/coffee-30293.svg#symbol" />
         </intersectionOA>
 
         <div class="first-view__title-wrap z-10 p-4">
-          <intersectionOA observe tag-name="h2" class="first-view__title move">
+          <intersectionOA
+            observe
+            tag-name="h2"
+            class="first-view__title anime-02"
+          >
             Third Wave <br class="hidden md:block" />Cafe
           </intersectionOA>
           <intersectionOA
             observe
             tag-name="p"
-            class="first-view__sub-title mask mask-1 ml-4"
+            class="first-view__sub-title ml-4 anime-04"
             >サードウェーブ カフェ</intersectionOA
           >
         </div>
-        <p class="first-view__img-wrap md:absolute top-0 right-0 left-auto">
+        <p>
           <intersectionOA
             observe
             tagName="img"
-            class="first-view__img move"
+            class="first-view__img md:absolute top-0 right-0 left-auto shadow-2xl anime-03"
             src="/images/cafe-page/cafe.jpg"
             alt=""
           />
@@ -113,38 +114,7 @@ const slideItems = fileName.map((img) => {
 
 @import url(map-get(variables.$theme-cafe-fonts, 'url'));
 
-@mixin anime($move: 60px, $dur: 0.6s, $delay: 1s, $opa: 0.4) {
-  &.move {
-    transition: 1s ease-in-out;
-    transform: translateX($move);
-    transition-duration: $dur;
-    transition-delay: $delay;
-    opacity: $opa;
-    @include mixin.mq-md {
-    }
-  }
-  &.move.active {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-.mask {
-  object-fit: cover;
-  max-width: 100%;
-  &.active {
-    transition-duration: 0.6s;
-    transition-delay: 3s;
-    transition-timing-function: ease-in-out;
-  }
-  &.mask-1 {
-    clip-path: inset(0 100% 0 0);
-  }
-
-  &.mask-1.active {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
+// セクション間の余白統一用
 @mixin sectionSpace($mb: 4rem, $mbMd: 14rem) {
   margin-bottom: $mb;
   @include mixin.mq-md {
@@ -155,23 +125,17 @@ const slideItems = fileName.map((img) => {
 .cafe {
   .first-view {
     @include mixin.mq-md {
-      height: 60vh;
+      height: 85vh;
     }
 
     &__bg-img {
-      opacity: 0.8;
       position: absolute;
       color: rgba(map-get(variables.$theme-cafe-colors, 'mainColor'), 0);
       fill: rgba(#4c453e, 1);
-      transform: scale(180%) rotate(15deg) translate(40%);
+      opacity: 0;
+      transform: scale(160%) rotate(15deg) translate(40%);
       @include mixin.mq-md {
-        transform: scale(170%) rotate(15deg) translate(100%, -10%);
-      }
-      &.active {
-        transition: 1s ease-in-out;
-        transition-delay: 0.5s;
-        transition-duration: 0.6s;
-        opacity: 0.2;
+        transform: scale(200%) rotate(15deg) translate(75%, 5%);
       }
     }
 
@@ -182,32 +146,88 @@ const slideItems = fileName.map((img) => {
       font-size: clamp(3.6rem, 2.467rem + 5.67vw, 7rem);
       text-shadow: 1px 1px 0
         rgba(map-get(variables.$theme-cafe-colors, 'mainColor'), 0.6);
-      @include anime($move: -40px, $delay: 1.5s, $opa: 0);
     }
 
     &__sub-title {
+      max-width: 100%;
       font-family: map-get(variables.$theme-cafe-fonts, 'familyJp');
       font-size: 1.2rem;
-      // @include anime($move: -100px, $delay: 3s, $opa: 0);
     }
 
     &__img {
       object-fit: cover;
-      height: 68vh;
+      height: 80vh;
       width: 100vw;
+      // box-shadow: 20px 18px 21px -22px rgba(0, 0, 0, 0.45);
       @include mixin.mq-md {
         object-position: 50% 80%;
         width: 42vw;
       }
       @include mixin.mq-lg {
-        width: 36vw;
+        width: 40vw;
       }
       @include mixin.mq-xl {
-        width: 30vw;
+        width: 28vw;
       }
-      @include anime($delay: 1.5s, $opa: 0);
     }
     @include sectionSpace();
+
+    // アニメーション用
+    @mixin anime(
+      $moveX: false,
+      $opa: false,
+      $dur: 0.6s,
+      $fun: ease-in-out,
+      $delay: 1s
+    ) {
+      transition: $dur $fun $delay;
+      @if $moveX {
+        transform: translateX($moveX);
+      }
+      @if ($opa) {
+        opacity: $opa;
+      }
+      &.active {
+        @if $moveX {
+          transform: translateX(0);
+        }
+        @if ($opa) {
+          opacity: 1;
+        }
+      }
+    }
+    // first-view__bg-img
+    .anime-01 {
+      opacity: 0;
+      animation-name: fade;
+      animation-duration: 4s;
+      // animation-delay: 2s;
+      animation-fill-mode: forwards;
+    }
+    @keyframes fade {
+      90% {
+        opacity: 0.6;
+      }
+      100% {
+        opacity: 0.2;
+      }
+    }
+    // first-view__title
+    .anime-02 {
+      @include anime($moveX: -90px, $opa: 0, $dur: 1s, $delay: 1.5s);
+    }
+    // first-view__img
+    .anime-03 {
+      @include anime($moveX: 90px, $opa: 0, $dur: 0.6s, $delay: 2s);
+    }
+    // first-view__sub-title
+    .anime-04 {
+      clip-path: inset(0 100% 0 0);
+      @include anime($dur: 1s, $delay: 2.8s);
+      &.active {
+        clip-path: inset(0 0 0 0);
+      }
+    }
   }
 
   .slide {

@@ -66,52 +66,42 @@ export default {
     transition-timing-function: ease-in-out;
   }
   &.mask-1 {
-    // opacity: 0;
     clip-path: inset(0 100% 0 0);
   }
 
   &.mask-1.active {
-    // opacity: 1;
     clip-path: inset(0 0 0 0);
   }
 
   &.mask-2 {
-    // opacity: 0;
     clip-path: inset(0 0 0 100%);
   }
 
   &.mask-2.active {
-    // opacity: 1;
     clip-path: inset(0 0 0 0);
   }
 
   &.mask-3 {
-    // opacity: 0;
     clip-path: inset(50% 0 50% 0);
   }
 
   &.mask-3.active {
-    // opacity: 1;
     clip-path: inset(0 0 0 0);
   }
 
   &.mask-4 {
-    // opacity: 0;
     clip-path: circle(0.5% at center);
   }
 
   &.mask-4.active {
-    // opacity: 1;
     clip-path: circle(100% at center);
   }
 
   &.mask-5 {
-    // opacity: 0;
     clip-path: inset(0 0 100% 0);
   }
 
   &.mask-5.active {
-    // opacity: 1;
     clip-path: inset(0 0 0 0);
   }
 }
