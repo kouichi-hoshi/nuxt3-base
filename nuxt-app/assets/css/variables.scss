@@ -11,28 +11,3 @@ $theme-cafe-colors: (
   subColor: #b77743,
   accentColor: #352a20
 );
-
-// Theme cafe
-// prettier-ignore
-$theme-cafe-fonts: (
-  url:'https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap',
-  familyEn: 'Libre Baskerville' "," serif,
-  familyJp: 'Noto Sans JP' "," sans-serif,
-  weight: 400
-);
-
-/**
- * using
- *
- * variables.scssを読み込む
- * @use '../assets/css/variables.scss';
- *
- * フォントを読み込む
- * @import url(map-get(variables.$theme-cafe-fonts, 'url'));
- *
- * フォントファミリを適用
- * body {
- *  font-family: map-get(variables.$theme-cafe-fonts, 'family');
- *  font-weight: map-get(variables.$theme-cafe-fonts, 'weight');
- * }
- */

@@ -6,6 +6,20 @@ import intersectionOA from '../components/intersectionOA.vue'
 import SlideSplide from '../components/slideSplide.vue'
 
 /**
+ * Web font
+ */
+useHead({
+  link: [
+    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Noto+Sans+JP:wght@400;500&display=swap'
+    }
+  ]
+})
+
+/**
  * repeatCard
  */
 const items = itemsSample // repeatCardで表示するデータ
@@ -113,11 +127,8 @@ const slideItems = fileName.map((img) => {
 
 <style lang="scss">
 @use '@splidejs/vue-splide/css';
-
 @use '../assets/css/mixin.scss';
 @use '../assets/css/variables.scss';
-
-@import url(map-get(variables.$theme-cafe-fonts, 'url'));
 
 // セクション間の余白統一用
 @mixin sectionSpace($mb: 4rem, $mbMd: 14rem) {
@@ -145,8 +156,8 @@ const slideItems = fileName.map((img) => {
     }
 
     &__title {
-      font-family: map-get(variables.$theme-cafe-fonts, 'familyEn');
-      font-weight: map-get(variables.$theme-cafe-fonts, 'weight');
+      font-family: 'Libre Baskerville', serif;
+      font-weight: 400;
       line-height: clamp(3.6rem, 2.467rem + 5.67vw, 7rem);
       font-size: clamp(3.6rem, 2.467rem + 5.67vw, 7rem);
       text-shadow: 1px 1px 0
@@ -155,15 +166,14 @@ const slideItems = fileName.map((img) => {
 
     &__sub-title {
       max-width: 100%;
-      font-family: map-get(variables.$theme-cafe-fonts, 'familyJp');
       font-size: 1.2rem;
+      font-family: 'Noto Sans JP', sans-serif;
     }
 
     &__img {
       object-fit: cover;
       height: 80vh;
       width: 100vw;
-      // box-shadow: 20px 18px 21px -22px rgba(0, 0, 0, 0.45);
       @include mixin.mq-md {
         object-position: 50% 80%;
         width: 42vw;
