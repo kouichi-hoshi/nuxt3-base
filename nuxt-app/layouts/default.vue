@@ -28,6 +28,13 @@ const siteTitle = import.meta.env.VITE_SITE_TITLE
 
 // サイトの説明文を取得
 const siteText = import.meta.env.VITE_SITE_TEXT
+
+// title要素を設定
+useHead({
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} - ` + siteTitle : siteTitle
+  }
+})
 </script>
 
 <template>

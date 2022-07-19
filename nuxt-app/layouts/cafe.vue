@@ -10,6 +10,13 @@ const siteTitle = import.meta.env.VITE_SITE_TITLE
 
 // サイトの説明文を取得
 const siteText = import.meta.env.VITE_SITE_TEXT
+
+const postData = {
+  title: 'Third Wave Cafe（サンプルサイト）'
+}
+useHead({
+  title: postData.title
+})
 </script>
 
 <template>
