@@ -16,10 +16,10 @@ const { data } = await useAsyncData('blog', () => queryContent('/').find())
 
 <template>
   <NuxtLayout>
-    <article class="blog container mx-auto">
-      <section class="blog-content">
+    <article class="container mx-auto">
+      <div class="hentry">
         <ContentDoc />
-      </section>
+      </div>
     </article>
     <section class="container mx-auto mt-12">
       <h2>ブログ一覧</h2>
@@ -38,37 +38,37 @@ const { data } = await useAsyncData('blog', () => queryContent('/').find())
 </template>
 
 <style lang="scss">
-.blog {
-  &-content h2 {
-    font-size: 3rem;
-    margin-top: 4rem;
-    margin-bottom: 1rem;
-  }
-  h3 {
-    margin-top: 3rem;
-    font-size: 2rem;
-  }
-  h4 {
-    margin-top: 1.6rem;
-    font-size: 1.6rem;
-  }
-  p,
-  ul {
-    margin-bottom: 1rem;
-  }
-  hr {
-    margin: 5rem 0;
-  }
-  table {
-    border-collapse: collapse;
-    th,
-    td {
-      border: solid gray 1px;
-      padding: 0.5rem 1rem;
-      text-align: center;
-    }
-  }
-}
+// .blog {
+//   &-content h2 {
+//     font-size: 3rem;
+//     margin-top: 4rem;
+//     margin-bottom: 1rem;
+//   }
+//   h3 {
+//     margin-top: 3rem;
+//     font-size: 2rem;
+//   }
+//   h4 {
+//     margin-top: 1.6rem;
+//     font-size: 1.6rem;
+//   }
+//   p,
+//   ul {
+//     margin-bottom: 1rem;
+//   }
+//   hr {
+//     margin: 5rem 0;
+//   }
+//   table {
+//     border-collapse: collapse;
+//     th,
+//     td {
+//       border: solid gray 1px;
+//       padding: 0.5rem 1rem;
+//       text-align: center;
+//     }
+//   }
+// }
 </style>
 
 <script>
