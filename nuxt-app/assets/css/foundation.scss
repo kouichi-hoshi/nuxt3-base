@@ -1,3 +1,50 @@
+@use '../assets/css/mixin.scss';
+@use '../assets/css/variables.scss';
+
 body {
   word-break: break-word;
+}
+
+.hentry {
+  &-content h2 {
+    font-size: 3rem;
+    margin: 4rem 0;
+  }
+  h3 {
+    margin: 3rem 0;
+    font-size: 2rem;
+  }
+  h4 {
+    margin: 2rem 0;
+    font-size: 1.6rem;
+  }
+  p,
+  ul,
+  dl,
+  hr {
+    margin-bottom: 2rem;
+  }
+  li > ul {
+    margin-bottom: 0;
+  }
+  li {
+    margin-left: 1rem;
+    &::before {
+      content: '・';
+      margin-left: -1rem;
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+    th,
+    td {
+      border: solid gray 1px;
+      padding: 0.5rem 1rem;
+      text-align: center;
+    }
+  }
+  // a {
+  //   color: map-get(variables.$theme-base-colors, 'subColor');
+  // }
 }
