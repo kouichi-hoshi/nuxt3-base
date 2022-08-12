@@ -1,0 +1,33 @@
+@use '../assets/css/mixin.scss';
+@use '../assets/css/variables.scss';
+
+.u-maxWidthSm {
+  max-width: variables.$screenSm !important;
+}
+
+.u-maxWidthMd {
+  max-width: variables.$screenMd !important;
+}
+
+.u-maxWidthLg {
+  max-width: variables.$screenLg !important;
+}
+
+.u-maxWidth90P {
+  max-width: 90% !important;
+}
+
+.u-fixed {
+  position: fixed !important;
+}
+
+.u-li-style-reset {
+  margin: 0 !important;
+  &::before {
+    content: none !important;
+  }
+}
+
+.u-z-index-10000 {
+  z-index: 10000 !important;
+}

@@ -1,0 +1,26 @@
+// TailwindCSS BreakPoint
+$screenSm: 640px;
+$screenMd: 768px;
+$screenLg: 1024px;
+$screenXl: 1280px;
+$screen2xl: 1536px;
+
+$logoFontFamily: 'Josefin Sans', sans-serif;
+$notoSerif: 'Noto Serif JP', serif;
+
+$theme-base-colors: (
+  mainColor: #f6f3eb,
+  subColor: #00adb5,
+  accentColor: #352a20,
+  cWhite: #fff,
+  cBlack: #000,
+  cGray: #333333,
+  cLightGray: #d2d2d2
+);
+
+// Theme cafe
+$theme-cafe-colors: (
+  mainColor: #edebe6,
+  subColor: #b77743,
+  accentColor: #352a20
+);

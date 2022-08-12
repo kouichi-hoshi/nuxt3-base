@@ -1,0 +1,7 @@
+@use '../assets/css/mixin.scss';
+@use '../assets/css/variables.scss';
+
+body {
+  word-break: break-word;
+  background: map-get(variables.$theme-base-colors, mainColor);
+}
