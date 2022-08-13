@@ -1,5 +1,5 @@
 <template>
-  <component :is="tagName" v-for="(link, key) in links" :key="key" :class="class">
+  <component :is="tagName" v-for="(link, key) in links" :key="key" :class="class" class="menu">
     <a :href="link.href" :target="checkLinkType(link.href) ? '_self' : '_blank'">
       {{ link.label }}
     </a>
@@ -36,3 +36,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.menu {
+  &:first-child {
+    margin-left: 0;
+  }
+}
+</style>

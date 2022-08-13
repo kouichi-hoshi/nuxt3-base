@@ -16,14 +16,14 @@ const siteText = import.meta.env.VITE_SITE_TEXT
 <template>
   <div class="l-container">
     <div class="l-header relative z-10">
-      <mdlLogo class="logo-w-40 fixed top-4 md:top-8 left-4 md:left-8" />
-      <nav class="pl-28 pt-10 hidden md:block">
+      <mdlLogo class="logo-w-40 fixed m-8" />
+      <nav class="l-navigation hidden md:flex flex-col justify-center container u-maxWidth1340 relative mx-auto">
         <ul class="flex">
           <mdlNavigation :links="linkData" :class="'ml-4'" />
           <mdlNavigation :links="snsLinkData" :class="'ml-4'" />
         </ul>
       </nav>
-      <HamburgerButton btn-id="btn01" class="u-fixed top-4 md:top-8 right-4 md:right-8" />
+      <HamburgerButton btn-id="btn01" class="u-fixed right-0 m-8" />
     </div>
 
     <main class="l-main">
@@ -51,8 +51,8 @@ const siteText = import.meta.env.VITE_SITE_TEXT
   background: map-get(variables.$theme-cafe-colors, 'mainColor');
   position: relative;
 }
-.btn-trigger {
-  transform-origin: right top;
-  transform: scale(0.5);
+
+.l-navigation {
+  height: 6rem;
 }
 </style>
