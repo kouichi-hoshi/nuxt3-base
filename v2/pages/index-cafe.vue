@@ -78,12 +78,7 @@ const slideItems = fileName.map((img) => {
       <div class="slide flex">
         <div class="basis-2/5 p-6 flex items-center justify-center">test</div>
         <div class="basis-3/5">
-          <slideSplide
-            :slide-items="slideItems"
-            :slide-options="slideOptions"
-            :aspect="slideAspect"
-            :aria-label="ariaLabel"
-          />
+          <slideSplide :slide-items="slideItems" :slide-options="slideOptions" :aria-label="ariaLabel" />
         </div>
       </div>
 

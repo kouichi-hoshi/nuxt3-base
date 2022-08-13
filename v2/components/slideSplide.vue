@@ -43,7 +43,7 @@ const props = defineProps({
     <SplideSlide v-for="(slideItem, key) in slideItems" :key="key">
       <div class="p-4 pb-12">
         <a :href="slideItem.href">
-          <picture :class="slideAspect">
+          <picture :class="slideOptions.slideAspect">
             <source class="object-cover" :srcset="slideItem.webp" type="image/webp" />
             <img class="object-cover" :src="slideItem.src" :alt="slideItem.alt" />
           </picture>
