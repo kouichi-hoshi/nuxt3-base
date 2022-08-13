@@ -1,6 +1,7 @@
 <script setup>
 import linkData from '../models/linkData.js'
 import snsLinkData from '../models/snsLinkData.js'
+import mdlLogo from '../layouts/theme/cafe/mdlLogo.vue'
 import mdlTitle from '../layouts/theme/cafe/mdlTitle.vue'
 import mdlNavigation from '../layouts/theme/cafe/mdlNavigation.vue'
 import logoMark from '../components/logoMark.vue'
@@ -15,17 +16,14 @@ const siteText = import.meta.env.VITE_SITE_TEXT
 <template>
   <div class="l-container">
     <div class="l-header relative z-10">
-      <logoMark class="logo-w-40 fixed top-4 md:top-8 left-4 md:left-8" />
+      <mdlLogo class="logo-w-40 fixed top-4 md:top-8 left-4 md:left-8" />
       <nav class="pl-28 pt-10 hidden md:block">
         <ul class="flex">
           <mdlNavigation :links="linkData" :class="'ml-4'" />
           <mdlNavigation :links="snsLinkData" :class="'ml-4'" />
         </ul>
       </nav>
-      <HamburgerButton
-        btn-id="btn01"
-        class="u-fixed top-4 md:top-8 right-4 md:right-8"
-      />
+      <HamburgerButton btn-id="btn01" class="u-fixed top-4 md:top-8 right-4 md:right-8" />
     </div>
 
     <main class="l-main">

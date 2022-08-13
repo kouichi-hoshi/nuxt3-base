@@ -1,6 +1,5 @@
 <script setup>
 import itemsSample from '../models/itemsSample.js'
-import { results } from '../models/result.js'
 import keyWords from '../models/keyWords.js'
 import SlideSplide from '../components/slideSplide.vue'
 
@@ -65,27 +64,17 @@ const slideItems = [
           <p class="mb-8 lg:text-xl">[ {{ postData.subtitle }} ]</p>
           <p class="mb-6 mx-auto text-lg lg:text-4xl">テキスト</p>
         </div>
-        <section v-if="false" class="first-view__plan hidden md:block">
-          <div class="first-view__plan-inner">
-            <servicePlanLink
-              view-type="text"
-              outer-class="text-xs md:text-base md:flex md:justify-center"
-              inner-class="md:w-64"
-            />
-          </div>
-        </section>
       </section>
       <section class="slide p-4 mg:mt-0 mb-6 md:mb-24 lg:h-screen truncate lg:flex lg:flex-col lg:justify-center">
         <cHeadline class="text-center my-4 text-2xl md:text-3xl">Slide</cHeadline>
         <div class="slide__inner mx-auto relative">
           <div class="flex u-maxWidthMd mx-auto">
-            <SlideSplide
+            <slideSplide
               :slide-items="slideItems"
               :slide-options="slideOptions"
               :slideAspect="slideAspect"
               :aria-label="ariaLabel"
               view="img-text"
-              :img-size="imgSize"
             />
           </div>
         </div>

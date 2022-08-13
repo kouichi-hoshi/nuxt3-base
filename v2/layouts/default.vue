@@ -43,7 +43,7 @@ useHead({
         <nav class="hidden lg:flex justify-end md:mr-16">
           <ul class="l-header__menu flex items-center">
             <mdlNavigation :links="linkData" />
-            <mdlNavigation :links="snsLinkData" class="'md:ml-6'" v-if="false" />
+            <mdlNavigation :links="snsLinkData" class="'md:ml-6'" />
           </ul>
         </nav>
       </div>
@@ -64,7 +64,7 @@ useHead({
       <nav class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-12 lg:mb-0">
         <ul class="l-footer__menu flex flex-col lg:flex-row justify-center lg:items-center">
           <mdlNavigation :links="linkData" />
-          <mdlNavigation :links="snsLinkData" v-if="false" />
+          <mdlNavigation :links="snsLinkData" />
         </ul>
       </nav>
     </div>
