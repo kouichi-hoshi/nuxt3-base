@@ -46,6 +46,9 @@ const slideOptions = {
 const slideItems = fileName.map((img) => {
   return filePath + img
 })
+definePageMeta({
+  layoutTransition: true
+})
 </script>
 
 <template>

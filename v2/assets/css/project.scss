@@ -1,6 +1,16 @@
 @use '../assets/css/mixin.scss';
 @use '../assets/css/variables.scss';
 
+// ページ遷移時にフェードする
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
 .container {
   @include mixin.mq-md {
     max-width: 80vw;

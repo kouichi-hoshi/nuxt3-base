@@ -24,7 +24,7 @@ const props = defineProps({
 
 <template>
   <component :is="tagName" v-for="(link, key) in links" :key="key" class="menu" :class="link.class">
-    <a :href="link.href" :target="checkLinkType(link.href) ? '_self' : '_blank'">
+    <NuxtLink :to="link.href" :target="checkLinkType(link.href) ? '_self' : '_blank'">
       <template v-if="!link.svgIcon">
         {{ link.label }}
       </template>
@@ -34,7 +34,7 @@ const props = defineProps({
           <use :href="getFilePath('/images/common/icon/', link.svgIcon) + '#symbol'" />
         </svg>
       </template>
-    </a>
+    </NuxtLink>
   </component>
 </template>
 
