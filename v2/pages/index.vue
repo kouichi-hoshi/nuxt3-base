@@ -30,6 +30,8 @@ const slideOptions = {
   autoplay: true, // ロード後、自動的にスライドを実行
   rewind: true // 最後のスライド画像が表示された後、最初の画像にもどる
 }
+
+//スライドデータ
 const slideItems = [
   {
     src: '/images/sample/001.jpg',

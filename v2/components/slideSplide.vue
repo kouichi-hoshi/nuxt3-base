@@ -9,7 +9,6 @@ import '@splidejs/vue-splide/css' // デフォルトのテーマ
 
 const props = defineProps({
   slideItems: {
-    // TODO prop.dataで他のデートとまとめて受け取る仕様に変える
     type: Array,
     required: true
   },
@@ -28,9 +27,6 @@ const props = defineProps({
     type: String,
     default: 'default'
   },
-  data: {
-    required: false
-  }
 })
 </script>
 
