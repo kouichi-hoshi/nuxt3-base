@@ -40,8 +40,8 @@ const menuItems = [
   { name: 'Coffee', src: '/images/sample/017.jpg', text: 'コーヒー' },
   { name: 'Cafe latte', src: '/images/sample/018.jpg', text: 'カフェラテ' },
   { name: 'Cappuccino', src: '/images/sample/015.jpg', text: 'カプチーノ' },
-  { name: 'Coffee', src: '/images/sample/004.jpg', text: 'コーヒー' },
-  { name: 'Cafe latte', src: '/images/sample/001.jpg', text: 'カフェラテ' }
+  { name: 'Cafe latte', src: '/images/sample/001.jpg', text: 'カフェラテ' },
+  { name: 'Coffee', src: '/images/sample/004.jpg', text: 'コーヒー' }
 ]
 
 /**
@@ -87,7 +87,7 @@ function setSlideStart(num) {
           <img src="/images/cafe-page/wood.svg" alt="" />
         </p>
         <p class="first-view__img-photo">
-          <img src="/images/cafe-page/cafe.jpg" alt="" />
+          <img src="/images/sample/019.jpg" alt="" />
         </p>
       </section>
 
@@ -171,8 +171,10 @@ function setSlideStart(num) {
             <p class="menu__img">
               <img :src="menuItem.src" :alt="menuItem.name" />
             </p>
-            <p class="menu__name">{{ menuItem.name }}</p>
-            <p class="menu__text">{{ menuItem.text }}</p>
+            <div class="menu__inner">
+              <p class="menu__name">{{ menuItem.name }}</p>
+              <p class="menu__text">{{ menuItem.text }}</p>
+            </div>
           </li>
         </ul>
         <p class="text-center">
@@ -303,14 +305,10 @@ function setSlideStart(num) {
 
       & > img {
         border-radius: 1rem;
-        @include mixin.mq-md {
-          object-fit: contain;
-          width: 100%;
-          height: 60vh;
-        }
+        aspect-ratio: 2/3;
+        object-fit: cover;
         @include mixin.mq-xl {
-          object-fit: cover;
-          height: 80vh;
+          aspect-ratio: 3/4;
         }
       }
     }
@@ -418,9 +416,9 @@ function setSlideStart(num) {
     .menu__items {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 1rem;
       @include mixin.mq-md {
-        gap: 3rem;
+        gap: 1.5rem;
       }
       @include mixin.mq-lg {
         flex-wrap: nowrap;
@@ -430,6 +428,8 @@ function setSlideStart(num) {
       flex: 0 0 calc(50% - 1rem);
       border-radius: 1rem;
       background: map-get(variables.$theme-cafe-colors, 'accentColor');
+      position: relative;
+      padding-bottom: 2rem;
       @include mixin.mq-md {
         flex: 0 0 calc(100% / 3 - 2rem);
       }
@@ -437,12 +437,6 @@ function setSlideStart(num) {
         flex: 0 1 100%;
       }
     }
-    // .menu__item + .menu__item {
-    //   margin-top: 2rem;
-    //   @include mixin.mq-md {
-    //     margin-top: 0;
-    //   }
-    // }
     &__img {
       position: relative;
       clip-path: polygon(100% 0, 100% 80%, 0 100%, 0 100%, 0 0);
@@ -454,20 +448,19 @@ function setSlideStart(num) {
         aspect-ratio: 1 / 1;
       }
     }
-    &__name {
-      position: relative;
-      z-index: 1;
-      padding: 1rem 1rem 0 1rem;
+    &__inner {
+      color: map-get(variables.$theme-cafe-colors, 'color4');
+      padding: 0 1rem 1rem 1rem;
       text-align: right;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+    &__name {
       font-family: $main-font;
       font-size: 1.6rem;
       font-weight: 500;
-      color: map-get(variables.$theme-cafe-colors, 'mainColor');
-    }
-    &__text {
-      padding: 0 1rem 1rem 1rem;
-      text-align: right;
-      color: map-get(variables.$theme-cafe-colors, 'color4');
+      line-height: 1.2;
     }
   }
 
