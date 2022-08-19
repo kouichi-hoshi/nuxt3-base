@@ -54,18 +54,6 @@ const slideItems = fileName.map((img) => {
       <section
         class="first-view container u-maxWidth1340 relative mx-auto md:flex items-center"
       >
-        <intersectionOA
-          observe
-          tag-name="svg"
-          class="first-view__bg-img anime-01"
-          width="301"
-          height="353"
-          viewBox="0 0 301
-          353"
-        >
-          <use href="/images/cafe-page/coffee-30293.svg#symbol" />
-        </intersectionOA>
-
         <div class="first-view__title-wrap z-10 p-4">
           <intersectionOA
             observe

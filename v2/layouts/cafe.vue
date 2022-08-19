@@ -1,58 +1,131 @@
 <script setup>
-import linkData from '../models/linkData.js'
-import snsLinkData from '../models/snsLinkData.js'
 import mdlLogo from '../layouts/theme/cafe/mdlLogo.vue'
 import mdlTitle from '../layouts/theme/cafe/mdlTitle.vue'
 import mdlNavigation from '../layouts/theme/cafe/mdlNavigation.vue'
 import logoMark from '../components/logoMark.vue'
 
 // サイトのタイトルを取得
-const siteTitle = import.meta.env.VITE_SITE_TITLE
+const siteTitle = 'CAFE WOODY'
 
 // サイトの説明文を取得
 const siteText = import.meta.env.VITE_SITE_TEXT
+
+const linkData = [
+  {
+    label: 'Concept',
+    href: '#concept',
+    class: 'concept'
+  },
+  {
+    label: 'Menu',
+    href: '#menu',
+    class: 'menu'
+  },
+  {
+    label: 'News',
+    href: '#news',
+    class: 'news'
+  },
+  {
+    label: 'Access',
+    href: '#access',
+    class: 'access'
+  },
+  {
+    label: 'home',
+    href: '/',
+    class: 'menu-home'
+    // svgIcon: 'home-icon.svg'
+  }
+]
 </script>
 
 <template>
   <div class="l-container">
     <div class="l-header relative z-10">
-      <mdlLogo class="logo-w-40 fixed m-8" />
-      <nav class="l-navigation hidden md:flex flex-col justify-center container u-maxWidth1340 relative mx-auto">
-        <ul class="flex">
-          <mdlNavigation :links="linkData" :class="'ml-4'" />
-          <mdlNavigation :links="snsLinkData" :class="'ml-4'" />
+      <mdlLogo class="cafe-logo fixed m-2 md:m-8" />
+      <nav class="l-navigation hidden container relative mx-auto md:flex md:flex-col md:justify-center">
+        <ul class="flex md:ml-36">
+          <li class="ml-6" v-for="(link, i) in linkData" :key="i">
+            <a :href="link.href">{{ link.label }}</a>
+          </li>
         </ul>
       </nav>
-      <HamburgerButton btn-id="btn01" class="u-fixed right-0 m-8" />
     </div>
 
     <main class="l-main">
       <slot />
     </main>
-
-    <div class="l-footer container mx-auto py-24">
-      <logoMark class="logo-w-50" />
-      <mdlTitle :mdl-title="siteTitle" class="text-xl font-bold" />
-      <p>{{ siteText }}</p>
-      <nav class="hidden md:flex justify-end">
-        <ul class="flex">
-          <mdlNavigation class="ml-6" :links="linkData" />
-          <mdlNavigation class="ml-6" :links="snsLinkData" />
+    <div class="l-footer text-center lg:text-left flex flex-col lg:p-4 lg:flex-row justify-center lg:justify-start">
+      <div class="order-1 lg:order-0 lg:flex lg:items-center">
+        <mdlLogo class="cafe-logo mx-auto mb-4 lg:mr-4 lg:mb-0" />
+        <mdlTitle class="l-footer__title lg-2 lg:mb-0 lg:mr-4" :mdl-title="siteTitle" />
+        <p v-if="false" class="l-footer__text lg:hidden xl:block mb-4 lg:mb-0">{{ siteText }}</p>
+      </div>
+      <nav class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-6 lg:mb-0">
+        <ul class="l-footer__menu flex flex-col lg:flex-row justify-center lg:items-center">
+          <mdlNavigation :links="linkData" />
         </ul>
       </nav>
     </div>
+    <p class="text-right">
+      <cButton :href="'#'" v-scroll-to="'body'" class="c-button--main fixed right-12 bottom-6" label="return top" />
+    </p>
+
+    <modalWindow hb-class="right-0 m-2 md:m-8">
+      <ul class="modal-nav text-2xl sm:text-3xl md:text-4xl">
+        <mdlNavigation class="modal-menu main-font" :links="linkData" />
+      </ul>
+    </modalWindow>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @use '../assets/css/variables.scss';
+@use '../assets/css/mixin.scss';
 
-.l-container {
-  background: map-get(variables.$theme-cafe-colors, 'mainColor');
-  position: relative;
-}
+$main-font: 'Bungee', cursive;
 
-.l-navigation {
-  height: 6rem;
+.cafe {
+  .main-font {
+    font-family: $main-font;
+  }
+  .l-container {
+    position: relative;
+  }
+
+  .l-header {
+    height: 64px;
+    @include mixin.mq-md {
+      height: 128px;
+    }
+  }
+
+  .l-navigation {
+    height: 8rem;
+    font-family: $main-font;
+    color: map-get(variables.$theme-cafe-colors, 'subColor');
+  }
+
+  .cafe-logo {
+    width: 40px;
+    @include mixin.mq-md {
+      width: 60px;
+    }
+  }
+
+  .l-footer {
+    background: map-get(variables.$theme-cafe-colors, 'color5');
+    color: map-get(variables.$theme-cafe-colors, 'accentColor');
+    font-family: $main-font;
+
+    &__title {
+      font-family: $main-font;
+      font-size: 1.2rem;
+    }
+    &__navigation {
+      border: none;
+    }
+  }
 }
 </style>

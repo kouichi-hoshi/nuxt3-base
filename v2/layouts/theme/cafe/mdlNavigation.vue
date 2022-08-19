@@ -1,5 +1,5 @@
 <template>
-  <component :is="tagName" v-for="(link, key) in links" :key="key" :class="class" class="menu">
+  <component :is="tagName" v-for="(link, key) in links" :key="key" :class="class" class="nav-menu">
     <NuxtLink :to="link.href" :target="checkLinkType(link.href) ? '_self' : '_blank'">
       {{ link.label }}
     </NuxtLink>
@@ -38,7 +38,21 @@ export default {
 </script>
 
 <style lang="scss">
-.menu {
+@use '../assets/css/variables.scss';
+@use '../assets/css/mixin.scss';
+
+.nav-menu {
+  border-top: 1px solid #fff;
+  @include mixin.mq-lg {
+    border: none;
+  }
+  & > a {
+    display: block;
+    padding: 1rem 0;
+    @include mixin.mq-lg {
+      margin-left: 1.4rem;
+    }
+  }
   &:first-child {
     margin-left: 0;
   }

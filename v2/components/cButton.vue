@@ -61,12 +61,7 @@ export default {
 @use '../assets/css/variables.scss';
 
 .c-button {
-  // border-radius: 100vmax;
-  color: map-get(variables.$theme-base-colors, 'cWhite');
-  background: map-get(variables.$theme-base-colors, 'subColor');
-  // &.center {
-  //   display: block;
-  //   width: fit-content;
-  // }
+  color: variables.$cWhite;
+  background: variables.$cGray;
 }
 </style>

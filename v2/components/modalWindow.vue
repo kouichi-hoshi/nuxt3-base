@@ -13,6 +13,12 @@ const props = defineProps({
     default: () => {
       return 'modal-window__inner--center'
     }
+  },
+  hbClass: {
+    type: String,
+    default: () => {
+      return 'right-0'
+    }
   }
 })
 
@@ -20,7 +26,7 @@ const props = defineProps({
 function attachModal() {
   const _body = document.querySelector('body')
   const _modalWindow = document.querySelector('#modalWindow')
-  const _btn = document.querySelector('#btn07')
+  const _btn = document.querySelector('#trigger')
 
   _body.classList.toggle('is-scrollLock')
 
@@ -41,7 +47,7 @@ function attachModal() {
 </script>
 
 <template>
-  <hamburgerButton @click="attachModal()" class="fixed right-0 u-z-index-10000" />
+  <hamburgerButton @click="attachModal()" :class="hbClass" class="fixed u-z-index-10000" />
   <div id="modalWindow" class="modal-window is-fade-in hidden text-center">
     <component :is="innerTagName" :class="innerClass">
       <slot></slot>
@@ -74,21 +80,24 @@ body.is-scrollLock {
   top: 0;
   left: 0;
   z-index: 9999;
+  color: variables.$cWhite;
   &__inner--center {
     position: fixed;
     inset: 0;
     margin: auto;
-    color: map-get(variables.$theme-base-colors, cWhite);
     width: fit-content;
     height: fit-content;
   }
-  .menu + .menu {
-    margin-top: 1rem;
+  .modal-menu {
+    border: none;
+  }
+  .modal-menu + .modal-menu {
+    margin-top: 0.5rem;
     @include mixin.mq-md {
-      margin-top: 3rem;
+      margin-top: 1rem;
     }
   }
-  .menu:last-child {
+  .modal-menu:last-child {
     display: none;
   }
 }

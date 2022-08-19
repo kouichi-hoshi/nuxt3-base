@@ -19,10 +19,10 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  slideAspect: {
-    type: String,
-    default: 'aspect-[16/9]'
-  },
+  // slideAspect: {
+  //   type: String,
+  //   default: 'aspect-[16/9]'
+  // },
   view: {
     type: String,
     default: 'default'
@@ -32,9 +32,10 @@ const props = defineProps({
 
 <template>
   <!-- 1列 画像 フェード -->
+
   <Splide v-if="view === 'default'" tag="section" :aria-label="ariaLabel" :options="slideOptions">
     <SplideSlide v-for="(slideItem, key) in slideItems" :key="key">
-      <img class="object-cover" :class="slideAspect" :src="slideItem" :alt="key" />
+      <img class="object-cover" :class="slideOptions.slideAspect" :src="slideItem" :alt="key" />
     </SplideSlide>
   </Splide>
 
@@ -43,9 +44,9 @@ const props = defineProps({
     <SplideSlide v-for="(slideItem, key) in slideItems" :key="key">
       <div class="p-4 pb-12">
         <a :href="slideItem.href">
-          <picture :class="slideOptions.slideAspect">
+          <picture :class="slideItem.slideAspect">
             <source class="object-cover" :srcset="slideItem.webp" type="image/webp" />
-            <img class="object-cover" :src="slideItem.src" :alt="slideItem.alt" />
+            <img class="object-cover" :src="slideOptions.src" :alt="slideItem.alt" />
           </picture>
         </a>
         <p class="text-sm md:text-xl mb-6 md:mb-2 mt-4 text-center">{{ slideItem.caption }}</p>

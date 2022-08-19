@@ -1,10 +1,11 @@
 <template>
-  <component :id="btnId" :is="tagName" class="hamburger-button small">
+  <component :is="tagName" class="hamburger-button">
     <svg
       viewBox="0 0 48 48"
       width="48"
       height="48"
       class="border-outer"
+      :id="btnId"
       :class="{ active: hamburgerActive }"
       @click="hamburger()"
     >
@@ -33,7 +34,7 @@ export default {
     btnId: {
       type: String,
       default: () => {
-        return 'btn07'
+        return 'trigger'
       }
     }
   },
