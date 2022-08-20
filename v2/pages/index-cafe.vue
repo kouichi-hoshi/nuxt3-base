@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+// import { ref, onMounted } from 'vue'
 
 import itemsSample from '../models/itemsSample.js'
 import cHeadline from '../components/cHeadline.vue'
@@ -86,7 +86,7 @@ onMounted(() => {
   scroll(targets.value, options)
 })
 
-//指定した要素の交差を検知
+//指定した要素の交差を検知させる
 function scroll(targets, options) {
   const observer = new IntersectionObserver(doWhenIntersect, options)
   targets.forEach((target) => {
@@ -94,7 +94,7 @@ function scroll(targets, options) {
   })
 }
 
-// 画面にin/outした要素にclassを着脱
+// 画面にin/outした要素にclassを着脱する
 function doWhenIntersect(entries) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -198,7 +198,7 @@ function doWhenIntersect(entries) {
         </div>
       </section>
 
-      <section id="menu" class="menu container mx-auto">
+      <section id="menu" class="menu container mx-auto px-4">
         <cHeader class="menu__title" data-title="メニュー">Menu</cHeader>
         <ul class="menu__items mb-12 md:mb-36">
           <li class="menu__item" v-for="(menuItem, i) in menuItems" :key="i">
@@ -474,6 +474,7 @@ function doWhenIntersect(entries) {
     .menu__items {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 1rem;
       @include mixin.mq-md {
         gap: 1.5rem;
@@ -483,16 +484,23 @@ function doWhenIntersect(entries) {
       }
     }
     .menu__item {
-      flex: 0 0 calc(50% - 1rem);
+      flex: 0 0 calc(50% - 0.5rem);
       border-radius: 1rem;
       background: map-get(variables.$theme-cafe-colors, 'accentColor');
       position: relative;
       padding-bottom: 2rem;
       @include mixin.mq-md {
-        flex: 0 0 calc(100% / 3 - 2rem);
+        flex: 0 0 calc(100% / 3 - 1rem);
       }
       @include mixin.mq-lg {
         flex: 0 1 100%;
+      }
+    }
+    .menu__item:last-child {
+      margin-left: 0;
+      margin-right: auto;
+      @include mixin.mq-lg {
+        margin-left: auto;
       }
     }
     &__img {
