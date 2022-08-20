@@ -1,4 +1,6 @@
 <script setup>
+import { ref, onMounted } from 'vue'
+
 import mdlLogo from '../layouts/theme/cafe/mdlLogo.vue'
 import mdlTitle from '../layouts/theme/cafe/mdlTitle.vue'
 import mdlNavigation from '../layouts/theme/cafe/mdlNavigation.vue'
@@ -38,11 +40,31 @@ const linkData = [
     // svgIcon: 'home-icon.svg'
   }
 ]
+
+/**
+ * IntersectionObserver
+ */
+const options = {
+  threshold: [0, 0.25, 0.5, 0.75, 1],
+  rootMargin: '100px'
+}
+const header = ref()
+const topReturnBtn = ref()
+onMounted(() => {
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) {
+      topReturnBtn.value.classList.add('active')
+    } else {
+      topReturnBtn.value.classList.remove('active')
+    }
+  }, options)
+  observer.observe(header.value)
+})
 </script>
 
 <template>
   <div class="l-container">
-    <div class="l-header relative z-10">
+    <div class="l-header relative z-10" ref="header">
       <mdlLogo class="cafe-logo fixed m-2 md:m-8" />
       <nav class="l-navigation hidden container relative mx-auto md:flex md:flex-col md:justify-center">
         <ul class="flex md:ml-36">
@@ -68,8 +90,13 @@ const linkData = [
         </ul>
       </nav>
     </div>
-    <p class="text-right">
-      <cButton :href="'#'" v-scroll-to="'body'" class="c-button--main fixed right-12 bottom-6" label="return top" />
+    <p class="text-right" ref="topReturnBtn">
+      <cButton
+        :href="'#'"
+        v-scroll-to="'body'"
+        class="top-return-btn c-button--main fixed right-12 bottom-6"
+        label="return top"
+      />
     </p>
 
     <modalWindow hb-class="right-0 m-2 md:m-8">
@@ -126,6 +153,13 @@ $main-font: 'Bungee', cursive;
     &__navigation {
       border: none;
     }
+  }
+  .top-return-btn {
+    display: none;
+  }
+  .active > .top-return-btn {
+    display: inline-block;
+    @include mixin.fadeLift();
   }
 }
 </style>
