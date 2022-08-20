@@ -46,19 +46,29 @@ const linkData = [
  */
 const options = {
   threshold: [0, 0.25, 0.5, 0.75, 1],
-  rootMargin: '100px'
+  rootMargin: '200px'
 }
 const header = ref()
+const footer = ref()
 const topReturnBtn = ref()
 onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
+  const observerInOut = new IntersectionObserver((entries) => {
     if (!entries[0].isIntersecting) {
       topReturnBtn.value.classList.add('active')
     } else {
       topReturnBtn.value.classList.remove('active')
     }
   }, options)
-  observer.observe(header.value)
+  observerInOut.observe(header.value)
+
+  const observerUpDown = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      topReturnBtn.value.classList.add('up')
+    } else {
+      topReturnBtn.value.classList.remove('up')
+    }
+  }, options)
+  observerUpDown.observe(footer.value)
 })
 </script>
 
@@ -78,7 +88,10 @@ onMounted(() => {
     <main class="l-main">
       <slot />
     </main>
-    <div class="l-footer text-center lg:text-left flex flex-col lg:p-4 lg:flex-row justify-center lg:justify-start">
+    <div
+      ref="footer"
+      class="l-footer text-center lg:text-left flex flex-col lg:p-4 lg:flex-row justify-center lg:justify-start"
+    >
       <div class="order-1 lg:order-0 lg:flex lg:items-center">
         <mdlLogo class="cafe-logo mx-auto mb-4 lg:mr-4 lg:mb-0" />
         <mdlTitle class="l-footer__title lg-2 lg:mb-0 lg:mr-4" :mdl-title="siteTitle" />
@@ -94,7 +107,7 @@ onMounted(() => {
       <cButton
         :href="'#'"
         v-scroll-to="'body'"
-        class="top-return-btn c-button--main fixed right-12 bottom-6"
+        class="top-return-btn c-button--main fixed right-12 bottom-8"
         label="return top"
       />
     </p>
@@ -160,6 +173,14 @@ $main-font: 'Bungee', cursive;
   .active > .top-return-btn {
     display: inline-block;
     @include mixin.fadeLift();
+  }
+  .active.up > .top-return-btn {
+    animation: up 0.4s ease-out forwards;
+    @keyframes up {
+      100% {
+        transform: translateY(-6rem);
+      }
+    }
   }
 }
 </style>

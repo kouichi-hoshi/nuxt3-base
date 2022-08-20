@@ -82,6 +82,7 @@ const options = {
 }
 
 onMounted(() => {
+  //検知対象要素を設定
   let targets = ref(document.querySelectorAll('.animate'))
   scroll(targets.value, options)
 })
@@ -325,16 +326,12 @@ function doWhenIntersect(entries) {
       background: #fff;
       padding: 0.5rem 1rem;
       color: #777777;
-      // opacity: 0;
-      // &.active {
-      //   @include mixin.fadeLift($delay: 2s);
-      // }
-      @include mixin.mask($delay: 2s);
+      @include mixin.mask($delay: 1.6s);
     }
     &__wood {
       opacity: 0;
       &.active {
-        @include mixin.fadeLift($delay: 0.3s);
+        @include mixin.fadeLift($delay: 0.1s);
       }
       @include mixin.mq-md {
         flex: 0 1 20vw;
@@ -355,7 +352,7 @@ function doWhenIntersect(entries) {
     &__img-photo {
       opacity: 0;
       &.active {
-        @include mixin.fadeLift($delay: 0.6s);
+        @include mixin.fadeLift($delay: 0.3s);
       }
       @include mixin.mq-md {
         flex: 0 1 30vw;

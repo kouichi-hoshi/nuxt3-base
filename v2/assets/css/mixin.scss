@@ -85,16 +85,16 @@
  * IntersectionObserverで検知したhtml要素に対して使用する場合、
  * 対象の要素にCSSの初期値をつける（opacity: 0; transform: translateY(5rem) など）
  */
-@mixin fadeLift($duration: 0.8s, $delay: 0s, $yFrom: 5rem, $yTo: 0) {
+@mixin fadeLift($duration: 0.6s, $delay: 0s, $opaFrom: 0, $opaTo: 1, $yFrom: 5rem, $yTo: 0) {
   animation: fadeLift $duration $delay ease-out forwards;
   @keyframes fadeLift {
     0% {
-      opacity: 0;
+      opacity: $opaFrom;
       transform: translateY($yFrom);
     }
     100% {
       transform: translateY($yTo);
-      opacity: 1;
+      opacity: $opaTo;
     }
   }
 }
