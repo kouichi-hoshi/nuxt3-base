@@ -1,8 +1,10 @@
 <script setup>
+import { ref, onMounted } from 'vue'
+
 import itemsSample from '../models/itemsSample.js'
 import cHeadline from '../components/cHeadline.vue'
 import repeatCard from '../components/repeatCard.vue'
-import intersectionOA from '../components/intersectionOA.vue'
+// import intersectionOA from '../components/intersectionOA.vue'
 import slideSplide from '../components/slideSplide.vue'
 
 definePageMeta({
@@ -51,7 +53,7 @@ const fileName = ['007.jpg', '008.jpg', '009.jpg', '011.jpg', '013.jpg'] // ス�
 const filePath = '/images/sample/' // 画像のパス
 const ariaLabel = 'slide' //スライド本体のaria-label属性の値
 
-// スライドオプション
+// スライドのオプション
 const slideOptions = {
   type: 'fade', // スライドの動作をフェードに指定
   speed: '1000', // スライドが切り替わる時間をミリ秒で指定
@@ -70,6 +72,36 @@ const slideItems = fileName.map((img) => {
 function setSlideStart(num) {
   return { ...slideOptions, start: num }
 }
+
+/**
+ * IntersectionObserver
+ */
+const options = {
+  // threshold: [0, 0.25, 0.5, 0.75, 1]
+  threshold: [0]
+}
+
+onMounted(() => {
+  let targets = ref(document.querySelectorAll('.animate'))
+  scroll(targets.value, options)
+})
+
+//指定した要素の交差を検知
+function scroll(targets, options) {
+  const observer = new IntersectionObserver(doWhenIntersect, options)
+  targets.forEach((target) => {
+    observer.observe(target)
+  })
+}
+
+// 画面にin/outした要素にclassを着脱
+function doWhenIntersect(entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active')
+    }
+  })
+}
 </script>
 
 <template>
@@ -77,16 +109,18 @@ function setSlideStart(num) {
     <article>
       <section class="first-view container mx-auto px-2 md:px-0 md:flex md:items-center">
         <div class="first-view__title-wrap relative z-10 md:z-0">
-          <p class="first-view__sub-title text-lg md:ml-4">Coffee <span>&</span> Lunch</p>
-          <h2 class="first-view__title mb-2">
+          <p class="first-view__sub-title animate text-lg md:ml-4">Coffee <span>&</span> Lunch</p>
+          <h2 class="first-view__title mb-2 animate">
             <img class="first-view__title-img" src="/images/cafe-page/title-logo.svg" alt="CAFE WOODY" />
           </h2>
-          <p class="first-view__text my-2 md:mt-4 md:w-fit lg:text-xl">木のぬくもりの中でおいしいコーヒーを。</p>
+          <p class="first-view__text animate my-2 md:mt-4 md:w-fit lg:text-xl">
+            木のぬくもりの中でおいしいコーヒーを。
+          </p>
         </div>
-        <p class="first-view__wood absolute top-0 right-0 md:relative">
+        <p class="first-view__wood animate absolute top-0 right-0 md:relative">
           <img src="/images/cafe-page/wood.svg" alt="" />
         </p>
-        <p class="first-view__img-photo">
+        <p class="first-view__img-photo animate">
           <img src="/images/sample/019.jpg" alt="" />
         </p>
       </section>
@@ -267,12 +301,23 @@ function setSlideStart(num) {
         flex: 0 1 50vw;
       }
     }
+    &__title {
+      opacity: 0;
+      &.active {
+        @include mixin.fadeLift();
+      }
+    }
     &__title img {
       @include mixin.mq-xl {
         width: 85%;
       }
     }
     &__sub-title {
+      opacity: 0;
+      &.active {
+        @include mixin.fadeLift();
+      }
+
       font-family: $main-font;
       color: #777777;
     }
@@ -280,8 +325,17 @@ function setSlideStart(num) {
       background: #fff;
       padding: 0.5rem 1rem;
       color: #777777;
+      // opacity: 0;
+      // &.active {
+      //   @include mixin.fadeLift($delay: 2s);
+      // }
+      @include mixin.mask($delay: 2s);
     }
     &__wood {
+      opacity: 0;
+      &.active {
+        @include mixin.fadeLift($delay: 0.3s);
+      }
       @include mixin.mq-md {
         flex: 0 1 20vw;
         margin-left: -5vw;
@@ -299,6 +353,10 @@ function setSlideStart(num) {
     }
 
     &__img-photo {
+      opacity: 0;
+      &.active {
+        @include mixin.fadeLift($delay: 0.6s);
+      }
       @include mixin.mq-md {
         flex: 0 1 30vw;
       }

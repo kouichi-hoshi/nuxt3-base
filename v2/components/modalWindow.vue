@@ -64,7 +64,7 @@ function attachModal() {
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../assets/css/variables.scss';
 @use '../assets/css/mixin.scss';
 
@@ -103,15 +103,15 @@ body.is-scrollLock {
 }
 
 .modal-window.is-fade-in {
-  animation: fadeIn 0.2s linear forwards;
+  animation: mFadeIn 0.2s linear forwards;
 }
 .modal-window.is-fade-out {
-  animation: fadeOut 0.2s linear forwards;
+  animation: mFadeOut 0.2s linear forwards;
 }
 
 // prettier-ignore
-@keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes mFadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
 
 // prettier-ignore
-@keyframes fadeOut { 0% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes mFadeOut { 0% { opacity: 1; } 100% { opacity: 0; } }
 </style>
