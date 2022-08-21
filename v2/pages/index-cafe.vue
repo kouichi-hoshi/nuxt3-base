@@ -100,6 +100,7 @@ function doWhenIntersect(entries) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add('active')
+      // }
     } else {
       entry.target.classList.remove('active')
     }
@@ -129,9 +130,9 @@ function doWhenIntersect(entries) {
       </section>
 
       <section id="concept" class="concept section-space px-4 xl:px-0">
-        <cHeader class="concept__title" data-title="コンセプト">Concept</cHeader>
+        <cHeader class="concept__title animate" data-title="コンセプト">Concept</cHeader>
 
-        <div class="concept__01">
+        <div class="concept__01 animate">
           <div class="basis-1/2 order-1 relative">
             <slideSplide :slide-items="slideItems" :slide-options="setSlideStart(3)" :aria-label="ariaLabel" />
             <p class="concept__01-title text-center m-4 md:m-0">Delicious coffee</p>
@@ -156,13 +157,13 @@ function doWhenIntersect(entries) {
           </div>
         </div>
 
-        <div class="concept__02">
+        <div class="concept__02 animate">
           <div class="basis-1/2 order-2 relative">
             <slideSplide :slide-items="slideItems" :slide-options="setSlideStart(5)" :aria-label="ariaLabel" />
             <p class="concept__02-title text-center main-font text-2xl m-4 md:m-0">Hospitality</p>
           </div>
           <div class="basis-1/2 order-1 my-auto sentence">
-            <cHeadline class="concept__content-title text-3xl mb-6 md:mb-12 font-bold">
+            <cHeadline class="concept__content-title animate text-3xl mb-6 md:mb-12 font-bold">
               Lorem ipsum dolor sit amet
             </cHeadline>
             <p>
@@ -181,13 +182,13 @@ function doWhenIntersect(entries) {
           </div>
         </div>
 
-        <div class="concept__03">
+        <div class="concept__03 animate">
           <div class="basis-1/2 order-1 relative">
             <slideSplide :slide-items="slideItems" :slide-options="setSlideStart(1)" :aria-label="ariaLabel" />
             <p class="concept__03-title text-center main-font text-2xl m-4 md:m-0">Luxury</p>
           </div>
           <div class="basis-1/2 order-2 my-auto sentence">
-            <cHeadline class="concept__content-title text-3xl mb-6 md:mb-12 font-bold">
+            <cHeadline class="concept__content-title animate text-3xl mb-6 md:mb-12 font-bold">
               Lorem ipsum dolor sit amet
             </cHeadline>
             <p>
@@ -208,7 +209,7 @@ function doWhenIntersect(entries) {
       </section>
 
       <section id="menu" class="menu container mx-auto px-4">
-        <cHeader class="menu__title" data-title="メニュー">Menu</cHeader>
+        <cHeader class="menu__title animate" data-title="メニュー">Menu</cHeader>
         <ul class="menu__items mb-12 md:mb-36">
           <li class="menu__item" v-for="(menuItem, i) in menuItems" :key="i">
             <p class="menu__img">
@@ -227,7 +228,7 @@ function doWhenIntersect(entries) {
 
       <section id="news" class="news px-4">
         <div class="container mx-auto">
-          <cHeader class="news__title" data-title="おしらせ">News</cHeader>
+          <cHeader class="news__title animate" data-title="おしらせ">News</cHeader>
           <div class="news__inner mx-auto grid grid-cols-2 gap-6 mb-24 md:grid-cols-2 xl:grid-cols-4">
             <repeatCard inner-class="news__item" :items="newsItems" :imgPath="itemsPath" titleClass="mt-2 text-xl" />
           </div>
@@ -402,6 +403,10 @@ function doWhenIntersect(entries) {
       font-weight: 500;
       font-family: $main-font;
       color: variables.$cWhite;
+      opacity: 0;
+      &.active {
+        @include mixin.fadeLift($delay: 0.3s);
+      }
       &[data-title]::after {
         color: map-get(variables.$theme-cafe-colors, 'mainColor');
       }
@@ -420,6 +425,10 @@ function doWhenIntersect(entries) {
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 6rem;
+      opacity: 0;
+      &.active {
+        @include mixin.fadeLift($delay: 0.3s);
+      }
       @include mixin.mq-md {
         display: flex;
       }
@@ -485,6 +494,10 @@ function doWhenIntersect(entries) {
     &__title {
       color: map-get(variables.$theme-cafe-colors, 'accentColor');
       font-family: $main-font;
+      opacity: 0;
+      &.active {
+        @include mixin.fadeLift($delay: 0.3s);
+      }
       &[data-title]::after {
         color: map-get(variables.$theme-cafe-colors, 'subColor');
       }
@@ -557,6 +570,10 @@ function doWhenIntersect(entries) {
     &__title {
       color: map-get(variables.$theme-cafe-colors, 'accentColor');
       font-family: $main-font;
+      opacity: 0;
+      &.active {
+        @include mixin.fadeLift($delay: 0.3s);
+      }
       &[data-title]::after {
         color: map-get(variables.$theme-cafe-colors, 'subColor');
       }
