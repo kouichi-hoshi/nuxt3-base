@@ -19,7 +19,7 @@ export default {
     outerClass: {
       type: String,
       default: () => {
-        return 'c-header mb-12 md:mb-24'
+        return 'c-header mb-6 md:mb-12'
       }
     },
     innerClass: {

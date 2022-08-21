@@ -1,17 +1,14 @@
 <template>
   <template :is="tagName" v-if="!btn">
-    <a
-      class="c-button rounded-full inline-block w-fit py-2 px-4"
-      :class="class"
-      :href="link"
-      :target="checkLinkType(link) ? '_self' : '_blank'"
-    >
+    <a class="c-button" :class="class" :href="link" :target="checkLinkType(link) ? '_self' : '_blank'">
       {{ label }}
+      <slot></slot>
     </a>
   </template>
   <div v-else>
-    <button :class="class" class="c-button rounded-full w-fit py-2 px-4 w-28 text-center">
+    <button class="c-button" :class="class">
       {{ label }}
+      <slot></slot>
     </button>
   </div>
 </template>

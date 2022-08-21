@@ -100,6 +100,8 @@ function doWhenIntersect(entries) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add('active')
+    } else {
+      entry.target.classList.remove('active')
     }
   })
 }
@@ -108,17 +110,17 @@ function doWhenIntersect(entries) {
 <template>
   <NuxtLayout name="cafe">
     <article>
-      <section class="first-view container mx-auto px-2 md:px-0 md:flex md:items-center">
+      <section class="first-view container mx-auto px-2 my-4 md:my-0 md:px-0 md:flex md:items-center">
         <div class="first-view__title-wrap relative z-10 md:z-0">
           <p class="first-view__sub-title animate text-lg md:ml-4">Coffee <span>&</span> Lunch</p>
           <h2 class="first-view__title mb-2 animate">
             <img class="first-view__title-img" src="/images/cafe-page/title-logo.svg" alt="CAFE WOODY" />
           </h2>
-          <p class="first-view__text animate my-2 md:mt-4 md:w-fit lg:text-xl">
+          <p class="first-view__text rounded-md animate my-4 md:mt-4 md:w-fit lg:text-xl">
             木のぬくもりの中でおいしいコーヒーを。
           </p>
         </div>
-        <p class="first-view__wood animate absolute top-0 right-0 md:relative">
+        <p class="first-view__wood animate absolute top-2 right-0 md:relative">
           <img src="/images/cafe-page/wood.svg" alt="" />
         </p>
         <p class="first-view__img-photo animate">
@@ -135,7 +137,9 @@ function doWhenIntersect(entries) {
             <p class="concept__01-title text-center m-4 md:m-0">Delicious coffee</p>
           </div>
           <div class="basis-1/2 order-2 my-auto sentence">
-            <cHeadline class="concept__content-title text-3xl mb-12 font-bold"> Lorem ipsum dolor sit amet </cHeadline>
+            <cHeadline class="concept__content-title text-3xl mb-6 md:mb-12 font-bold">
+              Lorem ipsum dolor sit amet
+            </cHeadline>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.
@@ -158,7 +162,9 @@ function doWhenIntersect(entries) {
             <p class="concept__02-title text-center main-font text-2xl m-4 md:m-0">Hospitality</p>
           </div>
           <div class="basis-1/2 order-1 my-auto sentence">
-            <h3 class="concept__content-title text-3xl mb-12 font-bold">Lorem ipsum dolor sit amet</h3>
+            <cHeadline class="concept__content-title text-3xl mb-6 md:mb-12 font-bold">
+              Lorem ipsum dolor sit amet
+            </cHeadline>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.
@@ -181,7 +187,9 @@ function doWhenIntersect(entries) {
             <p class="concept__03-title text-center main-font text-2xl m-4 md:m-0">Luxury</p>
           </div>
           <div class="basis-1/2 order-2 my-auto sentence">
-            <h3 class="concept__content-title text-3xl mb-12 font-bold">Lorem ipsum dolor sit amet</h3>
+            <cHeadline class="concept__content-title text-3xl mb-6 md:mb-12 font-bold">
+              Lorem ipsum dolor sit amet
+            </cHeadline>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.
@@ -217,14 +225,14 @@ function doWhenIntersect(entries) {
         </p>
       </section>
 
-      <section id="news" class="news">
+      <section id="news" class="news px-4">
         <div class="container mx-auto">
           <cHeader class="news__title" data-title="おしらせ">News</cHeader>
           <div class="news__inner mx-auto grid grid-cols-2 gap-6 mb-24 md:grid-cols-2 xl:grid-cols-4">
             <repeatCard inner-class="news__item" :items="newsItems" :imgPath="itemsPath" titleClass="mt-2 text-xl" />
           </div>
           <p class="text-center">
-            <cButton class="c-button--main" label="More" />
+            <cButton class="c-button--main" label="More"></cButton>
           </p>
         </div>
       </section>
@@ -267,7 +275,7 @@ function doWhenIntersect(entries) {
     font-size: 1.2rem;
     font-weight: 600;
     font-family: $sub-font;
-    border-bottom: 5px solid map-get(variables.$theme-cafe-colors, 'subColor');
+    border-bottom: 3px solid map-get(variables.$theme-cafe-colors, 'subColor');
     line-height: 4rem;
   }
 
@@ -285,8 +293,21 @@ function doWhenIntersect(entries) {
   }
 
   .c-button--main {
+    border-radius: 999px;
+    width: fit-content;
+    display: inline-block;
+    padding: 0.5rem 2rem;
     background: map-get(variables.$theme-cafe-colors, 'subColor');
     padding: 0.5rem 2rem;
+    line-height: 1.8;
+  }
+
+  .c-button--circle {
+    border-radius: 999px;
+    width: fit-content;
+    text-align: center;
+    background: map-get(variables.$theme-cafe-colors, 'subColor');
+    padding: 0.5rem;
     line-height: 1.8;
   }
 
@@ -360,8 +381,11 @@ function doWhenIntersect(entries) {
 
       & > img {
         border-radius: 1rem;
-        aspect-ratio: 2/3;
+        aspect-ratio: 4/3;
         object-fit: cover;
+        @include mixin.mq-sm {
+          aspect-ratio: 2/3;
+        }
         @include mixin.mq-xl {
           aspect-ratio: 3/4;
         }
@@ -539,6 +563,9 @@ function doWhenIntersect(entries) {
     }
     &__inner {
       max-width: variables.$screenLg;
+    }
+    &__item img {
+      border-radius: 0.25rem;
     }
   }
 }
