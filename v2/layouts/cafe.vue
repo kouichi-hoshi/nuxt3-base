@@ -74,7 +74,7 @@ onMounted(() => {
 
 <template>
   <div class="l-container">
-    <div class="l-header relative z-10" ref="header">
+    <div class="l-header relative z-20" ref="header">
       <mdlLogo class="cafe-logo fixed m-2 md:m-8" />
       <nav class="l-navigation hidden container relative mx-auto md:flex md:flex-col md:justify-center">
         <ul class="flex md:ml-36">
@@ -136,7 +136,7 @@ onMounted(() => {
       </cButton>
     </p>
 
-    <modalWindow hb-class="right-0 m-2 md:m-8">
+    <modalWindow hb-class="right-0 m-2 md:m-8" border-class="u-line-color-blue">
       <ul class="modal-nav text-2xl sm:text-3xl md:text-4xl">
         <mdlNavigation class="modal-menu main-font" :links="linkData" />
       </ul>
@@ -191,6 +191,7 @@ $main-font: 'Bungee', cursive;
       border: none;
     }
   }
+
   .top-return-btn {
     animation: ini 0.4s ease-out forwards;
     @keyframes ini {

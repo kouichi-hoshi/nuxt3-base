@@ -31,3 +31,7 @@
 .u-z-index-10000 {
   z-index: 10000 !important;
 }
+
+.u-line-color-blue {
+  stroke: map-get(variables.$theme-base-colors, 'subColor');
+}

@@ -28,6 +28,10 @@ const props = defineProps({
     type: String,
     default: '/images/common/no-image.png'
   },
+  outerClass: {
+    type: String,
+    default: ''
+  },
   innerClass: {
     type: String,
     default: ''
@@ -59,7 +63,7 @@ const props = defineProps({
 
 <template>
   <!-- 画像と文字のテンプレート -->
-  <div v-if="view === 'image'" v-for="(item, key) in items" :key="key" class="repeat-card-image">
+  <div v-if="view === 'image'" v-for="(item, key) in items" :key="key" class="repeat-card-image" :class="outerClass">
     <intersectionOA :class="innerClass" :observe="observe">
       <a :href="item.href">
         <p>

@@ -5,12 +5,12 @@
     :key="key"
     :class="class"
   >
-    <NuxtLink
-      :to="link.href"
+    <a
+      :href="link.href"
       :target="checkLinkType(link.href) ? '_self' : '_blank'"
     >
       {{ link.label }}
-    </NuxtLink>
+    </a>
   </component>
 </template>
 

@@ -19,6 +19,12 @@ const props = defineProps({
     default: () => {
       return 'right-0'
     }
+  },
+  borderClass: {
+    type: String,
+    default: () => {
+      return ''
+    }
   }
 })
 
@@ -47,7 +53,7 @@ function attachModal() {
 </script>
 
 <template>
-  <hamburgerButton @click="attachModal()" :class="hbClass" class="fixed u-z-index-10000" />
+  <hamburgerButton @click="attachModal()" :class="hbClass" :border-class="borderClass" class="fixed u-z-index-10000" />
   <div id="modalWindow" class="modal-window is-fade-in hidden text-center">
     <component :is="innerTagName" :class="innerClass">
       <slot></slot>

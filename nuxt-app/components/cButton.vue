@@ -1,12 +1,12 @@
 <template>
   <component :is="tagName" v-if="!btn" :class="class">
-    <NuxtLink
+    <a
       :class="['c-button rounded-full', { center: center }]"
-      :to="link"
+      :href="link"
       :target="checkLinkType(link) ? '_self' : '_blank'"
     >
       {{ label }}
-    </NuxtLink>
+    </a>
   </component>
   <div v-else>
     <button>{{ label }}</button>

@@ -1,8 +1,8 @@
 <template>
   <component :is="tagName" v-for="(link, key) in links" :key="key" :class="class" class="nav-menu">
-    <NuxtLink :to="link.href" :target="checkLinkType(link.href) ? '_self' : '_blank'">
+    <a :href="link.href" :target="checkLinkType(link.href) ? '_self' : '_blank'">
       {{ link.label }}
-    </NuxtLink>
+    </a>
   </component>
 </template>
 

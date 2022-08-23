@@ -9,9 +9,9 @@
       :class="{ active: hamburgerActive }"
       @click="hamburger()"
     >
-      <line class="border border1" x1="10" y1="12" x2="38" y2="12" />
-      <line class="border border2" x1="10" y1="24" x2="38" y2="24" />
-      <line class="border border3" x1="10" y1="36" x2="38" y2="36" />
+      <line class="border border1" :class="borderClass" x1="10" y1="12" x2="38" y2="12" />
+      <line class="border border2" :class="borderClass" x1="10" y1="24" x2="38" y2="24" />
+      <line class="border border3" :class="borderClass" x1="10" y1="36" x2="38" y2="36" />
     </svg>
   </component>
 </template>
@@ -35,6 +35,12 @@ export default {
       type: String,
       default: () => {
         return 'trigger'
+      }
+    },
+    borderClass: {
+      type: String,
+      default: () => {
+        return ''
       }
     }
   },

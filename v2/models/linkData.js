@@ -9,12 +9,12 @@ export default [
   },
   {
     label: 'Blog',
-    href: '/blog',
+    href: '',
     class: 'menu-blog'
   },
   {
     label: 'home',
-    href: '/',
+    href: '',
     class: 'menu-home'
     // svgIcon: 'home-icon.svg'
   }

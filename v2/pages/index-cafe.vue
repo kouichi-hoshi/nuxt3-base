@@ -60,7 +60,7 @@ const slideOptions = {
   arrows: false, // スライドを操作するためのアローボタンを使用しない設定
   autoplay: true, // ロード後、自動的にスライドを実行
   rewind: true, // 最後のスライド画像が表示された後、最初の画像にもどる
-  slideAspect: 'aspect-[1/1] md:aspect-[3/4]'
+  slideAspect: 'aspect-[1/1] md:aspect-[3/4] w-full'
 }
 
 // スライド画像のパスとファイル名を結合し配列に格納する
@@ -112,9 +112,9 @@ function doWhenIntersect(entries) {
   <NuxtLayout name="cafe">
     <article>
       <section class="first-view container mx-auto px-2 my-4 md:my-0 md:px-0 md:flex md:items-center">
-        <div class="first-view__title-wrap relative z-10 md:z-0">
-          <p class="first-view__sub-title animate text-lg md:ml-4">Coffee <span>&</span> Lunch</p>
-          <h2 class="first-view__title mb-2 animate">
+        <div class="first-view__title-wrap animate relative z-10 md:z-0">
+          <p class="first-view__sub-title text-lg md:ml-4">Coffee <span>&</span> Lunch</p>
+          <h2 class="first-view__title mb-2">
             <img class="first-view__title-img" src="/images/cafe-page/title-logo.svg" alt="CAFE WOODY" />
           </h2>
           <p class="first-view__text rounded-md animate my-4 md:mt-4 md:w-fit lg:text-xl">
@@ -229,8 +229,14 @@ function doWhenIntersect(entries) {
       <section id="news" class="news px-4">
         <div class="container mx-auto">
           <cHeader class="news__title animate" data-title="おしらせ">News</cHeader>
-          <div class="news__inner mx-auto grid grid-cols-2 gap-6 mb-24 md:grid-cols-2 xl:grid-cols-4">
-            <repeatCard inner-class="news__item" :items="newsItems" :imgPath="itemsPath" titleClass="mt-2 text-xl" />
+          <div class="news__inner mx-auto mb-24 sm:grid sm:grid-cols-2 sm:gap-6 md:grid-cols-2 xl:grid-cols-4">
+            <repeatCard
+              outer-class="mb-8 sm:mb-0"
+              inner-class="news__item"
+              :items="newsItems"
+              :imgPath="itemsPath"
+              titleClass="m-2 text-xl"
+            />
           </div>
           <p class="text-center">
             <cButton class="c-button--main" label="More"></cButton>
@@ -272,12 +278,16 @@ function doWhenIntersect(entries) {
     content: attr(data-title);
     display: block;
     width: fit-content;
-    margin: 1rem auto;
     font-size: 1.2rem;
     font-weight: 600;
     font-family: $sub-font;
     border-bottom: 3px solid map-get(variables.$theme-cafe-colors, 'subColor');
-    line-height: 4rem;
+    line-height: 2rem;
+    margin: 0 auto 2rem auto;
+    @include mixin.mq-md {
+      margin: 1rem auto 4rem auto;
+      line-height: 4rem;
+    }
   }
 
   // section間の余白の共通設定
@@ -320,15 +330,19 @@ function doWhenIntersect(entries) {
       height: 80vh;
     }
     &__title-wrap {
+      opacity: 0;
+      &.active {
+        @include mixin.fadeLift();
+      }
       @include mixin.mq-md {
         flex: 0 1 50vw;
       }
     }
     &__title {
-      opacity: 0;
-      &.active {
-        @include mixin.fadeLift();
-      }
+      // opacity: 0;
+      // &.active {
+      //   @include mixin.fadeLift();
+      // }
     }
     &__title img {
       @include mixin.mq-xl {
@@ -336,10 +350,10 @@ function doWhenIntersect(entries) {
       }
     }
     &__sub-title {
-      opacity: 0;
-      &.active {
-        @include mixin.fadeLift();
-      }
+      // opacity: 0;
+      // &.active {
+      //   @include mixin.fadeLift();
+      // }
 
       font-family: $main-font;
       color: #777777;
@@ -384,6 +398,7 @@ function doWhenIntersect(entries) {
         border-radius: 1rem;
         aspect-ratio: 4/3;
         object-fit: cover;
+        width: 100%;
         @include mixin.mq-sm {
           aspect-ratio: 2/3;
         }
@@ -546,6 +561,7 @@ function doWhenIntersect(entries) {
         border-radius: 1rem 1rem 0 0;
         object-fit: cover;
         aspect-ratio: 1 / 1;
+        width: 100%;
       }
     }
     &__inner {
@@ -582,7 +598,9 @@ function doWhenIntersect(entries) {
       max-width: variables.$screenLg;
     }
     &__item img {
-      border-radius: 0.25rem;
+      border-radius: 0.5rem;
+      aspect-ratio: 3/2;
+      width: 100%;
     }
   }
 }
