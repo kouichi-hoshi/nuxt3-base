@@ -65,13 +65,7 @@ const slideItems = [
       </section>
 
       <section class="slide">
-        <slideSplide
-          :slide-items="slideItems"
-          :slide-options="slideOptions"
-          :slideAspect="slideAspect"
-          :aria-label="ariaLabel"
-          view="img-text"
-        />
+        <slideSplide :slide-items="slideItems" :slide-options="slideOptions" />
       </section>
 
       <section class="key-words container mx-auto p-2 u-maxWidthLg">
