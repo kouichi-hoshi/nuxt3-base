@@ -1,0 +1,164 @@
+<script setup>
+import itemsSample from '../models/itemsSample.js'
+import keyWords from '../models/keyWords.js'
+import SlideSplide from '../components/slideSplide.vue'
+
+const postData = {
+  title: import.meta.env.VITE_SITE_TITLE,
+  subtitle: import.meta.env.VITE_SITE_SUB_TITLE
+}
+useHead({
+  bodyAttrs: {
+    class: 'demo'
+  }
+})
+
+/**
+ * slideSplide
+ */
+// スライドオプション
+const slideOptions = {
+  type: 'fade', // スライドの動作をフェードに指定
+  interval: '4000', //自動再生の間隔をミリ秒単位で指定
+  speed: '1000', // スライドが切り替わる時間をミリ秒で指定
+  arrows: true, // スライドを操作するためのアローボタンを使用しない設定
+  autoplay: true, // ロード後、自動的にスライドを実行
+  rewind: true, // 最後のスライド画像が表示された後、最初の画像にもどる
+  slideAspect: 'aspect-[16/9]'
+}
+
+//スライドデータ
+const slideItems = [
+  {
+    src: '/images/sample/001.jpg',
+    webpSrc: '/images/sample/001.webp',
+    alt: '001画像',
+    caption: '001画像',
+    href: '/'
+  },
+  {
+    src: '/images/sample/002.jpg',
+    alt: '002画像',
+    caption: '002画像',
+    href: '/'
+  },
+  {
+    src: '/images/sample/003.jpg',
+    alt: '003画像',
+    caption: '003画像',
+    href: '/'
+  }
+]
+</script>
+
+<template>
+  <NuxtLayout>
+    <article>
+      <section class="compPicture mb-12">
+        <compPicture
+          class="addPicture"
+          webp-src="/images/sample/001.webp"
+          img-class="img-class"
+          img-src="/images/sample/001.jpg"
+          alt="picture-test"
+        />
+      </section>
+
+      <section class="slide">
+        <slideSplide
+          :slide-items="slideItems"
+          :slide-options="slideOptions"
+          :slideAspect="slideAspect"
+          :aria-label="ariaLabel"
+          view="img-text"
+        />
+      </section>
+
+      <section class="key-words container mx-auto p-2 u-maxWidthLg">
+        <cHeadline class="text-center text-2xl md:text-3xl my-4">text</cHeadline>
+        <ul
+          class="key-words__item-wrap text-center px-10 mb-24 grid grid-cols-1 gap-1 md:gap-6 md:grid-cols-2 md:grid-cols-3 lg:text-lg"
+        >
+          <template v-for="(item, key) in keyWords" :key="key">
+            <tooltip tagName="li" class="flex justify-center key-words__item">
+              <template #label>
+                <intersectionOA class="flex w-full justify-between justify-center p-4 mask mask-1" observe="observe">
+                  <div class="w-full">{{ item.label }}</div>
+                  <svg class="icon-message" width="24" height="24" viewBox="0 0 24 24">
+                    <use href="/images/common/icon/message.svg#symbol" />
+                  </svg>
+                </intersectionOA>
+              </template>
+              <template #content>
+                <p class="">{{ item.content }}</p>
+              </template>
+            </tooltip>
+          </template>
+        </ul>
+      </section>
+    </article>
+    <aside></aside>
+  </NuxtLayout>
+</template>
+
+<style lang="scss">
+@use '../assets/css/mixin.scss';
+@use '../assets/css/variables.scss';
+// @use '../assets/css/utility.scss';
+
+// TODO
+.home {
+  .l-header {
+    @include mixin.mq-md {
+      display: flex;
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+    }
+    &__title {
+      display: none;
+      @include mixin.mq-md {
+        display: block;
+      }
+    }
+  }
+  .l-main {
+    .slide {
+      background: map-get(variables.$theme-base-colors, cGray);
+      color: map-get(variables.$theme-base-colors, cWhite);
+      position: relative;
+      &__inner {
+        @include mixin.mq-lg {
+          max-width: unset;
+          &::before {
+            color: hsla(0, 0%, 100%, 0.1);
+            content: 'Website Production\a Achievements';
+            font-size: 6rem;
+            line-height: 6.5rem;
+            position: absolute;
+            right: -50%;
+            top: calc(50vh - 15rem);
+            transform: rotate(90deg);
+            transform-origin: center;
+            white-space: pre;
+          }
+        }
+      }
+    }
+    .key-words {
+      &__item {
+        border: 5px solid map-get(variables.$theme-base-colors, cLightGray);
+        background: map-get(variables.$theme-base-colors, cWhite);
+      }
+      .icon-message {
+        fill: map-get(variables.$theme-base-colors, subColor);
+      }
+    }
+  }
+  .l-footer {
+    @include mixin.mq-lg {
+      margin-top: 0;
+    }
+  }
+}
+</style>
