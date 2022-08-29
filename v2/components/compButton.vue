@@ -8,27 +8,21 @@
 import checkLinkType from '../functions/checkLinkType.js'
 
 const props = defineProps({
-  props: {
-    // buttonタグにする場合使用
-    btn: {
-      type: Boolean,
-      default: () => {
-        return false
-      }
-    },
-    tagName: {
-      type: String,
-      default: () => {
-        return 'div'
-      }
-    },
-    href: {
-      type: String
-    },
-    class: {
-      type: String,
-      default: ''
-    }
+  // buttonタグにする場合使用
+  btn: {
+    type: Boolean,
+    default: false
+  },
+  tagName: {
+    type: String,
+    default: 'div'
+  },
+  href: {
+    type: String
+  },
+  class: {
+    type: String,
+    default: ''
   }
 })
 </script>
@@ -39,12 +33,11 @@ const props = defineProps({
       <slot></slot>
     </a>
   </template>
-  <div v-else>
+  <template v-else>
     <button class="c-button" :class="class">
-      {{ label }}
       <slot></slot>
     </button>
-  </div>
+  </template>
 </template>
 
 <style lang="scss" scoped>
