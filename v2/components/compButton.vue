@@ -46,8 +46,8 @@ const props = defineProps({
 
 .c-button {
   @include mixin.c-button();
-}
-.c-button--demo {
-  @include mixin.c-button($color: white, $bg: tomato, $padding: 1rem, $radius: 10vmax);
+  &--demo {
+    @include mixin.c-button($color: white, $bg: tomato, $padding: 1rem, $radius: 10vmax);
+  }
 }
 </style>
