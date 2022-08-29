@@ -49,9 +49,9 @@ const menuItems = [
 /**
  * slideSplide
  */
-const fileName = ['007.jpg', '008.jpg', '009.jpg', '011.jpg', '013.jpg'] // スライドで表示する画像
-const filePath = '/images/sample/' // 画像のパス
-const ariaLabel = 'slide' //スライド本体のaria-label属性の値
+// const fileName = ['007.jpg', '008.jpg', '009.jpg', '011.jpg', '013.jpg'] // スライドで表示する画像
+// const filePath = '/images/sample/' // 画像のパス
+// const ariaLabel = 'slide' //スライド本体のaria-label属性の値
 
 // スライドのオプション
 const slideOptions = {
@@ -63,10 +63,43 @@ const slideOptions = {
   slideAspect: 'aspect-[1/1] md:aspect-[3/4] w-full'
 }
 
-// スライド画像のパスとファイル名を結合し配列に格納する
-const slideItems = fileName.map((img) => {
-  return filePath + img
-})
+// // スライド画像のパスとファイル名を結合し配列に格納する
+// const slideItems = fileName.map((img) => {
+//   return filePath + img
+// })
+const slideItems = [
+  {
+    src: '/images/sample/001.jpg',
+    webpSrc: '/images/sample/001.webp',
+    alt: '001画像',
+    href: '/'
+  },
+  {
+    src: '/images/sample/007.jpg',
+    alt: '007画像',
+    href: '/'
+  },
+  {
+    src: '/images/sample/008.jpg',
+    alt: '008画像',
+    href: '/'
+  },
+  {
+    src: '/images/sample/009.jpg',
+    alt: '009画像',
+    href: '/'
+  },
+  {
+    src: '/images/sample/011.jpg',
+    alt: '011画像',
+    href: '/'
+  },
+  {
+    src: '/images/sample/013.jpg',
+    alt: '013画像',
+    href: '/'
+  }
+]
 
 // スライドの最初の画像を指定する
 function setSlideStart(num) {
@@ -134,7 +167,7 @@ function doWhenIntersect(entries) {
 
         <div class="concept__01 animate">
           <div class="basis-1/2 order-1 relative">
-            <slideSplide :slide-items="slideItems" :slide-options="setSlideStart(3)" :aria-label="ariaLabel" />
+            <slideSplide :slide-items="slideItems" :slide-options="setSlideStart(3)" />
             <p class="concept__01-title text-center m-4 md:m-0">Delicious coffee</p>
           </div>
           <div class="basis-1/2 order-2 my-auto sentence">
@@ -159,7 +192,7 @@ function doWhenIntersect(entries) {
 
         <div class="concept__02 animate">
           <div class="basis-1/2 order-2 relative">
-            <slideSplide :slide-items="slideItems" :slide-options="setSlideStart(5)" :aria-label="ariaLabel" />
+            <slideSplide :slide-items="slideItems" :slide-options="setSlideStart(5)" />
             <p class="concept__02-title text-center main-font text-2xl m-4 md:m-0">Hospitality</p>
           </div>
           <div class="basis-1/2 order-1 my-auto sentence">
@@ -184,7 +217,7 @@ function doWhenIntersect(entries) {
 
         <div class="concept__03 animate">
           <div class="basis-1/2 order-1 relative">
-            <slideSplide :slide-items="slideItems" :slide-options="setSlideStart(1)" :aria-label="ariaLabel" />
+            <slideSplide :slide-items="slideItems" :slide-options="setSlideStart(1)" />
             <p class="concept__03-title text-center main-font text-2xl m-4 md:m-0">Luxury</p>
           </div>
           <div class="basis-1/2 order-2 my-auto sentence">
