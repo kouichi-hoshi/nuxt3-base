@@ -33,8 +33,8 @@ useHead({
 
 <template>
   <div class="l-container relative">
-    <div class="l-header flex items-center p-2 mt-4 md:mt-0 md:p-8">
-      <div class="flex items-center fixed u-z-index-10000">
+    <div class="l-header flex items-center">
+      <div class="flex items-center">
         <logoMark class="logo-w-40 mr-2" />
         <a href="/"><mdlTitle :mdl-title="siteTitle" class="l-header__title mr-4 text-xl font-bold" /></a>
         <p v-if="false" class="l-header__site-text hidden xl:block">{{ siteText }}</p>

@@ -54,18 +54,25 @@ const slideItems = [
 <template>
   <NuxtLayout>
     <article>
-      <section class="compPicture mb-12">
+      <section class="container mx-auto my-24 md:my-48">
+        <cHeader>compPicture</cHeader>
         <compPicture
-          class="addPicture"
           webp-src="/images/sample/001.webp"
-          img-class="img-class"
           img-src="/images/sample/001.jpg"
+          img-class="img-class"
           alt="picture-test"
         />
       </section>
 
-      <section class="slide">
+      <section class="container mx-auto my-24 md:my-48">
+        <cHeader>slideSplide</cHeader>
         <slideSplide :slide-items="slideItems" :slide-options="slideOptions" />
+      </section>
+
+      <section class="container mx-auto my-24 md:my-48">
+        <cHeader>compButton</cHeader>
+        <compButton class="my-4 mx-auto" href="/">Button</compButton>
+        <compButton class="c-button--demo my-4 mx-auto" href="/">Button</compButton>
       </section>
 
       <section class="key-words container mx-auto p-2 u-maxWidthLg">
@@ -95,64 +102,57 @@ const slideItems = [
   </NuxtLayout>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../assets/css/mixin.scss';
 @use '../assets/css/variables.scss';
 // @use '../assets/css/utility.scss';
 
-// TODO
-.home {
-  .l-header {
-    @include mixin.mq-md {
-      display: flex;
-      position: absolute;
-      z-index: 1;
-      width: 100%;
-    }
-    &__title {
-      display: none;
-      @include mixin.mq-md {
-        display: block;
-      }
-    }
-  }
-  .l-main {
-    .slide {
-      background: map-get(variables.$theme-base-colors, cGray);
-      color: map-get(variables.$theme-base-colors, cWhite);
-      position: relative;
-      &__inner {
-        @include mixin.mq-lg {
-          max-width: unset;
-          &::before {
-            color: hsla(0, 0%, 100%, 0.1);
-            content: 'Website Production\a Achievements';
-            font-size: 6rem;
-            line-height: 6.5rem;
-            position: absolute;
-            right: -50%;
-            top: calc(50vh - 15rem);
-            transform: rotate(90deg);
-            transform-origin: center;
-            white-space: pre;
-          }
-        }
-      }
-    }
-    .key-words {
-      &__item {
-        border: 5px solid map-get(variables.$theme-base-colors, cLightGray);
-        background: map-get(variables.$theme-base-colors, cWhite);
-      }
-      .icon-message {
-        fill: map-get(variables.$theme-base-colors, subColor);
-      }
-    }
-  }
-  .l-footer {
-    @include mixin.mq-lg {
-      margin-top: 0;
-    }
+.demo {
+  .c-button--demo {
+    @include mixin.c-button($color: white, $bg: tomato, $padding: 1rem, $radius: 10vmax);
   }
 }
+
+// .demo {
+//   .l-header {
+//   }
+//   .l-main {
+//     .slide {
+//       background: map-get(variables.$theme-base-colors, cGray);
+//       color: map-get(variables.$theme-base-colors, cWhite);
+//       position: relative;
+//       &__inner {
+//         @include mixin.mq-lg {
+//           max-width: unset;
+//           &::before {
+//             color: hsla(0, 0%, 100%, 0.1);
+//             content: 'Website Production\a Achievements';
+//             font-size: 6rem;
+//             line-height: 6.5rem;
+//             position: absolute;
+//             right: -50%;
+//             top: calc(50vh - 15rem);
+//             transform: rotate(90deg);
+//             transform-origin: center;
+//             white-space: pre;
+//           }
+//         }
+//       }
+//     }
+//     .key-words {
+//       &__item {
+//         border: 5px solid map-get(variables.$theme-base-colors, cLightGray);
+//         background: map-get(variables.$theme-base-colors, cWhite);
+//       }
+//       .icon-message {
+//         fill: map-get(variables.$theme-base-colors, subColor);
+//       }
+//     }
+//   }
+//   .l-footer {
+//     @include mixin.mq-lg {
+//       margin-top: 0;
+//     }
+//   }
+// }
 </style>

@@ -1,12 +1,22 @@
 <script setup>
+/**
+ * compPicture
+ * webp画像とそのフォールバックを表示させるためのコンポーネント
+ * 画像URLを受け取り拡張子がwebpになっているかをバリデートする
+ */
+
 const props = defineProps({
   class: {
     type: String,
     default: ''
   },
-  sourceClass: {
+  imgClass: {
     type: String,
     default: ''
+  },
+  imgSrc: {
+    type: String,
+    required: true
   },
   webpSrc: {
     type: String,
@@ -19,14 +29,6 @@ const props = defineProps({
       }
     }
   },
-  imgClass: {
-    type: String,
-    default: ''
-  },
-  imgSrc: {
-    type: String,
-    required: true
-  },
   alt: {
     type: String,
     default: ''
@@ -35,8 +37,12 @@ const props = defineProps({
 </script>
 <template>
   <picture v-if="webpSrc" class="c-picture" :class="class">
-    <source :class="sourceClass" :srcset="webpSrc" type="image/webp" />
-    <img :class="imgClass" :src="imgSrc" :alt="alt" />
+    <source :srcset="webpSrc" type="image/webp" />
+    <img class="c-picture__img" :class="imgClass" :src="imgSrc" :alt="alt" />
   </picture>
-  <img v-else :class="imgClass" :src="imgSrc" :alt="alt" />
 </template>
+
+<style lang="scss" scoped>
+.c-picture {
+}
+</style>

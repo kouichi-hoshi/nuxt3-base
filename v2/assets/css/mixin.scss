@@ -28,7 +28,9 @@
   }
 }
 
-//Logo Type
+/**
+ * Logo Type
+ */
 @mixin logoTypeSet($ff, $fw: normal) {
   font-family: $ff;
   font-weight: $fw;
@@ -65,6 +67,21 @@
       margin-#{$position}: $margin;
     }
   }
+}
+
+/**
+ * button
+ */
+@mixin c-button($color: variables.$cWhite, $bg: variables.$cGray, $padding: 0.5rem 2rem, $radius: 100vmax) {
+  color: $color;
+  background: $bg;
+  display: block;
+  padding: $padding;
+  width: fit-content;
+  @if $radius {
+    border-radius: $radius;
+  }
+  @debug $radius;
 }
 
 /**

@@ -22,12 +22,18 @@ const props = defineProps({
       rewind: true, // 最後のスライド画像が表示された後、最初の画像にもどる
       slideAspect: 'aspect-[16/9]'
     }
+  },
+  tagName: {
+    type: String,
+    default: () => {
+      return 'div'
+    }
   }
 })
 </script>
 
 <template>
-  <Splide tag="div" aria-label="スライド" :options="slideOptions">
+  <Splide :tag="tagName" aria-label="スライド" :options="slideOptions">
     <SplideSlide v-for="(slideItem, key) in slideItems" :key="key">
       <a :href="slideItem.href">
         <img class="object-cover w-full" :class="slideOptions.slideAspect" :src="slideItem.src" :alt="slideItem.key" />
@@ -36,7 +42,7 @@ const props = defineProps({
   </Splide>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .splide {
   width: 100%;
   margin: 0 auto;
