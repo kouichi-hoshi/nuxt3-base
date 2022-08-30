@@ -2,8 +2,8 @@
 /**
  * compButton
  * ボタンを表示させるコンポーネント
- * props.btn コンポーネントを呼び出すとき、
- * btn文字列をセットするとbutton要素、セットしなければa要素としてレンダリングされる
+ * btn属性をセットするとbutton要素、セットしなければa要素としてレンダリングされる
+ * removeDefaultClass属性をセットするとc-buttonクラスを除去する
  */
 import checkLinkType from '../functions/checkLinkType.js'
 
@@ -20,21 +20,21 @@ const props = defineProps({
   href: {
     type: String
   },
-  class: {
-    type: String,
-    default: ''
+  removeDefaultClass: {
+    type: Boolean,
+    default: false
   }
 })
 </script>
 
 <template>
   <template v-if="!btn" :is="tagName">
-    <a class="c-button" :class="class" :href="href" :target="checkLinkType(href) ? '_self' : '_blank'">
+    <a :class="{ 'c-button': !removeDefaultClass }" :href="href" :target="checkLinkType(href) ? '_self' : '_blank'">
       <slot></slot>
     </a>
   </template>
   <template v-else>
-    <button class="c-button" :class="class">
+    <button :class="{ 'c-button': !removeDefaultClass }">
       <slot></slot>
     </button>
   </template>
@@ -46,8 +46,5 @@ const props = defineProps({
 
 .c-button {
   @include mixin.c-button();
-  &--demo {
-    @include mixin.c-button($color: white, $bg: tomato, $padding: 1rem, $radius: 10vmax);
-  }
 }
 </style>

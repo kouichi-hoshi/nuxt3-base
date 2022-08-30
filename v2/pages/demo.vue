@@ -55,7 +55,7 @@ const slideItems = [
   <NuxtLayout>
     <article>
       <section class="container mx-auto my-24 md:my-48">
-        <cHeader>compPicture</cHeader>
+        <compHeader>compPicture</compHeader>
         <compPicture
           webp-src="/images/sample/001.webp"
           img-src="/images/sample/001.jpg"
@@ -65,14 +65,16 @@ const slideItems = [
       </section>
 
       <section class="container mx-auto my-24 md:my-48">
-        <cHeader>slideSplide</cHeader>
+        <compHeader>slideSplide</compHeader>
         <slideSplide :slide-items="slideItems" :slide-options="slideOptions" />
       </section>
 
       <section class="container mx-auto my-24 md:my-48">
-        <cHeader>compButton</cHeader>
+        <compHeader>compButton</compHeader>
         <compButton class="my-4 mx-auto" href="/">Button</compButton>
-        <compButton class="c-button--demo my-4 mx-auto" href="/">Button</compButton>
+        <compButton btn class="my-4 mx-auto">Button elm</compButton>
+        <compButton removeDefaultClass class="p-button my-4 mx-auto" href="/">Button</compButton>
+        <compButton class="p-button--demo my-4 mx-auto" href="/">Demo Button</compButton>
       </section>
 
       <section class="key-words container mx-auto p-2 u-maxWidthLg">
@@ -108,8 +110,17 @@ const slideItems = [
 // @use '../assets/css/utility.scss';
 
 .demo {
-  .c-button--demo {
-    @include mixin.c-button($color: white, $bg: tomato, $padding: 1rem, $radius: 10vmax);
+  //プロジェクトで上書きする場合はp接頭辞を付ける
+  .p-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid #333;
+    padding: 1rem;
+    width: fit-content;
+    &--demo {
+      @include mixin.c-button($color: white, $bg: tomato, $padding: 1rem, $radius: 1rem);
+    }
   }
 }
 
