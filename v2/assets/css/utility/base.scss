@@ -1,16 +1,15 @@
-@use '../assets/css/mixin.scss';
-@use '../assets/css/variables.scss';
+@use '../global' as g;
 
 .u-maxWidthSm {
-  max-width: variables.$screenSm !important;
+  max-width: g.$screenSm !important;
 }
 
 .u-maxWidthMd {
-  max-width: variables.$screenMd !important;
+  max-width: g.$screenMd !important;
 }
 
 .u-maxWidthLg {
-  max-width: variables.$screenLg !important;
+  max-width: g.$screenLg !important;
 }
 
 .u-maxWidth90P {
@@ -33,5 +32,5 @@
 }
 
 .u-line-color-blue {
-  stroke: map-get(variables.$theme-base-colors, 'subColor');
+  stroke: map-get(g.$theme-base-colors, 'subColor');
 }

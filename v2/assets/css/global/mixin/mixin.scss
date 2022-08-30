@@ -1,29 +1,29 @@
-@use '../assets/css/variables.scss';
+@use '../setting' as g;
 
 /**
  * Media Queries
  */
 // BreakPoint sm
 @mixin mq-sm {
-  @media (min-width: variables.$screenSm) {
+  @media (min-width: g.$screenSm) {
     @content;
   }
 }
 // BreakPoint md
 @mixin mq-md {
-  @media (min-width: variables.$screenMd) {
+  @media (min-width: g.$screenMd) {
     @content;
   }
 }
 // BreakPoint lg
 @mixin mq-lg {
-  @media (min-width: variables.$screenLg) {
+  @media (min-width: g.$screenLg) {
     @content;
   }
 }
 // BreakPoint xl
 @mixin mq-xl {
-  @media (min-width: variables.$screenXl) {
+  @media (min-width: g.$screenXl) {
     @content;
   }
 }
@@ -70,18 +70,19 @@
 }
 
 /**
- * button
+ * header
  */
-@mixin c-button($color: variables.$cWhite, $bg: variables.$cGray, $padding: 0.5rem 2rem, $radius: 100vmax) {
-  color: $color;
-  background: $bg;
-  display: block;
-  padding: $padding;
+@mixin c-header() {
   width: fit-content;
-  @if $radius {
-    border-radius: $radius;
+
+  margin: 0 auto 1.5rem auto;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  @include mq-md {
+    font-size: 3.75rem;
+    line-height: 1;
+    margin: 0 auto 3rem auto;
   }
-  @debug $radius;
 }
 
 /**

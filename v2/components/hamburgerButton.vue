@@ -65,8 +65,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/css/variables.scss';
-@use '../assets/css/mixin.scss';
+@use '../assets/css/global' as g;
 
 .hamburger-button {
   top: 0;

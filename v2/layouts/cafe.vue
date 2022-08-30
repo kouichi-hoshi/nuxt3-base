@@ -145,8 +145,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@use '../assets/css/variables.scss';
-@use '../assets/css/mixin.scss';
+@use '../assets/css/global' as g;
 
 $main-font: 'Bungee', cursive;
 
@@ -160,7 +159,7 @@ $main-font: 'Bungee', cursive;
 
   .l-header {
     height: 64px;
-    @include mixin.mq-md {
+    @include g.mq-md {
       height: 128px;
     }
   }
@@ -168,19 +167,19 @@ $main-font: 'Bungee', cursive;
   .l-navigation {
     height: 8rem;
     font-family: $main-font;
-    color: map-get(variables.$theme-cafe-colors, 'subColor');
+    color: map-get(g.$theme-cafe-colors, 'subColor');
   }
 
   .cafe-logo {
     width: 40px;
-    @include mixin.mq-md {
+    @include g.mq-md {
       width: 60px;
     }
   }
 
   .l-footer {
-    background: map-get(variables.$theme-cafe-colors, 'color5');
-    color: map-get(variables.$theme-cafe-colors, 'accentColor');
+    background: map-get(g.$theme-cafe-colors, 'color5');
+    color: map-get(g.$theme-cafe-colors, 'accentColor');
     font-family: $main-font;
 
     &__title {
@@ -202,7 +201,7 @@ $main-font: 'Bungee', cursive;
   }
 
   .active > .top-return-btn {
-    @include mixin.fadeLift();
+    @include g.fadeLift();
   }
   .active.up > .top-return-btn {
     animation: up 0.4s ease-out forwards;

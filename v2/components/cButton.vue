@@ -54,11 +54,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/css/mixin.scss';
-@use '../assets/css/variables.scss';
+@use '../assets/css/global' as g;
 
 .c-button {
-  color: variables.$cWhite;
-  background: variables.$cGray;
+  color: g.$cWhite;
+  background: g.$cGray;
 }
 </style>

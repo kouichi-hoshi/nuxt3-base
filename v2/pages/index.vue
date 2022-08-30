@@ -108,14 +108,12 @@ const slideItems = [
 </template>
 
 <style lang="scss">
-@use '../assets/css/mixin.scss';
-@use '../assets/css/variables.scss';
-// @use '../assets/css/utility.scss';
+@use '../assets/css/global' as g;
 
 // TODO
 .home {
   .l-header {
-    @include mixin.mq-md {
+    @include g.mq-md {
       display: flex;
       position: absolute;
       z-index: 1;
@@ -123,7 +121,7 @@ const slideItems = [
     }
     &__title {
       display: none;
-      @include mixin.mq-md {
+      @include g.mq-md {
         display: block;
       }
     }
@@ -131,14 +129,14 @@ const slideItems = [
   .l-main {
     .first-view {
       height: 80vh;
-      @include mixin.mq-md {
+      @include g.mq-md {
         height: 100vh;
       }
       &__title {
         flex: 1 1 auto;
       }
       &__title-text {
-        @include mixin.logoTypeSet($ff: variables.$logoFontFamily, $fw: 600);
+        @include g.logoTypeSet($ff: g.$logoFontFamily, $fw: 600);
       }
       &__plan {
         li:last-child {
@@ -147,11 +145,11 @@ const slideItems = [
       }
     }
     .slide {
-      background: map-get(variables.$theme-base-colors, cGray);
-      color: map-get(variables.$theme-base-colors, cWhite);
+      background: map-get(g.$theme-base-colors, cGray);
+      color: map-get(g.$theme-base-colors, cWhite);
       position: relative;
       &__inner {
-        @include mixin.mq-lg {
+        @include g.mq-lg {
           max-width: unset;
           &::before {
             color: hsla(0, 0%, 100%, 0.1);
@@ -170,16 +168,16 @@ const slideItems = [
     }
     .key-words {
       &__item {
-        border: 5px solid map-get(variables.$theme-base-colors, cLightGray);
-        background: map-get(variables.$theme-base-colors, cWhite);
+        border: 5px solid map-get(g.$theme-base-colors, cLightGray);
+        background: map-get(g.$theme-base-colors, cWhite);
       }
       .icon-message {
-        fill: map-get(variables.$theme-base-colors, subColor);
+        fill: map-get(g.$theme-base-colors, subColor);
       }
     }
   }
   .l-footer {
-    @include mixin.mq-lg {
+    @include g.mq-lg {
       margin-top: 0;
     }
   }

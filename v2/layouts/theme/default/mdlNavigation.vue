@@ -39,8 +39,7 @@ const props = defineProps({
 </template>
 
 <style lang="scss">
-@use '/assets/css/variables.scss';
-@use '/assets/css/mixin.scss';
+@use '../assets/css/global' as g;
 
 .svg-icon {
   fill: transparent;
@@ -62,14 +61,14 @@ const props = defineProps({
       a {
         display: block;
         padding: 8px 4px;
-        @include mixin.mq-lg {
+        @include g.mq-lg {
           padding: 0;
         }
       }
     }
     .menu + .menu {
-      border-top: solid map-get(variables.$theme-base-colors, 'cLightGray') 1px;
-      @include mixin.mq-lg {
+      border-top: solid map-get(g.$theme-base-colors, 'cLightGray') 1px;
+      @include g.mq-lg {
         border: none;
         margin-left: 2rem;
       }

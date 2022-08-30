@@ -41,10 +41,12 @@ const props = defineProps({
 </template>
 
 <style lang="scss" scoped>
-@use '../assets/css/mixin.scss';
-@use '../assets/css/variables.scss';
+@use '../assets/css/global' as g;
 
 .c-button {
-  @include mixin.c-button();
+  @include g.button();
+}
+.c-button__white {
+  @include g.button-30;
 }
 </style>

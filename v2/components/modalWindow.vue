@@ -71,8 +71,7 @@ function attachModal() {
 </template>
 
 <style lang="scss" scoped>
-@use '../assets/css/variables.scss';
-@use '../assets/css/mixin.scss';
+@use '../assets/css/global' as g;
 
 body.is-scrollLock {
   overflow: hidden;
@@ -86,7 +85,7 @@ body.is-scrollLock {
   top: 0;
   left: 0;
   z-index: 9999;
-  color: variables.$cWhite;
+  color: g.$cWhite;
   &__inner--center {
     position: fixed;
     inset: 0;
@@ -99,7 +98,7 @@ body.is-scrollLock {
   }
   .modal-menu + .modal-menu {
     margin-top: 0.5rem;
-    @include mixin.mq-md {
+    @include g.mq-md {
       margin-top: 1rem;
     }
   }

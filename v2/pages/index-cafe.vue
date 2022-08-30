@@ -282,8 +282,7 @@ function doWhenIntersect(entries) {
 
 <style lang="scss">
 @use '@splidejs/vue-splide/css';
-@use '../assets/css/mixin.scss';
-@use '../assets/css/variables.scss';
+@use '../assets/css/global' as g;
 
 .cafe {
   // font
@@ -296,7 +295,7 @@ function doWhenIntersect(entries) {
     margin-bottom: $mb;
     padding-top: $pt;
     padding-bottom: $pb;
-    @include mixin.mq-md {
+    @include g.mq-md {
       margin-top: $mtMd;
       margin-bottom: $mbMd;
       padding-top: $ptMd;
@@ -314,10 +313,10 @@ function doWhenIntersect(entries) {
     font-size: 1.2rem;
     font-weight: 600;
     font-family: $sub-font;
-    border-bottom: 3px solid map-get(variables.$theme-cafe-colors, 'subColor');
+    border-bottom: 3px solid map-get(g.$theme-cafe-colors, 'subColor');
     line-height: 2rem;
     margin: 0 auto 2rem auto;
-    @include mixin.mq-md {
+    @include g.mq-md {
       margin: 1rem auto 4rem auto;
       line-height: 4rem;
     }
@@ -341,7 +340,7 @@ function doWhenIntersect(entries) {
     width: fit-content;
     display: inline-block;
     padding: 0.5rem 2rem;
-    background: map-get(variables.$theme-cafe-colors, 'subColor');
+    background: map-get(g.$theme-cafe-colors, 'subColor');
     padding: 0.5rem 2rem;
     line-height: 1.8;
   }
@@ -350,42 +349,42 @@ function doWhenIntersect(entries) {
     border-radius: 999px;
     width: fit-content;
     text-align: center;
-    background: map-get(variables.$theme-cafe-colors, 'subColor');
+    background: map-get(g.$theme-cafe-colors, 'subColor');
     padding: 0.5rem;
     line-height: 1.8;
   }
 
   .first-view {
-    @include mixin.mq-md {
+    @include g.mq-md {
       height: 60vh;
     }
-    @include mixin.mq-xl {
+    @include g.mq-xl {
       height: 80vh;
     }
     &__title-wrap {
       opacity: 0;
       &.active {
-        @include mixin.fadeLift();
+        @include g.fadeLift();
       }
-      @include mixin.mq-md {
+      @include g.mq-md {
         flex: 0 1 50vw;
       }
     }
     &__title {
       // opacity: 0;
       // &.active {
-      //   @include mixin.fadeLift();
+      //   @include g.fadeLift();
       // }
     }
     &__title img {
-      @include mixin.mq-xl {
+      @include g.mq-xl {
         width: 85%;
       }
     }
     &__sub-title {
       // opacity: 0;
       // &.active {
-      //   @include mixin.fadeLift();
+      //   @include g.fadeLift();
       // }
 
       font-family: $main-font;
@@ -395,24 +394,24 @@ function doWhenIntersect(entries) {
       background: #fff;
       padding: 0.5rem 1rem;
       color: #777777;
-      @include mixin.mask($delay: 1.6s);
+      @include g.mask($delay: 1.6s);
     }
     &__wood {
       opacity: 0;
       &.active {
-        @include mixin.fadeLift($delay: 0.1s);
+        @include g.fadeLift($delay: 0.1s);
       }
-      @include mixin.mq-md {
+      @include g.mq-md {
         flex: 0 1 20vw;
         margin-left: -5vw;
         margin-right: 5vw;
       }
-      @include mixin.mq-xl {
+      @include g.mq-xl {
         margin-right: 0;
         margin-bottom: -6rem;
       }
       > img {
-        @include mixin.mq-md {
+        @include g.mq-md {
           transform: scale(130%);
         }
       }
@@ -421,9 +420,9 @@ function doWhenIntersect(entries) {
     &__img-photo {
       opacity: 0;
       &.active {
-        @include mixin.fadeLift($delay: 0.3s);
+        @include g.fadeLift($delay: 0.3s);
       }
-      @include mixin.mq-md {
+      @include g.mq-md {
         flex: 0 1 30vw;
       }
 
@@ -432,10 +431,10 @@ function doWhenIntersect(entries) {
         aspect-ratio: 4/3;
         object-fit: cover;
         width: 100%;
-        @include mixin.mq-sm {
+        @include g.mq-sm {
           aspect-ratio: 2/3;
         }
-        @include mixin.mq-xl {
+        @include g.mq-xl {
           aspect-ratio: 3/4;
         }
       }
@@ -443,20 +442,20 @@ function doWhenIntersect(entries) {
   }
 
   .concept {
-    background: map-get(variables.$theme-cafe-colors, 'accentColor');
-    color: map-get(variables.$theme-cafe-colors, 'mainColor');
+    background: map-get(g.$theme-cafe-colors, 'accentColor');
+    color: map-get(g.$theme-cafe-colors, 'mainColor');
     @include sectionSpace($mt: 0, $mtMd: -6rem);
 
     &__title {
       font-weight: 500;
       font-family: $main-font;
-      color: variables.$cWhite;
+      color: g.$cWhite;
       opacity: 0;
       &.active {
-        @include mixin.fadeLift($delay: 0.3s);
+        @include g.fadeLift($delay: 0.3s);
       }
       &[data-title]::after {
-        color: map-get(variables.$theme-cafe-colors, 'mainColor');
+        color: map-get(g.$theme-cafe-colors, 'mainColor');
       }
     }
 
@@ -468,19 +467,19 @@ function doWhenIntersect(entries) {
     .concept__01,
     .concept__02,
     .concept__03 {
-      max-width: variables.$screenLg;
+      max-width: g.$screenLg;
       position: relative;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 6rem;
       opacity: 0;
       &.active {
-        @include mixin.fadeLift($delay: 0.3s);
+        @include g.fadeLift($delay: 0.3s);
       }
-      @include mixin.mq-md {
+      @include g.mq-md {
         display: flex;
       }
-      @include mixin.mq-md {
+      @include g.mq-md {
         gap: 6rem;
       }
     }
@@ -489,34 +488,34 @@ function doWhenIntersect(entries) {
     &__02-title,
     &__03-title {
       font-family: $main-font;
-      color: map-get(variables.$theme-cafe-colors, 'color4');
+      color: map-get(g.$theme-cafe-colors, 'color4');
       text-shadow: -1px -1px 1px rgba(60, 45, 35, 0.6), 1px 1px 1px rgba(60, 45, 35, 0.6);
       font-size: 2rem;
-      @include mixin.mq-md {
+      @include g.mq-md {
         font-size: 3rem;
         position: absolute;
         width: max-content;
       }
-      @include mixin.mq-lg {
+      @include g.mq-lg {
         font-size: 4rem;
       }
     }
 
     &__01-title {
-      @include mixin.mq-md {
+      @include g.mq-md {
         right: 0;
         bottom: -2rem;
         text-align: left;
         transform-origin: right;
         transform: rotate(90deg) translateY(-35%);
-        @include mixin.mq-lg {
+        @include g.mq-lg {
           bottom: -4rem;
         }
       }
     }
 
     &__02-title {
-      @include mixin.mq-md {
+      @include g.mq-md {
         left: -3rem;
         top: 3rem;
         transform-origin: right;
@@ -525,7 +524,7 @@ function doWhenIntersect(entries) {
     }
 
     &__03-title {
-      @include mixin.mq-md {
+      @include g.mq-md {
         right: -3rem;
         bottom: 4rem;
         text-align: left;
@@ -533,55 +532,55 @@ function doWhenIntersect(entries) {
     }
 
     &__content-title {
-      color: variables.$cWhite;
+      color: g.$cWhite;
     }
   }
 
   .menu {
     @include sectionSpace($pt: 0, $ptMd: 0, $pb: 0, $pbMd: 0);
     &__title {
-      color: map-get(variables.$theme-cafe-colors, 'accentColor');
+      color: map-get(g.$theme-cafe-colors, 'accentColor');
       font-family: $main-font;
       opacity: 0;
       &.active {
-        @include mixin.fadeLift($delay: 0.3s);
+        @include g.fadeLift($delay: 0.3s);
       }
       &[data-title]::after {
-        color: map-get(variables.$theme-cafe-colors, 'subColor');
+        color: map-get(g.$theme-cafe-colors, 'subColor');
       }
     }
     &__inner {
-      max-width: variables.$screenLg;
+      max-width: g.$screenLg;
     }
     .menu__items {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 1rem;
-      @include mixin.mq-md {
+      @include g.mq-md {
         gap: 1.5rem;
       }
-      @include mixin.mq-lg {
+      @include g.mq-lg {
         flex-wrap: nowrap;
       }
     }
     .menu__item {
       flex: 0 0 calc(50% - 0.5rem);
       border-radius: 1rem;
-      background: map-get(variables.$theme-cafe-colors, 'accentColor');
+      background: map-get(g.$theme-cafe-colors, 'accentColor');
       position: relative;
       padding-bottom: 2rem;
-      @include mixin.mq-md {
+      @include g.mq-md {
         flex: 0 0 calc(100% / 3 - 1rem);
       }
-      @include mixin.mq-lg {
+      @include g.mq-lg {
         flex: 0 1 100%;
       }
     }
     .menu__item:last-child {
       margin-left: 0;
       margin-right: auto;
-      @include mixin.mq-lg {
+      @include g.mq-lg {
         margin-left: auto;
       }
     }
@@ -598,7 +597,7 @@ function doWhenIntersect(entries) {
       }
     }
     &__inner {
-      color: map-get(variables.$theme-cafe-colors, 'color4');
+      color: map-get(g.$theme-cafe-colors, 'color4');
       padding: 0 1rem 1rem 1rem;
       text-align: right;
       position: absolute;
@@ -614,21 +613,21 @@ function doWhenIntersect(entries) {
   }
 
   .news {
-    background: variables.$cWhite;
+    background: g.$cWhite;
     @include sectionSpace($mb: 0, $mbMd: 0);
     &__title {
-      color: map-get(variables.$theme-cafe-colors, 'accentColor');
+      color: map-get(g.$theme-cafe-colors, 'accentColor');
       font-family: $main-font;
       opacity: 0;
       &.active {
-        @include mixin.fadeLift($delay: 0.3s);
+        @include g.fadeLift($delay: 0.3s);
       }
       &[data-title]::after {
-        color: map-get(variables.$theme-cafe-colors, 'subColor');
+        color: map-get(g.$theme-cafe-colors, 'subColor');
       }
     }
     &__inner {
-      max-width: variables.$screenLg;
+      max-width: g.$screenLg;
     }
     &__item img {
       border-radius: 0.5rem;

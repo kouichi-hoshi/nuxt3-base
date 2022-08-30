@@ -38,18 +38,17 @@ export default {
 </script>
 
 <style lang="scss">
-@use '../assets/css/variables.scss';
-@use '../assets/css/mixin.scss';
+@use '../assets/css/global' as g;
 
 .nav-menu {
   border-top: 1px solid #fff;
-  @include mixin.mq-lg {
+  @include g.mq-lg {
     border: none;
   }
   & > a {
     display: block;
     padding: 1rem 0;
-    @include mixin.mq-lg {
+    @include g.mq-lg {
       margin-left: 1.4rem;
     }
   }

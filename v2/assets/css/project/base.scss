@@ -1,5 +1,4 @@
-@use '../assets/css/mixin.scss';
-@use '../assets/css/variables.scss';
+@use '../global' as g;
 
 body {
   font-family: 'Noto Sans JP', sans-serif;
@@ -15,12 +14,6 @@ body {
   opacity: 0;
 }
 
-// .container {
-//   @include mixin.mq-md {
-//     max-width: 80vw;
-//   }
-// }
-
 .hentry {
   &-content h2 {
     font-size: 3rem;
@@ -34,13 +27,6 @@ body {
     margin-bottom: 2rem;
     font-size: 1.6rem;
   }
-  // p,
-  // ul,
-  // dl,
-  // hr {
-  //   line-height: 1.6rem;
-  //   margin-bottom: 1rem;
-  // }
   li > ul {
     margin-bottom: 0;
   }
@@ -58,14 +44,14 @@ body {
     td {
       border: solid gray 1px;
       padding: 1rem;
-      @include mixin.mq-md {
+      @include g.mq-md {
         padding: 2rem;
       }
     }
   }
 
   a {
-    color: map-get(variables.$theme-base-colors, 'subColor');
+    color: map-get(g.$theme-base-colors, 'subColor');
   }
 
   svg {
@@ -83,27 +69,27 @@ body {
   }
 }
 .card {
-  @include mixin.card();
+  @include g.card();
 }
 
 .under-line {
-  background: linear-gradient(transparent 90%, map-get(variables.$theme-base-colors, 'subColor') 0%);
+  background: linear-gradient(transparent 90%, map-get(g.$theme-base-colors, 'subColor') 0%);
 }
 
 .notoSerif {
-  font-family: variables.$notoSerif;
+  font-family: g.$notoSerif;
 }
 
 .bg-color-gray {
-  background-color: map-get(variables.$theme-base-colors, 'cGray');
+  background-color: map-get(g.$theme-base-colors, 'cGray');
 }
 
 .bg-color-subColor {
-  background-color: map-get(variables.$theme-base-colors, 'subColor');
+  background-color: map-get(g.$theme-base-colors, 'subColor');
 }
 
 .text-color-white {
-  color: map-get(variables.$theme-base-colors, 'cWhite');
+  color: map-get(g.$theme-base-colors, 'cWhite');
 }
 
 .w-60 {

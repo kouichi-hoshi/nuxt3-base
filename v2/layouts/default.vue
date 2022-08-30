@@ -77,24 +77,23 @@ useHead({
 </template>
 
 <style lang="scss">
-@use '../assets/css/variables.scss';
-@use '../assets/css/mixin.scss';
+@use '../assets/css/global' as g;
 
 .l-header {
   &__title {
-    @include mixin.logoTypeSet($ff: variables.$logoFontFamily, $fw: 600);
+    @include g.logoTypeSet($ff: g.$logoFontFamily, $fw: 600);
   }
 }
 .l-footer {
-  background: map-get(variables.$theme-base-colors, cWhite);
+  background: map-get(g.$theme-base-colors, cWhite);
 
   &__title {
-    @include mixin.logoTypeSet($ff: variables.$logoFontFamily, $fw: 600);
+    @include g.logoTypeSet($ff: g.$logoFontFamily, $fw: 600);
   }
 
   &__navigation {
-    border-bottom: solid map-get(variables.$theme-base-colors, 'cLightGray') 1px;
-    @include mixin.mq-md {
+    border-bottom: solid map-get(g.$theme-base-colors, 'cLightGray') 1px;
+    @include g.mq-md {
       border: none;
     }
   }

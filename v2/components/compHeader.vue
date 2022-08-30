@@ -28,10 +28,9 @@ const props = defineProps({
 </template>
 
 <style lang="scss" scoped>
-@use '../assets/css/mixin.scss';
-@use '../assets/css/variables.scss';
+@use '../assets/css/global' as g;
 
 .c-header {
-  @include mixin.c-header();
+  @include g.c-header();
 }
 </style>

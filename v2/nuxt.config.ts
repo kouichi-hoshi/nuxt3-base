@@ -25,12 +25,7 @@ export default defineNuxtConfig({
   bodyAttrs: {
     class: 'body'
   },
-  css: [
-    '~/assets/css/cssCustomProperties.css',
-    '~/assets/css/foundation.scss',
-    '~/assets/css/project.scss',
-    '~/assets/css/utility.scss'
-  ],
+  css: ['~/assets/css/bundle.scss'],
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxtjs/dayjs'],
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',

@@ -94,9 +94,9 @@ const props = defineProps({
 </template>
 
 <style lang="scss" scoped>
-@use '../assets/css/mixin.scss';
+@use '../assets/css/global' as g;
 
 .scroll-in {
-  @include mixin.scrollTransform();
+  @include g.scrollTransform();
 }
 </style>

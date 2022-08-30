@@ -71,10 +71,8 @@ const slideItems = [
 
       <section class="container mx-auto my-24 md:my-48">
         <compHeader>compButton</compHeader>
-        <compButton class="my-4 mx-auto" href="/">Button</compButton>
-        <compButton btn class="my-4 mx-auto">Button elm</compButton>
-        <compButton removeDefaultClass class="p-button my-4 mx-auto" href="/">Button</compButton>
-        <compButton class="p-button--demo my-4 mx-auto" href="/">Demo Button</compButton>
+        <compButton class="my-4 mx-auto" href="">a要素</compButton>
+        <compButton btn removeDefaultClass class="c-button__white my-4 mx-auto">Button要素</compButton>
       </section>
 
       <section class="key-words container mx-auto p-2 u-maxWidthLg">
@@ -105,35 +103,18 @@ const slideItems = [
 </template>
 
 <style lang="scss" scoped>
-@use '../assets/css/mixin.scss';
-@use '../assets/css/variables.scss';
-// @use '../assets/css/utility.scss';
-
-.demo {
-  //プロジェクトで上書きする場合はp接頭辞を付ける
-  .p-button {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border: 5px solid #333;
-    padding: 1rem;
-    width: fit-content;
-    &--demo {
-      @include mixin.c-button($color: white, $bg: tomato, $padding: 1rem, $radius: 1rem);
-    }
-  }
-}
+@use '../assets/css/global' as g;
 
 // .demo {
 //   .l-header {
 //   }
 //   .l-main {
 //     .slide {
-//       background: map-get(variables.$theme-base-colors, cGray);
-//       color: map-get(variables.$theme-base-colors, cWhite);
+//       background: map-get(g.$theme-base-colors, cGray);
+//       color: map-get(g.$theme-base-colors, cWhite);
 //       position: relative;
 //       &__inner {
-//         @include mixin.mq-lg {
+//         @include g.mq-lg {
 //           max-width: unset;
 //           &::before {
 //             color: hsla(0, 0%, 100%, 0.1);
@@ -152,16 +133,16 @@ const slideItems = [
 //     }
 //     .key-words {
 //       &__item {
-//         border: 5px solid map-get(variables.$theme-base-colors, cLightGray);
-//         background: map-get(variables.$theme-base-colors, cWhite);
+//         border: 5px solid map-get(g.$theme-base-colors, cLightGray);
+//         background: map-get(g.$theme-base-colors, cWhite);
 //       }
 //       .icon-message {
-//         fill: map-get(variables.$theme-base-colors, subColor);
+//         fill: map-get(g.$theme-base-colors, subColor);
 //       }
 //     }
 //   }
 //   .l-footer {
-//     @include mixin.mq-lg {
+//     @include g.mq-lg {
 //       margin-top: 0;
 //     }
 //   }
