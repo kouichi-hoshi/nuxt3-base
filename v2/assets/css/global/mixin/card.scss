@@ -1,0 +1,7 @@
+/**
+ * card
+ */
+@mixin card($bgc: #fff, $pad: 2rem) {
+  background-color: $bgc;
+  padding: $pad;
+}

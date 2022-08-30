@@ -31,6 +31,6 @@ const props = defineProps({
 @use '../assets/css/global' as g;
 
 .c-header {
-  @include g.c-header();
+  @include g.header();
 }
 </style>
