@@ -16,10 +16,6 @@ useHead({
 /**
  * slideSplide
  */
-const ariaLabel = 'slide' //スライド本体のaria-label属性の値
-const slideAspect = 'aspect-[16/9]' //スライド画像のアスペクトレシオの設定
-const imgSize = { width: 1920, height: 1080 }
-
 // スライドオプション
 const slideOptions = {
   type: 'fade', // スライドの動作をフェードに指定
@@ -27,13 +23,15 @@ const slideOptions = {
   speed: '1000', // スライドが切り替わる時間をミリ秒で指定
   arrows: true, // スライドを操作するためのアローボタンを使用しない設定
   autoplay: true, // ロード後、自動的にスライドを実行
-  rewind: true // 最後のスライド画像が表示された後、最初の画像にもどる
+  rewind: true, // 最後のスライド画像が表示された後、最初の画像にもどる
+  slideAspect: 'aspect-[16/9]'
 }
 
 //スライドデータ
 const slideItems = [
   {
     src: '/images/sample/001.jpg',
+    webpSrc: '/images/sample/001.webp',
     alt: '001画像',
     caption: '001画像',
     href: '/'
@@ -56,28 +54,25 @@ const slideItems = [
 <template>
   <NuxtLayout>
     <article>
-      <section class="first-view flex justify-center flex-col relative text-center">
-        <div class="first-view__title flex flex-col justify-center items-center mt-6 md:mt-16">
-          <h2 class="first-view__title-text mb-6 text-8xl md:text-8xl lg:mb-4 lg:text-9xl">
-            {{ postData.title }}
-          </h2>
-          <p class="mb-8 lg:text-xl">[ {{ postData.subtitle }} ]</p>
-          <p class="mb-6 mx-auto text-lg lg:text-4xl">テキスト</p>
-        </div>
+      <section class="container mx-auto my-24 md:my-48">
+        <compHeader>compPicture</compHeader>
+        <compPicture
+          webp-src="/images/sample/001.webp"
+          img-src="/images/sample/001.jpg"
+          img-class="img-class"
+          alt="picture-test"
+        />
       </section>
-      <section class="slide p-4 mg:mt-0 mb-6 md:mb-24 lg:h-screen truncate lg:flex lg:flex-col lg:justify-center">
-        <cHeadline class="text-center my-4 text-2xl md:text-3xl">Slide</cHeadline>
-        <div class="slide__inner mx-auto relative">
-          <div class="flex u-maxWidthMd mx-auto">
-            <slideSplide
-              :slide-items="slideItems"
-              :slide-options="slideOptions"
-              :slideAspect="slideAspect"
-              :aria-label="ariaLabel"
-              view="img-text"
-            />
-          </div>
-        </div>
+
+      <section class="container mx-auto my-24 md:my-48">
+        <compHeader>slideSplide</compHeader>
+        <slideSplide :slide-items="slideItems" :slide-options="slideOptions" />
+      </section>
+
+      <section class="container mx-auto my-24 md:my-48">
+        <compHeader>compButton</compHeader>
+        <compButton class="my-4 mx-auto" href="">a要素</compButton>
+        <compButton btn removeDefaultClass class="c-button__white my-4 mx-auto">Button要素</compButton>
       </section>
 
       <section class="key-words container mx-auto p-2 u-maxWidthLg">
@@ -107,79 +102,6 @@ const slideItems = [
   </NuxtLayout>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../assets/css/global' as g;
-
-// TODO
-.home {
-  .l-header {
-    @include g.mq-md {
-      display: flex;
-      position: absolute;
-      z-index: 1;
-      width: 100%;
-    }
-    &__title {
-      display: none;
-      @include g.mq-md {
-        display: block;
-      }
-    }
-  }
-  .l-main {
-    .first-view {
-      height: 80vh;
-      @include g.mq-md {
-        height: 100vh;
-      }
-      &__title {
-        flex: 1 1 auto;
-      }
-      &__title-text {
-        @include g.logoTypeSet($ff: g.$logoFontFamily, $fw: 600);
-      }
-      &__plan {
-        li:last-child {
-          display: none;
-        }
-      }
-    }
-    .slide {
-      background: map-get(g.$theme-base-colors, cGray);
-      color: map-get(g.$theme-base-colors, cWhite);
-      position: relative;
-      &__inner {
-        @include g.mq-lg {
-          max-width: unset;
-          &::before {
-            color: hsla(0, 0%, 100%, 0.1);
-            content: 'Website Production\a Achievements';
-            font-size: 6rem;
-            line-height: 6.5rem;
-            position: absolute;
-            right: -50%;
-            top: calc(50vh - 15rem);
-            transform: rotate(90deg);
-            transform-origin: center;
-            white-space: pre;
-          }
-        }
-      }
-    }
-    .key-words {
-      &__item {
-        border: 5px solid map-get(g.$theme-base-colors, cLightGray);
-        background: map-get(g.$theme-base-colors, cWhite);
-      }
-      .icon-message {
-        fill: map-get(g.$theme-base-colors, subColor);
-      }
-    }
-  }
-  .l-footer {
-    @include g.mq-lg {
-      margin-top: 0;
-    }
-  }
-}
 </style>
