@@ -74,7 +74,7 @@ onMounted(() => {
 
 <template>
   <div class="l-container">
-    <div class="l-header relative z-20" ref="header">
+    <header class="l-header relative z-20" ref="header">
       <mdlLogo class="cafe-logo fixed m-2 md:m-8" />
       <nav class="l-navigation hidden container relative mx-auto md:flex md:flex-col md:justify-center">
         <ul class="flex md:ml-36">
@@ -83,12 +83,12 @@ onMounted(() => {
           </li>
         </ul>
       </nav>
-    </div>
+    </header>
 
     <main class="l-main">
       <slot />
     </main>
-    <div
+    <footer
       ref="footer"
       class="l-footer text-center lg:text-left flex flex-col lg:p-4 lg:flex-row justify-center lg:justify-start"
     >
@@ -97,13 +97,13 @@ onMounted(() => {
         <mdlTitle class="l-footer__title lg-2 lg:mb-0 lg:mr-4" :mdl-title="siteTitle" />
         <p v-if="false" class="l-footer__text lg:hidden xl:block mb-4 lg:mb-0">{{ siteText }}</p>
       </div>
-      <nav class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-6 lg:mb-0">
+      <div class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-6 lg:mb-0">
         <ul class="l-footer__menu flex flex-col lg:flex-row justify-center lg:items-center">
           <mdlNavigation :links="linkData" />
         </ul>
-      </nav>
-    </div>
-    <p class="text-right" ref="topReturnBtn">
+      </div>
+    </footer>
+    <div class="text-right" ref="topReturnBtn">
       <cButton
         :href="'#'"
         v-scroll-to="'body'"
@@ -134,8 +134,7 @@ onMounted(() => {
           </g>
         </svg>
       </cButton>
-    </p>
-
+    </div>
     <modalWindow hb-class="right-0 m-2 md:m-8" border-class="u-line-color-blue">
       <ul class="modal-nav text-2xl sm:text-3xl md:text-4xl">
         <mdlNavigation class="modal-menu main-font" :links="linkData" />
