@@ -3,17 +3,17 @@ const siteTitle = import.meta.env.VITE_SITE_TITLE
 
 export default [
   {
-    label: 'cafe',
+    label: 'Cafe',
     href: '/index-cafe',
-    class: 'cafe'
+    class: 'menu-cafe'
   },
   {
     label: 'Blog',
-    href: '',
+    href: '/blog',
     class: 'menu-blog'
   },
   {
-    label: 'home',
+    label: 'Home',
     href: '',
     class: 'menu-home'
     // svgIcon: 'home-icon.svg'

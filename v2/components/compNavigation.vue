@@ -1,5 +1,5 @@
 <script setup>
-import checkLinkType from '../../../functions/checkLinkType.js'
+import checkLinkType from '../functions/checkLinkType.js'
 
 const props = defineProps({
   links: {
@@ -19,6 +19,12 @@ const props = defineProps({
       return 'li'
     }
   },
+  outerClass: {
+    type: String,
+    default: () => {
+      return ''
+    }
+  },
   innerClass: {
     type: String,
     default: () => {
@@ -29,7 +35,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <component :is="outerTagName" class="c-navigation">
+  <component :is="outerTagName" class="c-navigation" :class="outerClass">
     <component :is="innerTagName" v-for="(link, key) in links" :key="key" class="c-navigation-menu" :class="innerClass">
       <a :href="link.href" :target="checkLinkType(link.href) ? '_self' : '_blank'">
         {{ link.label }}
@@ -44,6 +50,23 @@ const props = defineProps({
 .c-navigation {
   &.modal-window &-menu + &-menu {
     margin-top: 1rem;
+  }
+
+  &.header &-menu {
+    & > a {
+      display: block;
+      padding: 0.5rem;
+    }
+  }
+
+  &.header &-menu + &-menu {
+    margin-left: 0.5rem;
+  }
+
+  &.footer {
+    @include g.mq-lg {
+      display: flex;
+    }
   }
 
   &.footer &-menu {

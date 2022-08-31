@@ -1,14 +1,11 @@
 <template>
   <div class="logo-mark" :class="class">
-    <a href="/">
-      <img src="/images/cafe-page/cafe-logo.svg" alt="" />
-    </a>
+    <img src="/images/cafe-page/cafe-logo.svg" alt="" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'LogoMark',
   props: {
     class: {
       type: String,

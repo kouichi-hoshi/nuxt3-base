@@ -1,9 +1,5 @@
 <script setup>
 import linkData from '../models/linkData.js'
-import snsLinkData from '../models/snsLinkData.js'
-import mdlTitle from '../layouts/theme/default/mdlTitle.vue'
-import mdlNavigation from '../layouts/theme/default/mdlNavigation.vue'
-import logoMark from '../components/logoMark.vue'
 
 // サイトのタイトルを取得
 const siteTitle = import.meta.env.VITE_SITE_TITLE
@@ -33,18 +29,17 @@ useHead({
 
 <template>
   <div class="l-container relative">
-    <div class="l-header flex items-center">
+    <div class="l-header p-4 flex items-center md:mr-16">
       <div class="flex items-center">
-        <logoMark class="logo-w-40 mr-2" />
-        <a href="/"><mdlTitle :mdl-title="siteTitle" class="l-header__title mr-4 text-xl font-bold" /></a>
-        <p v-if="false" class="l-header__site-text hidden xl:block">{{ siteText }}</p>
+        <a href="/">
+          <symbolMark class="hidden logo-w-40 mr-2" />
+          <logoType :mdl-title="siteTitle" class="l-header__title mr-4 text-xl font-bold" />
+        </a>
+        <p class="l-header__site-text hidden xl:block">{{ siteText }}</p>
       </div>
       <div class="flex-1">
-        <nav class="hidden lg:flex justify-end md:mr-16">
-          <ul class="l-header__menu flex items-center">
-            <mdlNavigation :links="linkData" />
-            <mdlNavigation :links="snsLinkData" class="'md:ml-6'" />
-          </ul>
+        <nav class="hidden lg:flex justify-end">
+          <compNavigation outer-class="header flex items-center" :links="linkData" />
         </nav>
       </div>
     </div>
@@ -53,24 +48,22 @@ useHead({
       <slot />
     </main>
 
-    <div
+    <footer
       class="l-footer mt-24 pt-4 lg:p-8 text-center lg:text-left flex flex-col lg:flex-row justify-center lg:justify-start"
     >
       <div class="order-1 lg:order-0 lg:flex lg:items-center">
-        <logoMark class="l-footer__logo logo-w-50 mx-auto mb-2 lg:mb-0 lg:mr-4" />
-        <mdlTitle class="l-footer__title text-xl font-bold lg-2 lg:mb-0 lg:mr-4" :mdl-title="siteTitle" />
-        <p class="l-footer__text lg:hidden xl:block mb-4 lg:mb-0">{{ siteText }}</p>
+        <symbolMark class="l-footer__logo logo-w-50 mx-auto mb-2 lg:mb-0 lg:mr-4" />
+        <logoType class="l-footer__title text-xl font-bold lg-2 lg:mb-0 lg:mr-4" :mdl-title="siteTitle" />
+        <p class="l-footer__text xl:block mb-4 lg:mb-0">{{ siteText }}</p>
       </div>
       <nav class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-12 lg:mb-0">
-        <ul class="l-footer__menu flex flex-col lg:flex-row justify-center lg:items-center">
-          <mdlNavigation :links="linkData" />
-          <mdlNavigation :links="snsLinkData" />
-        </ul>
+        <compNavigation outer-class="footer" :links="linkData" />
       </nav>
-    </div>
+    </footer>
+
     <modalWindow>
       <ul class="modal-nav text-2xl sm:text-3xl md:text-4xl">
-        <mdlNavigation :links="linkData" />
+        <compNavigation outer-class="modal-window" :links="linkData" />
       </ul>
     </modalWindow>
   </div>
@@ -79,23 +72,23 @@ useHead({
 <style lang="scss">
 @use '../assets/css/global' as g;
 
-.l-header {
-  &__title {
-    @include g.logoTypeSet($ff: g.$logoFontFamily, $fw: 600);
-  }
-}
-.l-footer {
-  background: map-get(g.$theme-base-colors, cWhite);
+// .l-header {
+//   &__title {
+//     @include g.logoTypeSet($ff: g.$logoFontFamily, $fw: 600);
+//   }
+// }
+// .l-footer {
+//   background: map-get(g.$theme-base-colors, cWhite);
 
-  &__title {
-    @include g.logoTypeSet($ff: g.$logoFontFamily, $fw: 600);
-  }
+//   &__title {
+//     @include g.logoTypeSet($ff: g.$logoFontFamily, $fw: 600);
+//   }
 
-  &__navigation {
-    border-bottom: solid map-get(g.$theme-base-colors, 'cLightGray') 1px;
-    @include g.mq-md {
-      border: none;
-    }
-  }
-}
+//   &__navigation {
+//     border-bottom: solid map-get(g.$theme-base-colors, 'cLightGray') 1px;
+//     @include g.mq-md {
+//       border: none;
+//     }
+//   }
+// }
 </style>

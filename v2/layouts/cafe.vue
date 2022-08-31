@@ -4,7 +4,6 @@ import { ref, onMounted } from 'vue'
 import mdlLogo from '../layouts/theme/cafe/mdlLogo.vue'
 import mdlTitle from '../layouts/theme/cafe/mdlTitle.vue'
 import mdlNavigation from '../layouts/theme/cafe/mdlNavigation.vue'
-import logoMark from '../components/logoMark.vue'
 
 // サイトのタイトルを取得
 const siteTitle = 'CAFE WOODY'
@@ -135,8 +134,9 @@ onMounted(() => {
         </svg>
       </cButton>
     </div>
-    <modalWindow hb-class="right-0 m-2 md:m-8" border-class="u-line-color-blue">
-      <mdlNavigation class="modal-window main-font text-2xl sm:text-3xl md:text-4xl" :links="linkData" />
+
+    <modalWindow border-class="u-line-color-blue">
+      <compNavigation outer-class="modal-window main-font text-2xl sm:text-3xl md:text-4xl" :links="linkData" />
     </modalWindow>
   </div>
 </template>

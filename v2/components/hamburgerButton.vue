@@ -68,7 +68,6 @@ export default {
 @use '../assets/css/global' as g;
 
 .hamburger-button {
-  top: 0;
   z-index: 2;
   width: 48px;
   height: 48px;

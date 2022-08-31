@@ -17,7 +17,7 @@ const props = defineProps({
   hbClass: {
     type: String,
     default: () => {
-      return 'right-0'
+      return 'top-2 right-2 md:top-4 md:right-4'
     }
   },
   borderClass: {
@@ -57,15 +57,9 @@ function attachModal() {
   <div id="modalWindow" class="modal-window is-fade-in hidden text-center">
     <component :is="innerTagName" :class="innerClass">
       <slot></slot>
-      <div class="mx-auto mt-8 w-fit md:mt-16">
-        <a href="/">
-          <svg class="svg-icon" width="48" height="48" viewBox="0 0 48 48">
-            <use href="/images/common/icon/home-icon.svg#symbol" />
-          </svg>
-        </a>
-      </div>
-
-      <cButton @click="attachModal()" :btn="true" label="閉じる" :class="'block mt-6 mx-auto md:mt-12'" />
+      <compButton @click="attachModal()" btn removeDefaultClass :class="'c-button__light mt-12 mx-auto md:mt-24'">
+        閉じる
+      </compButton>
     </component>
   </div>
 </template>

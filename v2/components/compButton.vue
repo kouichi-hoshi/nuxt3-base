@@ -46,6 +46,11 @@ const props = defineProps({
 .c-button {
   @include g.button();
 }
+
+.c-button__light {
+  @include g.button($color: g.$cBlack, $bg: g.$cWhite);
+}
+
 .c-button__white {
   @include g.button-30;
 }
