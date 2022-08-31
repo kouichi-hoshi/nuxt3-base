@@ -78,7 +78,7 @@ onMounted(() => {
       <mdlLogo class="cafe-logo fixed m-2 md:m-8" />
       <nav class="l-navigation hidden container relative mx-auto md:flex md:flex-col md:justify-center">
         <ul class="flex md:ml-36">
-          <li class="ml-6" v-for="(link, i) in linkData" :key="i">
+          <li class="l-navigation__menu ml-6" v-for="(link, i) in linkData" :key="i">
             <a :href="link.href">{{ link.label }}</a>
           </li>
         </ul>
@@ -88,6 +88,7 @@ onMounted(() => {
     <main class="l-main">
       <slot />
     </main>
+
     <footer
       ref="footer"
       class="l-footer text-center lg:text-left flex flex-col lg:p-4 lg:flex-row justify-center lg:justify-start"
@@ -101,6 +102,7 @@ onMounted(() => {
         <mdlNavigation class="footer flex flex-col lg:flex-row justify-center lg:items-center" :links="linkData" />
       </div>
     </footer>
+
     <div class="text-right" ref="topReturnBtn">
       <cButton
         :href="'#'"
@@ -162,7 +164,12 @@ $main-font: 'Bungee', cursive;
   .l-navigation {
     height: 8rem;
     font-family: $main-font;
-    color: map-get(g.$theme-cafe-colors, 'subColor');
+    &__menu {
+      color: map-get(g.$theme-cafe-colors, 'subColor');
+      > a {
+        color: inherit;
+      }
+    }
   }
 
   .cafe-logo {

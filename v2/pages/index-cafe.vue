@@ -268,7 +268,7 @@ function doWhenIntersect(entries) {
               inner-class="news__item"
               :items="newsItems"
               :imgPath="itemsPath"
-              titleClass="m-2 text-xl"
+              titleClass="text-xl my-2"
             />
           </div>
           <p class="text-center">
@@ -370,23 +370,14 @@ function doWhenIntersect(entries) {
         flex: 0 1 50vw;
       }
     }
-    &__title {
-      // opacity: 0;
-      // &.active {
-      //   @include g.fadeLift();
-      // }
-    }
+    // &__title {
+    // }
     &__title img {
       @include g.mq-xl {
         width: 85%;
       }
     }
     &__sub-title {
-      // opacity: 0;
-      // &.active {
-      //   @include g.fadeLift();
-      // }
-
       font-family: $main-font;
       color: #777777;
     }
@@ -455,7 +446,8 @@ function doWhenIntersect(entries) {
         @include g.fadeLift($delay: 0.3s);
       }
       &[data-title]::after {
-        color: map-get(g.$theme-cafe-colors, 'mainColor');
+        color: map-get(g.$theme-cafe-colors, 'color4');
+        border-bottom: 3px solid map-get(g.$theme-cafe-colors, 'color4');
       }
     }
 
@@ -629,10 +621,15 @@ function doWhenIntersect(entries) {
     &__inner {
       max-width: g.$screenLg;
     }
-    &__item img {
-      border-radius: 0.5rem;
-      aspect-ratio: 3/2;
-      width: 100%;
+    &__item {
+      a {
+        color: g.$cDarkGray;
+      }
+      img {
+        border-radius: 0.5rem;
+        aspect-ratio: 3/2;
+        width: 100%;
+      }
     }
   }
 }
