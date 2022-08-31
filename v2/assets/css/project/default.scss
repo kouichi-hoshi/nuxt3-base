@@ -4,6 +4,14 @@ body {
   font-family: 'Noto Sans JP', sans-serif;
 }
 
+a {
+  color: map-get(g.$theme-base-colors, 'subColor');
+}
+
+svg {
+  fill: currentColor;
+}
+
 // ページ遷移時にフェードする
 .page-enter-active,
 .page-leave-active {
@@ -48,14 +56,6 @@ body {
         padding: 2rem;
       }
     }
-  }
-
-  a {
-    color: map-get(g.$theme-base-colors, 'subColor');
-  }
-
-  svg {
-    fill: currentColor;
   }
 }
 
