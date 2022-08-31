@@ -98,9 +98,7 @@ onMounted(() => {
         <p v-if="false" class="l-footer__text lg:hidden xl:block mb-4 lg:mb-0">{{ siteText }}</p>
       </div>
       <div class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-6 lg:mb-0">
-        <ul class="l-footer__menu flex flex-col lg:flex-row justify-center lg:items-center">
-          <mdlNavigation :links="linkData" />
-        </ul>
+        <mdlNavigation class="footer flex flex-col lg:flex-row justify-center lg:items-center" :links="linkData" />
       </div>
     </footer>
     <div class="text-right" ref="topReturnBtn">
@@ -136,9 +134,7 @@ onMounted(() => {
       </cButton>
     </div>
     <modalWindow hb-class="right-0 m-2 md:m-8" border-class="u-line-color-blue">
-      <ul class="modal-nav text-2xl sm:text-3xl md:text-4xl">
-        <mdlNavigation class="modal-menu main-font" :links="linkData" />
-      </ul>
+      <mdlNavigation class="modal-window main-font text-2xl sm:text-3xl md:text-4xl" :links="linkData" />
     </modalWindow>
   </div>
 </template>
