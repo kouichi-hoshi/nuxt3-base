@@ -57,7 +57,7 @@ function formatDateTime(setDate) {
     <article class="container mx-auto mb-40">
       <header class="mb-8 py-8">
         <div class="text-lg mb-4">Blog</div>
-        <cHeader class="text-5xl">{{ blogTitle }}</cHeader>
+        <compHeader class="text-5xl">{{ blogTitle }}</compHeader>
       </header>
 
       <ContentDoc class="hentry" />

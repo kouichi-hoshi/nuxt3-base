@@ -16,7 +16,7 @@ useHead({
   <NuxtLayout>
     <article class="container mx-auto mb-40">
       <header class="mb-8 py-8 text-center">
-        <cHeader class="text-5xl"> {{ postData.title }} </cHeader>
+        <compHeader class="text-5xl"> {{ postData.title }} </compHeader>
         <p>大変ご迷惑おかけします。</p>
         <p>お探しのページは現在表示できません。</p>
         <p class="mt-12"><a href="/">Topへもどる</a></p>
