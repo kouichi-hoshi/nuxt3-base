@@ -1,14 +1,14 @@
 module.exports = {
   root: true,
   globals: {
-    useHead: true,
-    onMounted: true,
-    definePageMeta: true,
-    defineNuxtPlugin: true,
-    ref: true,
-    queryContent: true,
-    useAsyncData: true,
-    useRoute: true
+    useHead: false,
+    onMounted: false,
+    definePageMeta: false,
+    defineNuxtPlugin: false,
+    ref: false,
+    queryContent: false,
+    useAsyncData: false,
+    useRoute: false
   },
   parser: 'vue-eslint-parser',
   parserOptions: {
