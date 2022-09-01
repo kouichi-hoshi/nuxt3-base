@@ -1,6 +1,5 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import mdlLogo from '../layouts/theme/cafe/mdlLogo.vue'
 import mdlNavigation from '../layouts/theme/cafe/mdlNavigation.vue'
 
 // サイトのタイトルを取得
@@ -72,7 +71,9 @@ onMounted(() => {
 <template>
   <div class="l-container">
     <header ref="header" class="l-header relative z-20">
-      <mdlLogo class="cafe-logo fixed m-2 md:m-8" />
+      <div class="logo-mark cafe-logo fixed m-2 md:m-8">
+        <img src="/images/cafe-page/cafe-logo.svg" alt="" />
+      </div>
       <nav class="l-navigation hidden container relative mx-auto md:flex md:flex-col md:justify-center">
         <ul class="flex md:ml-36">
           <li v-for="(link, i) in linkData" :key="i" class="l-navigation__menu ml-6">
@@ -91,7 +92,10 @@ onMounted(() => {
       class="l-footer text-center lg:text-left flex flex-col lg:p-4 lg:flex-row justify-center lg:justify-start"
     >
       <div class="order-1 lg:order-0 lg:flex lg:items-center">
-        <mdlLogo class="cafe-logo mx-auto mb-4 lg:mr-4 lg:mb-0" />
+        <div class="logo-mark cafe-logo mx-auto mb-4 lg:mr-4 lg:mb-0">
+          <img src="/images/cafe-page/cafe-logo.svg" alt="" />
+        </div>
+
         <logoType class="l-footer__title lg-2 lg:mb-0 lg:mr-4" tag-name="div" :mdl-title="siteTitle" />
         <p v-if="false" class="l-footer__text lg:hidden xl:block mb-4 lg:mb-0">{{ siteText }}</p>
       </div>
