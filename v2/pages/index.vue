@@ -77,7 +77,7 @@ const slideItems = [
       </section>
 
       <section class="key-words container mx-auto p-2 u-maxWidthLg">
-        <cHeadline class="text-center text-2xl md:text-3xl my-4">text</cHeadline>
+        <compHeadline class="text-center text-2xl md:text-3xl my-4">text</compHeadline>
         <ul
           class="key-words__item-wrap text-center px-10 mb-24 grid grid-cols-1 gap-1 md:gap-6 md:grid-cols-2 md:grid-cols-3 lg:text-lg"
         >

@@ -2,9 +2,6 @@
 // import { ref, onMounted } from 'vue'
 
 import itemsSample from '../models/itemsSample.js'
-import cHeadline from '../components/cHeadline.vue'
-import repeatCard from '../components/repeatCard.vue'
-import slideSplide from '../components/slideSplide.vue'
 
 const postData = {
   title: import.meta.env.VITE_SITE_TITLE,
@@ -172,9 +169,9 @@ function doWhenIntersect(entries) {
             <p class="concept__01-title text-center m-4 md:m-0">Delicious coffee</p>
           </div>
           <div class="basis-1/2 order-2 my-auto sentence">
-            <cHeadline class="concept__content-title text-3xl mb-6 md:mb-12 font-bold">
+            <compHeadline class="concept__content-title text-3xl mb-6 md:mb-12 font-bold">
               Lorem ipsum dolor sit amet
-            </cHeadline>
+            </compHeadline>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.
@@ -197,9 +194,9 @@ function doWhenIntersect(entries) {
             <p class="concept__02-title text-center main-font text-2xl m-4 md:m-0">Hospitality</p>
           </div>
           <div class="basis-1/2 order-1 my-auto sentence">
-            <cHeadline class="concept__content-title animate text-3xl mb-6 md:mb-12 font-bold">
+            <compHeadline class="concept__content-title animate text-3xl mb-6 md:mb-12 font-bold">
               Lorem ipsum dolor sit amet
-            </cHeadline>
+            </compHeadline>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.
@@ -222,9 +219,9 @@ function doWhenIntersect(entries) {
             <p class="concept__03-title text-center main-font text-2xl m-4 md:m-0">Luxury</p>
           </div>
           <div class="basis-1/2 order-2 my-auto sentence">
-            <cHeadline class="concept__content-title animate text-3xl mb-6 md:mb-12 font-bold">
+            <compHeadline class="concept__content-title animate text-3xl mb-6 md:mb-12 font-bold">
               Lorem ipsum dolor sit amet
-            </cHeadline>
+            </compHeadline>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.
