@@ -1,7 +1,4 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import mdlNavigation from '../layouts/theme/cafe/mdlNavigation.vue'
-
 // サイトのタイトルを取得
 const siteTitle = 'CAFE WOODY'
 
@@ -100,7 +97,7 @@ onMounted(() => {
         <p v-if="false" class="l-footer__text lg:hidden xl:block mb-4 lg:mb-0">{{ siteText }}</p>
       </div>
       <div class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-6 lg:mb-0">
-        <mdlNavigation class="footer flex flex-col lg:flex-row justify-center lg:items-center" :links="linkData" />
+        <compNavigation class="footer flex flex-col lg:flex-row justify-center lg:items-center" :links="linkData" />
       </div>
     </footer>
 
