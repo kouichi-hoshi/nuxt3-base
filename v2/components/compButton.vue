@@ -18,7 +18,8 @@ const props = defineProps({
     default: 'div'
   },
   href: {
-    type: String
+    type: String,
+    default: ''
   },
   removeDefaultClass: {
     type: Boolean,
@@ -28,16 +29,17 @@ const props = defineProps({
 </script>
 
 <template>
-  <template v-if="!btn" :is="tagName">
-    <a :class="{ 'c-button': !removeDefaultClass }" :href="href" :target="checkLinkType(href) ? '_self' : '_blank'">
-      <slot></slot>
-    </a>
-  </template>
-  <template v-else>
-    <button :class="{ 'c-button': !removeDefaultClass }">
-      <slot></slot>
-    </button>
-  </template>
+  <a
+    v-if="!btn"
+    :class="{ 'c-button': !removeDefaultClass }"
+    :href="href"
+    :target="checkLinkType(href) ? '_self' : '_blank'"
+  >
+    <slot></slot>
+  </a>
+  <button v-else :class="{ 'c-button': !removeDefaultClass }">
+    <slot></slot>
+  </button>
 </template>
 
 <style lang="scss" scoped>

@@ -1,13 +1,12 @@
 <script setup>
-import itemsSample from '../models/itemsSample.js'
 import keyWords from '../models/keyWords.js'
-import SlideSplide from '../components/slideSplide.vue'
 
 const postData = {
   title: import.meta.env.VITE_SITE_TITLE,
   subtitle: import.meta.env.VITE_SITE_SUB_TITLE
 }
 useHead({
+  title: postData.title,
   bodyAttrs: {
     class: 'home'
   }
@@ -73,7 +72,7 @@ const slideItems = [
         <compHeader>compButton</compHeader>
         <p>
           <compButton class="my-4 mx-auto" href="">a要素</compButton>
-          <compButton btn removeDefaultClass class="c-button__white my-4 mx-auto">Button要素</compButton>
+          <compButton btn remove-default-class class="c-button__white my-4 mx-auto">Button要素</compButton>
         </p>
       </section>
 
@@ -83,7 +82,7 @@ const slideItems = [
           class="key-words__item-wrap text-center px-10 mb-24 grid grid-cols-1 gap-1 md:gap-6 md:grid-cols-2 md:grid-cols-3 lg:text-lg"
         >
           <template v-for="(item, key) in keyWords" :key="key">
-            <tooltip tagName="li" class="flex justify-center key-words__item">
+            <tooltip tag-name="li" class="flex justify-center key-words__item">
               <template #label>
                 <intersectionOA class="flex w-full justify-between justify-center p-4 mask mask-1" observe="observe">
                   <div class="w-full">{{ item.label }}</div>

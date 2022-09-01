@@ -1,6 +1,3 @@
-// サイトのタイトルを取得
-const siteTitle = import.meta.env.VITE_SITE_TITLE
-
 export default [
   {
     label: 'Cafe',

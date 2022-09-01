@@ -6,7 +6,7 @@
  */
 
 const props = defineProps({
-  class: {
+  className: {
     type: String,
     default: ''
   },
@@ -20,6 +20,7 @@ const props = defineProps({
   },
   webpSrc: {
     type: String,
+    default: 'false',
     validator: (url) => {
       const extension = url.split('.').pop().trim()
       if (extension === 'webp') {
@@ -36,13 +37,13 @@ const props = defineProps({
 })
 </script>
 <template>
-  <picture v-if="webpSrc" class="c-picture" :class="class">
+  <picture v-if="webpSrc" class="c-picture" :class="className">
     <source :srcset="webpSrc" type="image/webp" />
     <img class="c-picture__img" :class="imgClass" :src="imgSrc" :alt="alt" />
   </picture>
 </template>
 
 <style lang="scss" scoped>
-.c-picture {
-}
+// .c-picture {
+// }
 </style>

@@ -5,6 +5,7 @@ const postData = {
   title: 'Blog'
 }
 useHead({
+  title: postData.title,
   bodyAttrs: {
     class: 'blog'
   }

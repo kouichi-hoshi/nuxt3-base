@@ -1,11 +1,11 @@
 <template>
   <component :is="tagName" class="hamburger-button">
     <svg
+      :id="btnId"
       viewBox="0 0 48 48"
       width="48"
       height="48"
       class="border-outer"
-      :id="btnId"
       :class="{ active: hamburgerActive }"
       @click="hamburger()"
     >

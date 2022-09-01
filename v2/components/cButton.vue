@@ -1,10 +1,10 @@
 <template>
-  <template :is="tagName" v-if="!btn">
+  <component :is="tagName" v-if="!btn">
     <a class="c-button" :class="class" :href="link" :target="checkLinkType(link) ? '_self' : '_blank'">
       {{ label }}
       <slot></slot>
     </a>
-  </template>
+  </component>
   <div v-else>
     <button class="c-button" :class="class">
       {{ label }}
@@ -32,7 +32,8 @@ export default {
       }
     },
     link: {
-      type: String
+      type: String,
+      default: ''
     },
     label: {
       type: String,

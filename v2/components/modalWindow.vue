@@ -53,11 +53,11 @@ function attachModal() {
 </script>
 
 <template>
-  <hamburgerButton @click="attachModal()" :class="hbClass" :border-class="borderClass" class="fixed u-z-index-10000" />
+  <hamburgerButton :class="hbClass" :border-class="borderClass" class="fixed u-z-index-10000" @click="attachModal()" />
   <div id="modalWindow" class="modal-window is-fade-in hidden text-center">
     <component :is="innerTagName" :class="innerClass">
       <slot></slot>
-      <compButton @click="attachModal()" btn removeDefaultClass :class="'c-button__light mt-12 mx-auto md:mt-24'">
+      <compButton btn remove-default-class :class="'c-button__light mt-12 mx-auto md:mt-24'" @click="attachModal()">
         閉じる
       </compButton>
     </component>

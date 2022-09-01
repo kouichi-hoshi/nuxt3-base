@@ -4,8 +4,12 @@
 import itemsSample from '../models/itemsSample.js'
 import cHeadline from '../components/cHeadline.vue'
 import repeatCard from '../components/repeatCard.vue'
-// import intersectionOA from '../components/intersectionOA.vue'
 import slideSplide from '../components/slideSplide.vue'
+
+const postData = {
+  title: import.meta.env.VITE_SITE_TITLE,
+  subtitle: import.meta.env.VITE_SITE_SUB_TITLE
+}
 
 definePageMeta({
   layoutTransition: true
@@ -22,10 +26,8 @@ useHead({
       rel: 'stylesheet',
       href: 'https://fonts.googleapis.com/css2?family=Bungee&family=Noto+Sans+JP:wght@400;500;700&display=swap'
     }
-  ]
-})
-
-useHead({
+  ],
+  title: postData.title,
   bodyAttrs: {
     class: 'cafe'
   }
@@ -34,7 +36,6 @@ useHead({
 /**
  * repeatCard
  */
-const items = itemsSample // repeatCardで表示するデータ
 const newsItems = itemsSample.slice(0, 4) // newsにわたすデータ
 const itemsPath = '/images/sample/' //repeatCardで表示する画像のパス
 
@@ -244,7 +245,7 @@ function doWhenIntersect(entries) {
       <section id="menu" class="menu container mx-auto px-4">
         <cHeader class="menu__title animate" data-title="メニュー">Menu</cHeader>
         <ul class="menu__items mb-12 md:mb-36">
-          <li class="menu__item" v-for="(menuItem, i) in menuItems" :key="i">
+          <li v-for="(menuItem, i) in menuItems" :key="i" class="menu__item">
             <p class="menu__img">
               <img :src="menuItem.src" :alt="menuItem.name" />
             </p>
@@ -267,8 +268,8 @@ function doWhenIntersect(entries) {
               outer-class="mb-8 sm:mb-0"
               inner-class="news__item"
               :items="newsItems"
-              :imgPath="itemsPath"
-              titleClass="text-xl my-2"
+              :img-path="itemsPath"
+              title-class="text-xl my-2"
             />
           </div>
           <p class="text-center">

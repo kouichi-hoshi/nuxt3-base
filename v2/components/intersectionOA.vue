@@ -1,8 +1,8 @@
 <template>
   <component
     :is="tagName"
-    :class="[isIntersecting ? 'active' : '']"
     ref="target"
+    :class="[isIntersecting ? 'active' : '']"
   >
     <slot></slot>
   </component>

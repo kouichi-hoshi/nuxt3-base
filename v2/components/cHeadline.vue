@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'cHeadLine',
+  name: 'CHeadLine',
   props: {
     tagName: {
       type: String,

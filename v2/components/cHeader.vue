@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'cHeader',
+  name: 'CHeader',
   props: {
     tagName: {
       type: String,

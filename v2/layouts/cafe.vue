@@ -1,8 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-
 import mdlLogo from '../layouts/theme/cafe/mdlLogo.vue'
-import mdlTitle from '../layouts/theme/cafe/mdlTitle.vue'
 import mdlNavigation from '../layouts/theme/cafe/mdlNavigation.vue'
 
 // サイトのタイトルを取得
@@ -73,11 +71,11 @@ onMounted(() => {
 
 <template>
   <div class="l-container">
-    <header class="l-header relative z-20" ref="header">
+    <header ref="header" class="l-header relative z-20">
       <mdlLogo class="cafe-logo fixed m-2 md:m-8" />
       <nav class="l-navigation hidden container relative mx-auto md:flex md:flex-col md:justify-center">
         <ul class="flex md:ml-36">
-          <li class="l-navigation__menu ml-6" v-for="(link, i) in linkData" :key="i">
+          <li v-for="(link, i) in linkData" :key="i" class="l-navigation__menu ml-6">
             <a :href="link.href">{{ link.label }}</a>
           </li>
         </ul>
@@ -94,7 +92,7 @@ onMounted(() => {
     >
       <div class="order-1 lg:order-0 lg:flex lg:items-center">
         <mdlLogo class="cafe-logo mx-auto mb-4 lg:mr-4 lg:mb-0" />
-        <mdlTitle class="l-footer__title lg-2 lg:mb-0 lg:mr-4" :mdl-title="siteTitle" />
+        <logoType class="l-footer__title lg-2 lg:mb-0 lg:mr-4" tag-name="div" :mdl-title="siteTitle" />
         <p v-if="false" class="l-footer__text lg:hidden xl:block mb-4 lg:mb-0">{{ siteText }}</p>
       </div>
       <div class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-6 lg:mb-0">
@@ -102,10 +100,10 @@ onMounted(() => {
       </div>
     </footer>
 
-    <div class="text-right" ref="topReturnBtn">
+    <div ref="topReturnBtn" class="text-right">
       <cButton
-        :href="'#'"
         v-scroll-to="'body'"
+        :href="'#'"
         class="top-return-btn c-button--circle fixed right-2 bottom-4 md:right-12 md:bottom-8"
         label=""
       >
@@ -123,8 +121,8 @@ onMounted(() => {
               <g id="up_line" transform="translate(432.000000, 0.000000)">
                 <rect id="" fill-rule="nonzero" x="0" y="0" width="24" height="24"></rect>
                 <path
-                  d="M11.2929,8.2928 C11.6834,7.90228 12.3166,7.90228 12.7071,8.2928 L18.364,13.9497 C18.7545,14.3402 18.7545,14.9733 18.364,15.3639 C17.9734,15.7544 17.3403,15.7544 16.9497,15.3639 L12,10.4141 L7.05025,15.3639 C6.65973,15.7544 6.02656,15.7544 5.63604,15.3639 C5.24551,14.9733 5.24551,14.3402 5.63604,13.9497 L11.2929,8.2928 Z"
                   id=""
+                  d="M11.2929,8.2928 C11.6834,7.90228 12.3166,7.90228 12.7071,8.2928 L18.364,13.9497 C18.7545,14.3402 18.7545,14.9733 18.364,15.3639 C17.9734,15.7544 17.3403,15.7544 16.9497,15.3639 L12,10.4141 L7.05025,15.3639 C6.65973,15.7544 6.02656,15.7544 5.63604,15.3639 C5.24551,14.9733 5.24551,14.3402 5.63604,13.9497 L11.2929,8.2928 Z"
                   fill="#09244BFF"
                   class="up-arrow"
                 ></path>

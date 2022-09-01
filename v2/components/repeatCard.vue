@@ -49,21 +49,13 @@ const props = defineProps({
   titleClass: {
     type: String,
     default: ''
-  },
-  view: {
-    type: String,
-    default: 'image',
-    validator: function (value) {
-      // プロパティの値は、必ずいずれかの文字列でなければならない
-      return ['text', 'image'].indexOf(value) !== -1
-    }
   }
 })
 </script>
 
 <template>
   <!-- 画像と文字のテンプレート -->
-  <div v-if="view === 'image'" v-for="(item, key) in items" :key="key" class="repeat-card-image" :class="outerClass">
+  <div v-for="(item, key) in items" :key="key" class="repeat-card-image" :class="outerClass">
     <intersectionOA :class="innerClass" :observe="observe">
       <a :href="item.href">
         <p>
@@ -79,16 +71,6 @@ const props = defineProps({
         </component>
         <p>{{ item.text }}</p>
       </a>
-    </intersectionOA>
-  </div>
-  <!-- 文字のテンプレート -->
-  <div v-if="view === 'text'" v-for="(item, key) in items" :key="key" class="repeat-card-text">
-    <intersectionOA :class="innerClass" :observe="observe">
-      <component :is="titleTagName" :class="titleClass" class="repeat-card-text__title">
-        {{ item.title }}
-      </component>
-      <slot />
-      <p class="repeat-card-text__text">{{ item.text }}</p>
     </intersectionOA>
   </div>
 </template>

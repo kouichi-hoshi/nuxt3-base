@@ -13,14 +13,16 @@ const props = defineProps({
   },
   slideOptions: {
     type: Object,
-    default: {
-      type: 'fade', // スライドの動作をフェードに指定
-      interval: '4000', //自動再生の間隔をミリ秒単位で指定
-      speed: '1000', // スライドが切り替わる時間をミリ秒で指定
-      arrows: true, // スライドを操作するためのアローボタンを使用しない設定
-      autoplay: true, // ロード後、自動的にスライドを実行
-      rewind: true, // 最後のスライド画像が表示された後、最初の画像にもどる
-      slideAspect: 'aspect-[16/9]'
+    default: () => {
+      return {
+        type: 'fade', // スライドの動作をフェードに指定
+        interval: '4000', //自動再生の間隔をミリ秒単位で指定
+        speed: '1000', // スライドが切り替わる時間をミリ秒で指定
+        arrows: true, // スライドを操作するためのアローボタンを使用しない設定
+        autoplay: true, // ロード後、自動的にスライドを実行
+        rewind: true, // 最後のスライド画像が表示された後、最初の画像にもどる
+        slideAspect: 'aspect-[16/9]'
+      }
     }
   },
   tagName: {
