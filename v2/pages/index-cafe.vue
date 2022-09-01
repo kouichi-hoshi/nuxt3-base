@@ -256,7 +256,7 @@ function doWhenIntersect(entries) {
           </li>
         </ul>
         <p class="text-center">
-          <cButton class="c-button--main" label="More" />
+          <compButton class="c-button--main" href="/index-cafe">More</compButton>
         </p>
       </section>
 
@@ -273,7 +273,7 @@ function doWhenIntersect(entries) {
             />
           </div>
           <p class="text-center">
-            <cButton class="c-button--main" label="More"></cButton>
+            <compButton class="c-button--main" href="/index-cafe">More</compButton>
           </p>
         </div>
       </section>

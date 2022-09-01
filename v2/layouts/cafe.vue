@@ -101,7 +101,7 @@ onMounted(() => {
     </footer>
 
     <div ref="topReturnBtn" class="text-right">
-      <cButton
+      <compButton
         v-scroll-to="'body'"
         :href="'#'"
         class="top-return-btn c-button--circle fixed right-2 bottom-4 md:right-12 md:bottom-8"
@@ -130,7 +130,7 @@ onMounted(() => {
             </g>
           </g>
         </svg>
-      </cButton>
+      </compButton>
     </div>
 
     <modalWindow border-class="u-line-color-blue">
