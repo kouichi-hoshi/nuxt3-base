@@ -29,10 +29,10 @@ useHead({
 
 <template>
   <div class="l-container relative">
-    <div class="l-header p-4 flex items-center md:mr-16">
+    <header class="l-header p-4 flex items-center md:mr-16">
       <div class="flex items-center">
-        <a href="/">
-          <symbolMark class="hidden logo-w-40 mr-2" />
+        <a href="/" class="flex items-center gap-2">
+          <symbolMark href="images/common/icon.svg#icon-home" />
           <logoType :mdl-title="siteTitle" class="l-header__title mr-4 text-xl font-bold" />
         </a>
         <p class="l-header__site-text hidden xl:block">{{ siteText }}</p>
@@ -42,7 +42,7 @@ useHead({
           <compNavigation outer-class="header flex items-center" :links="linkData" />
         </nav>
       </div>
-    </div>
+    </header>
 
     <main class="l-main">
       <slot />
@@ -51,9 +51,9 @@ useHead({
     <footer
       class="l-footer mt-24 pt-4 lg:p-8 text-center lg:text-left flex flex-col lg:flex-row justify-center lg:justify-start"
     >
-      <div class="order-1 lg:order-0 lg:flex lg:items-center">
-        <symbolMark class="l-footer__logo logo-w-50 mx-auto mb-2 lg:mb-0 lg:mr-4" />
-        <logoType class="l-footer__title text-xl font-bold lg-2 lg:mb-0 lg:mr-4" :mdl-title="siteTitle" />
+      <div class="order-1 lg:order-0 lg:flex lg:items-center lg:gap-2">
+        <symbolMark href="images/common/icon.svg#icon-home" class="mx-auto" />
+        <logoType class="l-footer__title text-xl font-bold lg-2 lg:mb-0" :mdl-title="siteTitle" />
         <p class="l-footer__text xl:block mb-4 lg:mb-0">{{ siteText }}</p>
       </div>
       <nav class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-12 lg:mb-0">
@@ -70,25 +70,5 @@ useHead({
 </template>
 
 <style lang="scss">
-@use '../assets/css/global' as g;
-
-// .l-header {
-//   &__title {
-//     @include g.logoTypeSet($ff: g.$logoFontFamily, $fw: 600);
-//   }
-// }
-// .l-footer {
-//   background: map-get(g.$theme-base-colors, cWhite);
-
-//   &__title {
-//     @include g.logoTypeSet($ff: g.$logoFontFamily, $fw: 600);
-//   }
-
-//   &__navigation {
-//     border-bottom: solid map-get(g.$theme-base-colors, 'cLightGray') 1px;
-//     @include g.mq-md {
-//       border: none;
-//     }
-//   }
-// }
+// @use '../assets/css/global' as g;
 </style>

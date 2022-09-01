@@ -71,8 +71,10 @@ const slideItems = [
 
       <section class="container mx-auto my-24 md:my-48">
         <compHeader>compButton</compHeader>
-        <compButton class="my-4 mx-auto" href="">a要素</compButton>
-        <compButton btn removeDefaultClass class="c-button__white my-4 mx-auto">Button要素</compButton>
+        <p>
+          <compButton class="my-4 mx-auto" href="">a要素</compButton>
+          <compButton btn removeDefaultClass class="c-button__white my-4 mx-auto">Button要素</compButton>
+        </p>
       </section>
 
       <section class="key-words container mx-auto p-2 u-maxWidthLg">
