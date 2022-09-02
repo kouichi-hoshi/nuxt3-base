@@ -1,18 +1,18 @@
 export default [
   {
-    label: 'home',
-    href: '/'
-  },
-  {
     label: 'Cafe',
-    href: '/cafe-page'
-  },
-  {
-    label: 'Test',
-    href: '/test'
+    href: '/index-cafe',
+    class: 'menu-cafe'
   },
   {
     label: 'Blog',
-    href: '/blog'
+    href: '/blog',
+    class: 'menu-blog'
+  },
+  {
+    label: 'Home',
+    href: '',
+    class: 'menu-home'
+    // svgIcon: 'home-icon.svg'
   }
 ]

@@ -1,10 +1,11 @@
 ---
-title: 'blog 2'
-description: 'blog 2 description'
-postDate: 2022-07-05
-postUpdate: 2022-07-06
+title: 'blog2'
+description: 'blog2'
+postDate: 2022-08-17
+postUpdate: 2022-08-23
+draft: true
 ---
 
-# blog 2
+## タイトル
 
-これは blog 2 の記事
+本文

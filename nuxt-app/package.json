@@ -9,16 +9,12 @@
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.18.9",
     "@nuxt/content": "^2.0.1",
     "@nuxtjs/tailwindcss": "^5.1.2",
     "@vue/eslint-config-prettier": "^7.0.0",
     "eslint": "^8.18.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.3",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-vue": "^9.1.1",
+    "eslint-plugin-vue": "^9.4.0",
     "nuxt": "3.0.0-rc.4",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
@@ -28,8 +24,11 @@
   "dependencies": {
     "@nuxtjs/dayjs": "^1.4.1",
     "@splidejs/vue-splide": "^0.6.7",
+    "eslint-plugin-nuxt": "^4.0.0",
     "prettier-plugin-tailwind": "^2.2.12",
     "sass": "^1.52.3",
-    "sass-loader": "^13.0.0"
+    "sass-loader": "^13.0.0",
+    "vue-eslint-parser": "^9.0.3",
+    "vue-scrollto": "^2.20.0"
   }
 }

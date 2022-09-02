@@ -1,0 +1,7 @@
+@use '../global' as g;
+
+body {
+  word-break: break-word;
+  background: map-get(g.$theme-base-colors, mainColor);
+  color: g.$cDarkGray;
+}

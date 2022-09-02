@@ -1,0 +1,97 @@
+@use '../global' as g;
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+a {
+  color: map-get(g.$theme-base-colors, 'subColor');
+}
+
+svg {
+  fill: currentColor;
+}
+
+// ページ遷移時にフェードする
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+.hentry {
+  &-content h2 {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+  }
+  h3 {
+    margin-bottom: 3rem;
+    font-size: 2rem;
+  }
+  h4 {
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+  }
+  li > ul {
+    margin-bottom: 0;
+  }
+  li {
+    margin-left: 1rem;
+    &::before {
+      content: '・';
+      margin-left: -1rem;
+    }
+  }
+
+  .table {
+    border-collapse: collapse;
+    th,
+    td {
+      border: solid gray 1px;
+      padding: 1rem;
+      @include g.mq-md {
+        padding: 2rem;
+      }
+    }
+  }
+}
+
+.sentence {
+  p,
+  ul,
+  dl,
+  hr {
+    line-height: 2rem;
+    margin-bottom: 1.6rem;
+  }
+}
+.card {
+  @include g.card();
+}
+
+.under-line {
+  background: linear-gradient(transparent 90%, map-get(g.$theme-base-colors, 'subColor') 0%);
+}
+
+.notoSerif {
+  font-family: g.$notoSerif;
+}
+
+.bg-color-gray {
+  background-color: map-get(g.$theme-base-colors, 'cGray');
+}
+
+.bg-color-subColor {
+  background-color: map-get(g.$theme-base-colors, 'subColor');
+}
+
+.text-color-white {
+  color: map-get(g.$theme-base-colors, 'cWhite');
+}
+
+.w-60 {
+  width: 60px;
+}
