@@ -12,6 +12,10 @@ useHead({
   }
 })
 
+definePageMeta({
+  layoutTransition: true
+})
+
 /**
  * slideSplide
  */

@@ -1,5 +1,10 @@
 export default [
   {
+    label: 'Sample',
+    href: '/index-sample',
+    class: 'menu-sample'
+  },
+  {
     label: 'Cafe',
     href: '/index-cafe',
     class: 'menu-cafe'
@@ -11,8 +16,7 @@ export default [
   },
   {
     label: 'Home',
-    href: '',
+    href: '/',
     class: 'menu-home'
-    // svgIcon: 'home-icon.svg'
   }
 ]

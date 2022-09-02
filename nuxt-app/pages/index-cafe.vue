@@ -1,6 +1,4 @@
 <script setup>
-// import { ref, onMounted } from 'vue'
-
 import itemsSample from '../models/itemsSample.js'
 
 const postData = {

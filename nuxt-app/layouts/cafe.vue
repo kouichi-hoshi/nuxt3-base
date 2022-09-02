@@ -1,38 +1,11 @@
 <script setup>
+import linkData from '../models/linkData.js'
+
 // サイトのタイトルを取得
 const siteTitle = 'CAFE WOODY'
 
 // サイトの説明文を取得
 const siteText = import.meta.env.VITE_SITE_TEXT
-
-const linkData = [
-  {
-    label: 'Concept',
-    href: '#concept',
-    class: 'concept'
-  },
-  {
-    label: 'Menu',
-    href: '#menu',
-    class: 'menu'
-  },
-  {
-    label: 'News',
-    href: '#news',
-    class: 'news'
-  },
-  {
-    label: 'Access',
-    href: '#access',
-    class: 'access'
-  },
-  {
-    label: 'home',
-    href: '/',
-    class: 'menu-home'
-    // svgIcon: 'home-icon.svg'
-  }
-]
 
 /**
  * IntersectionObserver
