@@ -10,13 +10,13 @@ export default defineNuxtConfig({
       href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap'
     }
   ],
-  pageTransition: {
-    name: 'page',
-    mode: 'out-in',
-    beforeEnter(el) {
-      console.log('Before enter...')
-    }
-  },
+  // pageTransition: {
+  //   name: 'page',
+  //   mode: 'out-in',
+  //   beforeEnter(el) {
+  //     console.log('Before enter...')
+  //   }
+  // },
   // router: {
   //   scrollBehavior: function (to, from, savedPosition) {
   //     return { x: 0, y: 0 }
