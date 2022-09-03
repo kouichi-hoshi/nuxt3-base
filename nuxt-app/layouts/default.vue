@@ -10,20 +10,7 @@ const siteText = import.meta.env.VITE_SITE_TEXT
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} - ` + siteTitle : siteTitle
-  },
-  // Web font
-  link: [
-    { rel: 'shortcut icon', href: '/favicon.ico' },
-    { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
-    { rel: 'icon', type: 'image/png', href: '/android-chrome-192x192.png' },
-
-    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-    {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap'
-    }
-  ]
+  }
 })
 </script>
 
@@ -33,7 +20,7 @@ useHead({
       <div class="flex items-center">
         <a href="/" class="flex items-center gap-2">
           <symbolMark href="images/common/icon.svg#icon-home" />
-          <logoType :mdl-title="siteTitle" class="l-header__title mr-4 text-xl font-bold" />
+          <logoType :mdl-title="siteTitle" class="l-header__title mr-4 josefin text-xl font-bold" />
         </a>
         <p class="l-header__site-text hidden xl:block">{{ siteText }}</p>
       </div>
@@ -53,7 +40,7 @@ useHead({
     >
       <div class="order-1 lg:order-0 lg:flex lg:items-center lg:gap-2">
         <symbolMark href="images/common/icon.svg#icon-home" class="mx-auto" />
-        <logoType class="l-footer__title text-xl font-bold lg-2 lg:mb-0" :mdl-title="siteTitle" />
+        <logoType class="l-footer__title josefin text-xl font-bold lg-2 lg:mb-0" :mdl-title="siteTitle" />
         <p class="l-footer__text xl:block mb-4 lg:mb-0">{{ siteText }}</p>
       </div>
       <nav class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-12 lg:mb-0">

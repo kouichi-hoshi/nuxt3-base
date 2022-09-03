@@ -76,10 +76,6 @@ svg {
   background: linear-gradient(transparent 90%, map-get(g.$theme-base-colors, 'subColor') 0%);
 }
 
-.notoSerif {
-  font-family: g.$notoSerif;
-}
-
 .bg-color-gray {
   background-color: map-get(g.$theme-base-colors, 'cGray');
 }

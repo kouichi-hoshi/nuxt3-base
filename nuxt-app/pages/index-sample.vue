@@ -9,14 +9,6 @@ const postData = {
  * Web font
  */
 useHead({
-  link: [
-    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-    {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Bungee&family=Noto+Sans+JP:wght@400;500;700&display=swap'
-    }
-  ],
   title: postData.title,
   bodyAttrs: {
     class: 'sample'

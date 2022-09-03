@@ -3,12 +3,15 @@ import { defineNuxtConfig } from 'nuxt'
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   link: [
-    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-    {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap'
-    }
+    { rel: 'shortcut icon', href: '/favicon.ico' },
+    { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+    { rel: 'icon', type: 'image/png', href: '/android-chrome-192x192.png' }
+    // { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    // { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
+    // {
+    //   rel: 'stylesheet',
+    //   href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap'
+    // }
   ],
   // pageTransition: {
   //   name: 'page',

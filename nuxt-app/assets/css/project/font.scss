@@ -1,0 +1,21 @@
+@use '../global' as g;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+.notoSerif {
+  font-family: g.$notoSerif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+.bungee {
+  font-family: g.$bungee;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;600;800&display=swap');
+.dosis {
+  font-family: g.$dosis;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap');
+.josefin {
+  font-family: g.$josefinSans;
+}
