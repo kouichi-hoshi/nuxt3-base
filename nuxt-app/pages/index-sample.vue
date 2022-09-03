@@ -5,9 +5,7 @@ const postData = {
   title: import.meta.env.VITE_SITE_TITLE,
   subtitle: import.meta.env.VITE_SITE_SUB_TITLE
 }
-/**
- * Web font
- */
+
 useHead({
   title: postData.title,
   bodyAttrs: {
@@ -36,9 +34,6 @@ const menuItems = [
 /**
  * slideSplide
  */
-// const fileName = ['007.jpg', '008.jpg', '009.jpg', '011.jpg', '013.jpg'] // スライドで表示する画像
-// const filePath = '/images/sample/' // 画像のパス
-// const ariaLabel = 'slide' //スライド本体のaria-label属性の値
 
 // スライドのオプション
 const slideOptions = {
@@ -107,7 +102,9 @@ onMounted(() => {
   scroll(targets.value, options)
 })
 
-//指定した要素の交差を検知させる
+/**
+ * 指定した要素の交差を検知させる
+ */
 function scroll(targets, options) {
   const observer = new IntersectionObserver(doWhenIntersect, options)
   targets.forEach((target) => {
@@ -115,7 +112,14 @@ function scroll(targets, options) {
   })
 }
 
-// 画面にin/outした要素にclassを着脱する
+/**
+ * 画面にin/outした要素にclassを着脱する
+ * 下記のようにCSSを設定する
+ * opacity: 0;
+ * &.active {
+ *  @include g.fadeLift($delay: 0.3s);
+ * }
+ */
 function doWhenIntersect(entries) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -131,25 +135,13 @@ function doWhenIntersect(entries) {
 <template>
   <NuxtLayout>
     <article>
-      <section class="first-view container mx-auto px-2 my-4 md:my-0 md:px-0 md:flex md:items-center">
-        <div class="first-view__title-wrap animate relative z-10 md:z-0">
-          <p class="first-view__sub-title text-lg md:ml-4">Coffee <span>&</span> Lunch</p>
-          <h2 class="first-view__title mb-2">
-            <img class="first-view__title-img" src="/images/cafe-page/title-logo.svg" alt="CAFE WOODY" />
-          </h2>
-          <p class="first-view__text rounded-md animate my-4 md:mt-4 md:w-fit lg:text-xl">
-            木のぬくもりの中でおいしいコーヒーを。
-          </p>
+      <section class="first-view container mx-auto h-screen flex flex-col justify-center">
+        <div>
+          <compHeader class="first-view__title animate" data-title="Sub Title">First View</compHeader>
         </div>
-        <p class="first-view__wood animate absolute top-2 right-0 md:relative">
-          <img src="/images/cafe-page/wood.svg" alt="" />
-        </p>
-        <p class="first-view__img-photo animate">
-          <img src="/images/sample/019.jpg" alt="" />
-        </p>
       </section>
 
-      <section id="concept" class="concept section-space px-4 xl:px-0">
+      <section id="concept" class="concept section-space">
         <compHeader class="concept__title animate" data-title="コンセプト">Concept</compHeader>
 
         <div class="concept__01 animate">
@@ -228,7 +220,7 @@ function doWhenIntersect(entries) {
         </div>
       </section>
 
-      <section id="menu" class="menu container mx-auto px-4">
+      <section id="menu" class="menu container mx-auto">
         <compHeader class="menu__title animate" data-title="メニュー">Menu</compHeader>
         <ul class="menu__items mb-12 md:mb-36">
           <li v-for="(menuItem, i) in menuItems" :key="i" class="menu__item">
@@ -246,7 +238,7 @@ function doWhenIntersect(entries) {
         </p>
       </section>
 
-      <section id="news" class="news px-4">
+      <section id="news" class="news">
         <div class="container mx-auto">
           <compHeader class="news__title animate" data-title="おしらせ">News</compHeader>
           <div class="news__inner mx-auto mb-24 sm:grid sm:grid-cols-2 sm:gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -271,55 +263,9 @@ function doWhenIntersect(entries) {
 @use '@splidejs/vue-splide/css';
 @use '../assets/css/global' as g;
 
-.cafe {
-  // font
-  $main-font: 'Bungee', cursive;
-  $sub-font: 'Noto Sans JP', sans-serif;
-
-  // セクション間の余白統一用
-  @mixin sectionSpace($mt: 4rem, $mb: 4rem, $mtMd: 8rem, $mbMd: 8rem, $pt: 4rem, $pb: 4rem, $ptMd: 8rem, $pbMd: 8rem) {
-    margin-top: $mt;
-    margin-bottom: $mb;
-    padding-top: $pt;
-    padding-bottom: $pb;
-    @include g.mq-md {
-      margin-top: $mtMd;
-      margin-bottom: $mbMd;
-      padding-top: $ptMd;
-      padding-bottom: $pbMd;
-    }
-  }
-
-  font-family: $sub-font;
-
-  // 見出しのサブタイトル用スタイル
-  [data-title]::after {
-    content: attr(data-title);
-    display: block;
-    width: fit-content;
-    font-size: 1.2rem;
-    font-weight: 600;
-    font-family: $sub-font;
-    border-bottom: 3px solid map-get(g.$theme-cafe-colors, 'subColor');
-    line-height: 2rem;
-    margin: 0 auto 2rem auto;
-    @include g.mq-md {
-      margin: 1rem auto 4rem auto;
-      line-height: 4rem;
-    }
-  }
-
-  // section間の余白の共通設定
+.sample {
   .section-space {
-    @include sectionSpace();
-  }
-
-  // font設定
-  .main-font {
-    font-family: $main-font;
-  }
-  .sub-font {
-    font-family: $sub-font;
+    @include g.sectionSpace();
   }
 
   .c-button--main {
@@ -333,100 +279,38 @@ function doWhenIntersect(entries) {
   }
 
   .c-button--circle {
-    border-radius: 999px;
-    width: fit-content;
-    text-align: center;
-    background: map-get(g.$theme-cafe-colors, 'subColor');
-    padding: 0.5rem;
-    line-height: 1.8;
+    @include g.buttonCircle;
+    // border-radius: 999px;
+    // width: fit-content;
+    // text-align: center;
+    // background: map-get(g.$theme-cafe-colors, 'subColor');
+    // padding: 0.5rem;
+    // line-height: 1.8;
   }
 
   .first-view {
-    @include g.mq-md {
-      height: 60vh;
+    margin-top: -64px;
+    @include g.mq-lg {
+      margin-top: -72px;
     }
-    @include g.mq-xl {
-      height: 80vh;
-    }
-    &__title-wrap {
-      opacity: 0;
-      &.active {
-        @include g.fadeLift();
-      }
-      @include g.mq-md {
-        flex: 0 1 50vw;
-      }
-    }
-    // &__title {
-    // }
-    &__title img {
-      @include g.mq-xl {
-        width: 85%;
-      }
-    }
-    &__sub-title {
-      font-family: $main-font;
-      color: #777777;
-    }
-    &__text {
-      background: #fff;
-      padding: 0.5rem 1rem;
-      color: #777777;
-      @include g.mask($delay: 1.6s);
-    }
-    &__wood {
-      opacity: 0;
-      &.active {
-        @include g.fadeLift($delay: 0.1s);
-      }
-      @include g.mq-md {
-        flex: 0 1 20vw;
-        margin-left: -5vw;
-        margin-right: 5vw;
-      }
-      @include g.mq-xl {
-        margin-right: 0;
-        margin-bottom: -6rem;
-      }
-      > img {
-        @include g.mq-md {
-          transform: scale(130%);
-        }
-      }
-    }
-
-    &__img-photo {
+    &__title {
+      @include g.logoTypeSet(g.$josefinSans, 800);
+      margin-bottom: 0;
       opacity: 0;
       &.active {
         @include g.fadeLift($delay: 0.3s);
-      }
-      @include g.mq-md {
-        flex: 0 1 30vw;
-      }
-
-      & > img {
-        border-radius: 1rem;
-        aspect-ratio: 4/3;
-        object-fit: cover;
-        width: 100%;
-        @include g.mq-sm {
-          aspect-ratio: 2/3;
-        }
-        @include g.mq-xl {
-          aspect-ratio: 3/4;
-        }
       }
     }
   }
 
   .concept {
+    @include g.dataTitle();
     background: map-get(g.$theme-cafe-colors, 'accentColor');
     color: map-get(g.$theme-cafe-colors, 'mainColor');
-    @include sectionSpace($mt: 0, $mtMd: -6rem);
+    @include g.sectionSpace();
 
     &__title {
-      font-weight: 500;
-      font-family: $main-font;
+      @include g.logoTypeSet(g.$josefinSans, 800);
       color: g.$cWhite;
       opacity: 0;
       &.active {
@@ -466,7 +350,6 @@ function doWhenIntersect(entries) {
     &__01-title,
     &__02-title,
     &__03-title {
-      font-family: $main-font;
       color: map-get(g.$theme-cafe-colors, 'color4');
       text-shadow: -1px -1px 1px rgba(60, 45, 35, 0.6), 1px 1px 1px rgba(60, 45, 35, 0.6);
       font-size: 2rem;
@@ -516,10 +399,9 @@ function doWhenIntersect(entries) {
   }
 
   .menu {
-    @include sectionSpace($pt: 0, $ptMd: 0, $pb: 0, $pbMd: 0);
+    @include g.sectionSpace();
     &__title {
       color: map-get(g.$theme-cafe-colors, 'accentColor');
-      font-family: $main-font;
       opacity: 0;
       &.active {
         @include g.fadeLift($delay: 0.3s);
@@ -584,7 +466,6 @@ function doWhenIntersect(entries) {
       bottom: 0;
     }
     &__name {
-      font-family: $main-font;
       font-size: 1.6rem;
       font-weight: 500;
       line-height: 1.2;
@@ -592,11 +473,10 @@ function doWhenIntersect(entries) {
   }
 
   .news {
+    @include g.sectionSpace();
     background: g.$cWhite;
-    @include sectionSpace($mb: 0, $mbMd: 0);
     &__title {
       color: map-get(g.$theme-cafe-colors, 'accentColor');
-      font-family: $main-font;
       opacity: 0;
       &.active {
         @include g.fadeLift($delay: 0.3s);
