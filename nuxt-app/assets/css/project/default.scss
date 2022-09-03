@@ -8,9 +8,9 @@ a {
   color: map-get(g.$theme-base-colors, 'subColor');
 }
 
-svg {
-  fill: currentColor;
-}
+// svg {
+//   fill: currentColor;
+// }
 
 // ページ遷移時にフェードする
 .page-enter-active,
@@ -72,6 +72,27 @@ svg {
   @include g.card();
 }
 
+.top-return-btn {
+  @include g.buttonCircle($pad: 10px);
+  animation: ini 0.4s ease-out forwards;
+  @keyframes ini {
+    100% {
+      transform: translateY(5rem);
+    }
+  }
+  .active > & {
+    @include g.fadeLift();
+  }
+  .active.up > & {
+    animation: up 0.4s ease-out forwards;
+    @keyframes up {
+      100% {
+        transform: translateY(-6rem);
+      }
+    }
+  }
+}
+
 .under-line {
   background: linear-gradient(transparent 90%, map-get(g.$theme-base-colors, 'subColor') 0%);
 }
@@ -86,8 +107,4 @@ svg {
 
 .text-color-white {
   color: map-get(g.$theme-base-colors, 'cWhite');
-}
-
-.w-60 {
-  width: 60px;
 }

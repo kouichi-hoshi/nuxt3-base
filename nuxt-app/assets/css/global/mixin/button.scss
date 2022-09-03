@@ -11,13 +11,13 @@
   }
 }
 
-@mixin buttonCircle() {
+@mixin buttonCircle($pad: 0.5rem) {
   //TODO:値を変数化する
   border-radius: 999px;
   width: fit-content;
   text-align: center;
-  background: map-get(g.$theme-cafe-colors, 'subColor');
-  padding: 0.5rem;
+  background: g.$cBlack;
+  padding: $pad;
   line-height: 1.8;
 }
 
