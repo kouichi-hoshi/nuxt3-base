@@ -1,0 +1,19 @@
+@use '../setting' as g;
+@use 'mediaQueries' as m;
+
+// 見出しのサブタイトル用スタイル
+@mixin dataTitle($position: after, $fontSize: 40%, $borderLineWidth: 3px, $borderColor: g.$cBlack) {
+  [data-title]::#{$position} {
+    content: attr(data-title);
+    display: block;
+    width: fit-content;
+    font-size: $fontSize;
+    border-bottom: $borderLineWidth solid $borderColor;
+    line-height: 2rem;
+    margin: 0 auto 2rem auto;
+    @include m.mq-md {
+      margin: 1rem auto 4rem auto;
+      line-height: 4rem;
+    }
+  }
+}
