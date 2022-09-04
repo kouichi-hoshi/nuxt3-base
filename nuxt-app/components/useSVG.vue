@@ -9,12 +9,12 @@ const props = defineProps({
     default: '0 0 32 32'
   },
   size: {
-    type: Number,
-    default: 32
+    type: String,
+    default: '32'
   },
   scale: {
-    type: Number,
-    default: 1
+    type: String,
+    default: '1'
   },
   innerClass: {
     type: String,
@@ -23,11 +23,11 @@ const props = defineProps({
 })
 //TODO: CSS変数を変更する関数に変える
 function setSize(s) {
-  return `width: ${String(s)}px; height: ${String(s)}px;`
+  return `width: ${s}px; height: ${s}px;`
 }
 //TODO: CSS変数を変更する関数に変える
 function setScale(s) {
-  return `transform: scale(${String(s)});`
+  return `transform: scale(${s});`
 }
 </script>
 
