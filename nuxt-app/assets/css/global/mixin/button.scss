@@ -11,12 +11,12 @@
   }
 }
 
-@mixin buttonCircle($pad: 0.5rem) {
+@mixin buttonCircle($pad: 0.5rem, $bg: g.$cMidBlack) {
   //TODO:値を変数化する
   border-radius: 999px;
   width: fit-content;
   text-align: center;
-  background: g.$cBlack;
+  background: $bg;
   padding: $pad;
   line-height: 1.8;
 }

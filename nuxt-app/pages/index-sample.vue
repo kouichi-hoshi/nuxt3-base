@@ -225,7 +225,7 @@ function doWhenIntersect(entries) {
           </li>
         </ul>
         <p class="text-center">
-          <compButton class="c-button--main" href="/index-cafe">More</compButton>
+          <compButton class="mx-auto">More</compButton>
         </p>
       </section>
 
@@ -242,7 +242,7 @@ function doWhenIntersect(entries) {
             />
           </div>
           <p class="text-center">
-            <compButton class="c-button--main" href="/index-cafe">More</compButton>
+            <compButton class="mx-auto">More</compButton>
           </p>
         </div>
       </section>
@@ -279,16 +279,6 @@ function doWhenIntersect(entries) {
     @include g.sectionSpace();
   }
 
-  .c-button--main {
-    border-radius: 999px;
-    width: fit-content;
-    display: inline-block;
-    padding: 0.5rem 2rem;
-    background: map-get(g.$theme-cafe-colors, 'subColor');
-    padding: 0.5rem 2rem;
-    line-height: 1.8;
-  }
-
   .c-button--circle {
     @include g.buttonCircle;
   }
@@ -310,9 +300,9 @@ function doWhenIntersect(entries) {
 
   .concept {
     @include g.dataTitle();
-    background: map-get(g.$theme-cafe-colors, 'accentColor');
-    color: map-get(g.$theme-cafe-colors, 'mainColor');
     @include g.sectionSpace();
+    background: g.$cMidBlack;
+    color: g.$cBlack;
 
     &__title {
       @include g.logoTypeSet(g.$josefinSans, 800);
@@ -367,21 +357,10 @@ function doWhenIntersect(entries) {
   }
 
   .menu {
+    @include g.dataTitle();
     @include g.sectionSpace();
-    // &__title {
-    //   color: map-get(g.$theme-cafe-colors, 'accentColor');
-    //   opacity: 0;
-    //   &.active {
-    //     @include g.fadeLift($delay: 0.3s);
-    //   }
-    //   &[data-title]::after {
-    //     color: map-get(g.$theme-cafe-colors, 'subColor');
-    //   }
-    // }
     @include c-header--custom01();
-    &__inner {
-      max-width: g.$screenLg;
-    }
+
     .menu__items {
       display: flex;
       flex-wrap: wrap;
@@ -397,7 +376,7 @@ function doWhenIntersect(entries) {
     .menu__item {
       flex: 0 0 calc(50% - 0.5rem);
       border-radius: 1rem;
-      background: map-get(g.$theme-cafe-colors, 'accentColor');
+      background: g.$cDarkBlack;
       position: relative;
       padding-bottom: 2rem;
       @include g.mq-md {
@@ -427,7 +406,7 @@ function doWhenIntersect(entries) {
       }
     }
     &__inner {
-      color: map-get(g.$theme-cafe-colors, 'color4');
+      color: g.$cWhite;
       padding: 0 1rem 1rem 1rem;
       text-align: right;
       position: absolute;
@@ -443,24 +422,23 @@ function doWhenIntersect(entries) {
 
   .news {
     @include g.sectionSpace();
-    background: g.$cWhite;
+    // background: g.$cWhite;
+    @include g.dataTitle();
     &__title {
-      color: map-get(g.$theme-cafe-colors, 'accentColor');
+      @include g.logoTypeSet(g.$josefinSans, 800);
+      // color: map-get(g.$theme-cafe-colors, 'accentColor');
       opacity: 0;
       &.active {
         @include g.fadeLift($delay: 0.3s);
       }
-      &[data-title]::after {
-        color: map-get(g.$theme-cafe-colors, 'subColor');
-      }
+      // &[data-title]::after {
+      //   color: map-get(g.$theme-cafe-colors, 'subColor');
+      // }
     }
     &__inner {
       max-width: g.$screenLg;
     }
     &__item {
-      a {
-        color: g.$cDarkGray;
-      }
       img {
         border-radius: 0.5rem;
         aspect-ratio: 3/2;
