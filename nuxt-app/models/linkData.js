@@ -5,6 +5,11 @@ export default [
     class: 'menu-sample'
   },
   {
+    label: 'Component',
+    href: '/index-component',
+    class: 'menu-sample'
+  },
+  {
     label: 'Cafe',
     href: '/index-cafe',
     class: 'menu-cafe'

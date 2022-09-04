@@ -422,18 +422,13 @@ function doWhenIntersect(entries) {
 
   .news {
     @include g.sectionSpace();
-    // background: g.$cWhite;
     @include g.dataTitle();
     &__title {
       @include g.logoTypeSet(g.$josefinSans, 800);
-      // color: map-get(g.$theme-cafe-colors, 'accentColor');
       opacity: 0;
       &.active {
         @include g.fadeLift($delay: 0.3s);
       }
-      // &[data-title]::after {
-      //   color: map-get(g.$theme-cafe-colors, 'subColor');
-      // }
     }
     &__inner {
       max-width: g.$screenLg;
