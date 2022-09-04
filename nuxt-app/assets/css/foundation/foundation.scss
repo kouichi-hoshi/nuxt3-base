@@ -1,0 +1,12 @@
+@use '../global' as g;
+
+body {
+  color: g.$cDarkBlack;
+  font-family: g.$notoSansJP;
+  background: g.$cMidWhite;
+  word-break: break-word;
+}
+
+a {
+  color: inherit;
+}

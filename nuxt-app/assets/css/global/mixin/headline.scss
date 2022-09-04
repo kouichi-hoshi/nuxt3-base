@@ -1,0 +1,8 @@
+@use 'mediaQueries' as m;
+
+@mixin c-headline($fs: 1.875rem, $lh: 2.25rem) {
+  width: fit-content;
+  margin-bottom: 1rem;
+  font-size: $fs;
+  line-height: $lh;
+}
