@@ -1,11 +1,32 @@
 <script setup>
-import linkData from '../models/linkData.js'
-
 // サイトのタイトルを取得
-const siteTitle = 'CAFE WOODY'
+const siteTitle = import.meta.env.VITE_SITE_TITLE
 
 // サイトの説明文を取得
 const siteText = import.meta.env.VITE_SITE_TEXT
+
+const linkData = [
+  {
+    label: 'menu1',
+    href: '/',
+    class: 'menu'
+  },
+  {
+    label: 'menu2',
+    href: '/',
+    class: 'menu'
+  },
+  {
+    label: 'menu3',
+    href: '/',
+    class: 'menu'
+  },
+  {
+    label: 'menu4',
+    href: '/',
+    class: 'menu'
+  }
+]
 
 /**
  * IntersectionObserver
@@ -66,7 +87,7 @@ onMounted(() => {
           <img src="/images/cafe-page/cafe-logo.svg" alt="" />
         </div>
 
-        <logoType class="l-footer__title lg-2 lg:mb-0 lg:mr-4" tag-name="div" :mdl-title="siteTitle" />
+        <logoType class="l-footer__title lg-2 lg:mb-0 lg:mr-4" tag-name="div"> CAFE WOODY </logoType>
         <p v-if="false" class="l-footer__text lg:hidden xl:block mb-4 lg:mb-0">{{ siteText }}</p>
       </div>
       <div class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-6 lg:mb-0">

@@ -52,7 +52,7 @@ onMounted(() => {
       <div class="flex items-center">
         <a href="/" class="flex items-center gap-2">
           <useSVG class="l-header__logo -mt-2" href="images/common/icon.svg#icon-home" />
-          <logoType :mdl-title="siteTitle" class="l-header__title mr-4 josefin text-2xl font-bold" />
+          <logoType class="l-header__title mr-4 josefin text-2xl font-bold">{{ siteTitle }}</logoType>
         </a>
         <p class="l-header__site-text hidden xl:block -mt-1">{{ siteText }}</p>
       </div>
@@ -73,7 +73,7 @@ onMounted(() => {
     >
       <div class="order-1 lg:order-0 lg:flex lg:items-center lg:gap-2">
         <useSVG class="l-footer__logo -mt-2 mx-auto" href="images/common/icon.svg#icon-home" />
-        <logoType class="l-footer__title josefin text-2xl font-bold lg-2 lg:mb-0" :mdl-title="siteTitle" />
+        <logoType class="l-footer__title josefin text-2xl font-bold lg-2 lg:mb-0">{{ siteTitle }}</logoType>
         <p class="l-footer__text block mb-4 lg:mb-0 lg:-mt-1">{{ siteText }}</p>
       </div>
       <nav class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-12 lg:mb-0">

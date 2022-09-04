@@ -9,7 +9,7 @@ const postData = {
 useHead({
   title: postData.title,
   bodyAttrs: {
-    class: 'sample'
+    class: 'template'
   }
 })
 
@@ -274,7 +274,7 @@ function doWhenIntersect(entries) {
   }
 }
 
-.sample {
+.template {
   .section-space {
     @include g.sectionSpace();
   }
@@ -301,7 +301,7 @@ function doWhenIntersect(entries) {
   .concept {
     @include g.dataTitle();
     @include g.sectionSpace();
-    background: g.$cMidBlack;
+    background: g.$cDarkGray;
     color: g.$cBlack;
 
     &__title {

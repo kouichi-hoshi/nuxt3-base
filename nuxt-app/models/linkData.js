@@ -1,13 +1,18 @@
 export default [
   {
-    label: 'Sample',
-    href: '/index-sample',
-    class: 'menu-sample'
+    label: 'Template',
+    href: '/index-template',
+    class: 'menu-template'
   },
   {
     label: 'Component',
     href: '/index-component',
-    class: 'menu-sample'
+    class: 'menu-component'
+  },
+  {
+    label: 'PG-School',
+    href: '/index-pg-school',
+    class: 'menu-cafe'
   },
   {
     label: 'Cafe',

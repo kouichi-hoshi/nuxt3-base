@@ -1,9 +1,5 @@
 <script setup>
 const props = defineProps({
-  mdlTitle: {
-    type: String,
-    required: true
-  },
   className: {
     type: String,
     default: () => {
@@ -20,5 +16,5 @@ const props = defineProps({
 </script>
 
 <template>
-  <component :is="tagName" :class="className">{{ mdlTitle }}</component>
+  <component :is="tagName" :class="className"><slot></slot></component>
 </template>

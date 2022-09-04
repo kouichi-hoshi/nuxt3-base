@@ -1,6 +1,6 @@
 @use '../setting' as g;
 
-@mixin button($color: g.$cWhite, $bg: g.$cGray, $padding: 0.5rem 2rem, $radius: 100vmax) {
+@mixin button($color: g.$cWhite, $bg: g.$cDarkBlack, $padding: 0.5rem 2rem, $radius: 100vmax) {
   color: $color;
   background: $bg;
   display: block;
@@ -11,7 +11,7 @@
   }
 }
 
-@mixin buttonCircle($pad: 0.5rem, $bg: g.$cMidBlack) {
+@mixin buttonCircle($pad: 0.5rem, $bg: g.$cDarkBlack) {
   //TODO:値を変数化する
   border-radius: 999px;
   width: fit-content;
