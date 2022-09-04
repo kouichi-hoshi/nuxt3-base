@@ -1,18 +1,14 @@
 @use '../global' as g;
 
 body {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: g.$notoSansJP;
 }
 
 a {
   color: map-get(g.$theme-base-colors, 'subColor');
 }
 
-// svg {
-//   fill: currentColor;
-// }
-
-// ページ遷移時にフェードする
+// ページ遷移時にフェード
 .page-enter-active,
 .page-leave-active {
   transition: opacity 0.5s;

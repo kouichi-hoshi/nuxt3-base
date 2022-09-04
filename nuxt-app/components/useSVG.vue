@@ -15,11 +15,17 @@ const props = defineProps({
   scale: {
     type: Number,
     default: 1
+  },
+  innerClass: {
+    type: String,
+    default: ''
   }
 })
+//TODO: CSS変数を変更する関数に変える
 function setSize(s) {
   return `width: ${String(s)}px; height: ${String(s)}px;`
 }
+//TODO: CSS変数を変更する関数に変える
 function setScale(s) {
   return `transform: scale(${String(s)});`
 }
@@ -27,7 +33,7 @@ function setScale(s) {
 
 <template>
   <div class="use-svg" :style="setSize(size)">
-    <svg class="use-svg__img" :style="setScale(scale)" :viewBox="viewBox">
+    <svg class="use-svg__img" :class="innerClass" :style="setScale(scale)" :viewBox="viewBox">
       <use :href="href" />
     </svg>
   </div>
@@ -39,6 +45,9 @@ function setScale(s) {
 .use-svg {
   transform-origin: center;
   &__img {
+    fill: g.$cBlack;
+  }
+  &__img--white {
     fill: g.$cWhite;
   }
 }

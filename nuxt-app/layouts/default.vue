@@ -51,10 +51,10 @@ onMounted(() => {
     <header ref="header" class="l-header p-4 flex items-center md:mr-16">
       <div class="flex items-center">
         <a href="/" class="flex items-center gap-2">
-          <symbolMark href="images/common/icon.svg#icon-home" />
-          <logoType :mdl-title="siteTitle" class="l-header__title mr-4 josefin text-xl font-bold" />
+          <useSVG class="l-header__logo -mt-2" href="images/common/icon.svg#icon-home" />
+          <logoType :mdl-title="siteTitle" class="l-header__title mr-4 josefin text-2xl font-bold" />
         </a>
-        <p class="l-header__site-text hidden xl:block">{{ siteText }}</p>
+        <p class="l-header__site-text hidden xl:block -mt-1">{{ siteText }}</p>
       </div>
       <div class="flex-1">
         <nav class="hidden lg:flex justify-end">
@@ -72,9 +72,9 @@ onMounted(() => {
       class="l-footer mt-24 pt-4 lg:p-8 text-center lg:text-left flex flex-col lg:flex-row justify-center lg:justify-start"
     >
       <div class="order-1 lg:order-0 lg:flex lg:items-center lg:gap-2">
-        <symbolMark href="images/common/icon.svg#icon-home" class="mx-auto" />
-        <logoType class="l-footer__title josefin text-xl font-bold lg-2 lg:mb-0" :mdl-title="siteTitle" />
-        <p class="l-footer__text xl:block mb-4 lg:mb-0">{{ siteText }}</p>
+        <useSVG class="l-footer__logo -mt-2 mx-auto" href="images/common/icon.svg#icon-home" />
+        <logoType class="l-footer__title josefin text-2xl font-bold lg-2 lg:mb-0" :mdl-title="siteTitle" />
+        <p class="l-footer__text block mb-4 lg:mb-0 lg:-mt-1">{{ siteText }}</p>
       </div>
       <nav class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-12 lg:mb-0">
         <compNavigation outer-class="footer" :links="linkData" />
@@ -89,7 +89,7 @@ onMounted(() => {
         class="top-return-btn fixed right-2 bottom-4 md:right-12 md:bottom-6"
         label=""
       >
-        <useSVG href="images/common/icon.svg#icon-arrow" />
+        <useSVG inner-class="use-svg__img--white" href="images/common/icon.svg#icon-arrow" />
       </compButton>
     </div>
 

@@ -17,13 +17,6 @@ const props = defineProps({
 @use '../assets/css/global' as g;
 
 .c-headline {
-  // c-headline w-fit mx-auto mb-8 text-2xl md:text-4xl
-  display: block;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2rem;
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+  @include g.c-headline();
 }
 </style>

@@ -82,7 +82,7 @@ onMounted(() => {
         class="top-return-btn fixed right-2 bottom-4 md:right-12 md:bottom-6"
         label=""
       >
-        <useSVG size="28" scale="0.6" href="images/common/icon.svg#icon-arrow" />
+        <useSVG inner-class="use-svg__img--white" size="28" scale="0.6" href="images/common/icon.svg#icon-arrow" />
       </compButton>
     </div>
 

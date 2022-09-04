@@ -147,12 +147,9 @@ function doWhenIntersect(entries) {
         <div class="concept__01 animate">
           <div class="basis-1/2 order-1 relative">
             <slideSplide :slide-items="slideItems" :slide-options="setSlideStart(3)" />
-            <p class="concept__01-title text-center m-4 md:m-0">Delicious coffee</p>
           </div>
           <div class="basis-1/2 order-2 my-auto sentence">
-            <compHeadline class="concept__content-title text-3xl mb-6 md:mb-12 font-bold">
-              Lorem ipsum dolor sit amet
-            </compHeadline>
+            <compHeadline class="concept__content-title"> Lorem ipsum dolor sit amet </compHeadline>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.
@@ -172,12 +169,9 @@ function doWhenIntersect(entries) {
         <div class="concept__02 animate">
           <div class="basis-1/2 order-2 relative">
             <slideSplide :slide-items="slideItems" :slide-options="setSlideStart(5)" />
-            <p class="concept__02-title text-center main-font text-2xl m-4 md:m-0">Hospitality</p>
           </div>
           <div class="basis-1/2 order-1 my-auto sentence">
-            <compHeadline class="concept__content-title animate text-3xl mb-6 md:mb-12 font-bold">
-              Lorem ipsum dolor sit amet
-            </compHeadline>
+            <compHeadline class="concept__content-title animate"> Lorem ipsum dolor sit amet </compHeadline>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.
@@ -197,12 +191,9 @@ function doWhenIntersect(entries) {
         <div class="concept__03 animate">
           <div class="basis-1/2 order-1 relative">
             <slideSplide :slide-items="slideItems" :slide-options="setSlideStart(1)" />
-            <p class="concept__03-title text-center main-font text-2xl m-4 md:m-0">Luxury</p>
           </div>
           <div class="basis-1/2 order-2 my-auto sentence">
-            <compHeadline class="concept__content-title animate text-3xl mb-6 md:mb-12 font-bold">
-              Lorem ipsum dolor sit amet
-            </compHeadline>
+            <compHeadline class="concept__content-title animate"> Lorem ipsum dolor sit amet </compHeadline>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.
@@ -263,6 +254,26 @@ function doWhenIntersect(entries) {
 @use '@splidejs/vue-splide/css';
 @use '../assets/css/global' as g;
 
+@mixin c-header--custom01($fc: g.$cBlack) {
+  &__title {
+    @include g.logoTypeSet(g.$josefinSans, 800);
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    color: $fc;
+    opacity: 0;
+    @include g.mq-sm {
+      margin-bottom: 6rem;
+    }
+    &.active {
+      @include g.fadeLift($delay: 0.3s);
+    }
+    &[data-title]::after {
+      color: $fc;
+      border-bottom: 2px solid $fc;
+    }
+  }
+}
+
 .sample {
   .section-space {
     @include g.sectionSpace();
@@ -280,12 +291,6 @@ function doWhenIntersect(entries) {
 
   .c-button--circle {
     @include g.buttonCircle;
-    // border-radius: 999px;
-    // width: fit-content;
-    // text-align: center;
-    // background: map-get(g.$theme-cafe-colors, 'subColor');
-    // padding: 0.5rem;
-    // line-height: 1.8;
   }
 
   .first-view {
@@ -311,14 +316,19 @@ function doWhenIntersect(entries) {
 
     &__title {
       @include g.logoTypeSet(g.$josefinSans, 800);
+      margin-top: 2rem;
+      margin-bottom: 3rem;
       color: g.$cWhite;
       opacity: 0;
+      @include g.mq-sm {
+        margin-bottom: 6rem;
+      }
       &.active {
         @include g.fadeLift($delay: 0.3s);
       }
       &[data-title]::after {
-        color: map-get(g.$theme-cafe-colors, 'color4');
-        border-bottom: 3px solid map-get(g.$theme-cafe-colors, 'color4');
+        color: g.$cWhite;
+        border-bottom: 2px solid g.$cWhite;
       }
     }
 
@@ -347,69 +357,28 @@ function doWhenIntersect(entries) {
       }
     }
 
-    &__01-title,
-    &__02-title,
-    &__03-title {
-      color: map-get(g.$theme-cafe-colors, 'color4');
-      text-shadow: -1px -1px 1px rgba(60, 45, 35, 0.6), 1px 1px 1px rgba(60, 45, 35, 0.6);
-      font-size: 2rem;
-      @include g.mq-md {
-        font-size: 3rem;
-        position: absolute;
-        width: max-content;
-      }
-      @include g.mq-lg {
-        font-size: 4rem;
-      }
-    }
-
-    &__01-title {
-      @include g.mq-md {
-        right: 0;
-        bottom: -2rem;
-        text-align: left;
-        transform-origin: right;
-        transform: rotate(90deg) translateY(-35%);
-        @include g.mq-lg {
-          bottom: -4rem;
-        }
-      }
-    }
-
-    &__02-title {
-      @include g.mq-md {
-        left: -3rem;
-        top: 3rem;
-        transform-origin: right;
-        text-align: left;
-      }
-    }
-
-    &__03-title {
-      @include g.mq-md {
-        right: -3rem;
-        bottom: 4rem;
-        text-align: left;
-      }
-    }
-
     &__content-title {
+      @include g.logoTypeSet(g.$josefinSans, 800);
       color: g.$cWhite;
+      @include g.mq-md {
+        font-size: 2rem;
+      }
     }
   }
 
   .menu {
     @include g.sectionSpace();
-    &__title {
-      color: map-get(g.$theme-cafe-colors, 'accentColor');
-      opacity: 0;
-      &.active {
-        @include g.fadeLift($delay: 0.3s);
-      }
-      &[data-title]::after {
-        color: map-get(g.$theme-cafe-colors, 'subColor');
-      }
-    }
+    // &__title {
+    //   color: map-get(g.$theme-cafe-colors, 'accentColor');
+    //   opacity: 0;
+    //   &.active {
+    //     @include g.fadeLift($delay: 0.3s);
+    //   }
+    //   &[data-title]::after {
+    //     color: map-get(g.$theme-cafe-colors, 'subColor');
+    //   }
+    // }
+    @include c-header--custom01();
     &__inner {
       max-width: g.$screenLg;
     }

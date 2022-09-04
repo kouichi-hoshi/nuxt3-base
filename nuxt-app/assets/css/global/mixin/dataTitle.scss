@@ -3,7 +3,7 @@
 
 // 見出しのサブタイトル用スタイル
 // 対象の下層の要素に適用される
-@mixin dataTitle($position: after, $fontSize: 40%, $borderLineWidth: 3px, $borderColor: g.$cBlack) {
+@mixin dataTitle($position: after, $fontSize: 30%, $borderLineWidth: 3px, $borderColor: g.$cBlack) {
   [data-title]::#{$position} {
     content: attr(data-title);
     display: block;
