@@ -1,5 +1,5 @@
 <script setup>
-import linkData from '../models/linkData.js'
+import LinkSamples from '../models/LinkSamples.js'
 
 const postData = {
   title: import.meta.env.VITE_SITE_TITLE,
@@ -22,9 +22,9 @@ definePageMeta({
     <article>
       <section class="first-view container mx-auto h-screen flex flex-col justify-center">
         <compHeader class="first-view__title animate">Nuxt3 Base</compHeader>
-        <ul class="mx-auto">
-          <compNavigation outer-class="flex items-center" innerClass="mx-4" :links="linkData" />
-        </ul>
+        <p class="text-center text-2xl font-bold mb-4">Sample Page</p>
+        <compButton class="c-button my-2 mx-auto" href="/index-pg-school">プログラミング スクール</compButton>
+        <compButton class="c-button my-2 mx-auto" href="/index-cafe">カフェ</compButton>
       </section>
     </article>
   </NuxtLayout>
@@ -42,6 +42,9 @@ definePageMeta({
     &__title {
       @include g.logoTypeSet(g.$josefinSans, 800);
     }
+  }
+  .c-button {
+    @include g.button();
   }
 }
 </style>

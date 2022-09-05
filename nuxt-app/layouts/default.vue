@@ -1,5 +1,5 @@
 <script setup>
-import linkData from '../models/linkData.js'
+import LinkGlobal from '../models/LinkGlobal.js'
 
 // サイトのタイトルを取得
 const siteTitle = import.meta.env.VITE_SITE_TITLE
@@ -44,6 +44,14 @@ onMounted(() => {
   }, options)
   observerUpDown.observe(footer.value)
 })
+
+const isHome = () => {
+  if (useRoute().fullPath === '/') {
+    return true
+  } else {
+    return false
+  }
+}
 </script>
 
 <template>
@@ -58,7 +66,7 @@ onMounted(() => {
       </div>
       <div class="flex-1">
         <nav class="hidden lg:flex justify-end">
-          <compNavigation outer-class="header flex items-center" :links="linkData" />
+          <compNavigation outer-class="header flex items-center" :links="LinkGlobal" />
         </nav>
       </div>
     </header>
@@ -68,6 +76,7 @@ onMounted(() => {
     </main>
 
     <footer
+      v-show="!isHome"
       ref="footer"
       class="l-footer mt-24 pt-4 lg:p-8 text-center lg:text-left flex flex-col lg:flex-row justify-center lg:justify-start"
     >
@@ -77,7 +86,7 @@ onMounted(() => {
         <p class="l-footer__text block mb-4 lg:mb-0 lg:-mt-1">{{ siteText }}</p>
       </div>
       <nav class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-12 lg:mb-0">
-        <compNavigation outer-class="footer" :links="linkData" />
+        <compNavigation outer-class="footer" :links="LinkGlobal" />
       </nav>
     </footer>
 
@@ -95,7 +104,7 @@ onMounted(() => {
 
     <modalWindow>
       <ul class="modal-nav text-2xl sm:text-3xl md:text-4xl">
-        <compNavigation outer-class="modal-window" :links="linkData" />
+        <compNavigation outer-class="modal-window" :links="LinkGlobal" />
       </ul>
     </modalWindow>
   </div>
