@@ -44,16 +44,4 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 @use '../assets/css/global' as g;
-
-.c-button {
-  @include g.button();
-}
-
-.c-button__light {
-  @include g.button($color: g.$cBlack, $bg: g.$cWhite);
-}
-
-.c-button__white {
-  @include g.button-30;
-}
 </style>
