@@ -29,6 +29,11 @@
   @include g.card();
 }
 
+// section間の余白の共通設定
+.section-space {
+  @include g.sectionSpace();
+}
+
 .top-return-btn {
   @include g.buttonCircle($pad: 10px);
   animation: ini 0.4s ease-out forwards;

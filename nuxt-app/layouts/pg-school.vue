@@ -16,23 +16,23 @@ useHead({
 
 const linkData = [
   {
-    label: 'menu1',
-    href: '/',
+    label: 'カリキュラム',
+    href: '',
     class: 'menu'
   },
   {
-    label: 'menu2',
-    href: '/',
+    label: '体験レッスン',
+    href: '',
     class: 'menu'
   },
   {
-    label: 'menu3',
-    href: '/',
+    label: 'よくある質問',
+    href: '',
     class: 'menu'
   },
   {
-    label: 'menu4',
-    href: '/',
+    label: 'ガリレオについて',
+    href: '',
     class: 'menu'
   }
 ]
@@ -119,14 +119,32 @@ onMounted(() => {
     <modalWindow>
       <ul class="modal-nav text-2xl sm:text-3xl md:text-4xl">
         <compNavigation outer-class="modal-window" :links="linkData" />
-        <div class="card">
-          <p>教室情報</p>
-          <ul>
-            <li>◯◯市〇〇1-1-1</li>
-            <li>003-xxx-xxxx</li>
-          </ul>
-        </div>
       </ul>
+      <div class="card my-2">
+        <p>教室情報</p>
+        <ul>
+          <li>◯◯市〇〇1-1-1</li>
+          <li>003-xxx-xxxx</li>
+        </ul>
+      </div>
+      <div class="my-2">
+        <p>お問い合わせ</p>
+        <form action="" method="post">
+          <div class="my-2">
+            <label for="name">名前</label>
+            <input id="name" type="text" name="name" />
+          </div>
+          <div class="my-2">
+            <label for="email">メールアドレス</label>
+            <input id="email" type="mail" name="email" />
+          </div>
+          <div class="my-2">
+            <label for="message">内容</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+          <input class="c-button__light" type="submit" value="送信する" />
+        </form>
+      </div>
     </modalWindow>
   </div>
 </template>

@@ -1,6 +1,7 @@
 <script setup>
-import itemsSample from '../models/itemsSample.js'
-
+/**
+ * Setting
+ */
 const postData = {
   title: import.meta.env.VITE_SITE_TITLE,
   subtitle: import.meta.env.VITE_SITE_SUB_TITLE
@@ -9,7 +10,7 @@ const postData = {
 useHead({
   title: postData.title,
   bodyAttrs: {
-    class: 'sample'
+    class: 'pg-school'
   }
 })
 
@@ -17,76 +18,11 @@ definePageMeta({
   layoutTransition: true
 })
 
-/**
- * repeatCard
- */
-const newsItems = itemsSample.slice(0, 4) // newsにわたすデータ
-const itemsPath = '/images/sample/' //repeatCardで表示する画像のパス
-
-const menuItems = [
-  { name: 'Coffee', src: '/images/sample/017.jpg', text: 'コーヒー' },
-  { name: 'Cafe latte', src: '/images/sample/018.jpg', text: 'カフェラテ' },
-  { name: 'Cappuccino', src: '/images/sample/015.jpg', text: 'カプチーノ' },
-  { name: 'Cafe latte', src: '/images/sample/001.jpg', text: 'カフェラテ' },
-  { name: 'Coffee', src: '/images/sample/004.jpg', text: 'コーヒー' }
-]
-
-/**
- * slideSplide
- */
-
-// スライドのオプション
-const slideOptions = {
-  type: 'fade', // スライドの動作をフェードに指定
-  speed: '1000', // スライドが切り替わる時間をミリ秒で指定
-  arrows: false, // スライドを操作するためのアローボタンを使用しない設定
-  autoplay: true, // ロード後、自動的にスライドを実行
-  rewind: true, // 最後のスライド画像が表示された後、最初の画像にもどる
-  slideAspect: 'aspect-[1/1] md:aspect-[3/4] w-full'
-}
-
-// // スライド画像のパスとファイル名を結合し配列に格納する
-// const slideItems = fileName.map((img) => {
-//   return filePath + img
-// })
-const slideItems = [
-  {
-    src: '/images/sample/001.jpg',
-    webpSrc: '/images/sample/001.webp',
-    alt: '001画像',
-    href: '/'
-  },
-  {
-    src: '/images/sample/007.jpg',
-    alt: '007画像',
-    href: '/'
-  },
-  {
-    src: '/images/sample/008.jpg',
-    alt: '008画像',
-    href: '/'
-  },
-  {
-    src: '/images/sample/009.jpg',
-    alt: '009画像',
-    href: '/'
-  },
-  {
-    src: '/images/sample/011.jpg',
-    alt: '011画像',
-    href: '/'
-  },
-  {
-    src: '/images/sample/013.jpg',
-    alt: '013画像',
-    href: '/'
-  }
-]
-
-// スライドの最初の画像を指定する
-function setSlideStart(num) {
-  return { ...slideOptions, start: num }
-}
+onMounted(() => {
+  //検知対象要素を設定
+  let targets = ref(document.querySelectorAll('.animate'))
+  scroll(targets.value, options)
+})
 
 /**
  * IntersectionObserver
@@ -96,15 +32,7 @@ const options = {
   threshold: [0]
 }
 
-onMounted(() => {
-  //検知対象要素を設定
-  let targets = ref(document.querySelectorAll('.animate'))
-  scroll(targets.value, options)
-})
-
-/**
- * 指定した要素の交差を検知させる
- */
+// 指定した要素の交差を検知させる
 function scroll(targets, options) {
   const observer = new IntersectionObserver(doWhenIntersect, options)
   targets.forEach((target) => {
@@ -112,14 +40,12 @@ function scroll(targets, options) {
   })
 }
 
-/**
- * 画面にin/outした要素にclassを着脱する
- * 下記のようにCSSを設定する
- * opacity: 0;
- * &.active {
- *  @include g.fadeLift($delay: 0.3s);
- * }
- */
+// 画面にin/outした要素にclassを着脱する
+// 下記のようにCSSを設定する
+// opacity: 0;
+// &.active {
+//  @include g.fadeLift($delay: 0.3s);
+// }
 function doWhenIntersect(entries) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -130,6 +56,85 @@ function doWhenIntersect(entries) {
     }
   })
 }
+
+/**
+// カリキュラム
+ */
+const studyCoursesItems = [
+  {
+    img: '/images/sample/017.jpg',
+    title: 'scratch プログラミング',
+    text: '小学校低学年向けのscratchを使った楽しい授業です。イラストや音楽を組み合わせてかんたんなアニメや少しむずかしいゲームを作ります。',
+    href: '/'
+  },
+  {
+    img: '/images/sample/017.jpg',
+    title: 'キッズ プログラミング',
+    text: '小学校高学年になったらプログラミングに挑戦！Webサイトを作ったり、かんたんなアプリの作り方をレクチャーします。',
+    href: '/'
+  },
+  {
+    img: '/images/sample/017.jpg',
+    title: 'Unity 3Dプログラミング',
+    text: '本格的なプログラミングで3Dゲームやメタバース世界、アバターを作成！かなり高度な技術もガリレオなら専門スタッフが対応します！',
+    href: '/'
+  }
+]
+
+/**
+// 体験レッスン
+ */
+const trialLessonItem = [
+  {
+    img: '/images/sample/017.jpg',
+    title: 'scratch プログラミング',
+    text: '小学校低学年向けのscratchを使った楽しい授業です。イラストや音楽を組み合わせてかんたんなアニメや少しむずかしいゲームを作ります。',
+    href: '/'
+  }
+]
+
+/**
+// よくある質問
+ */
+const qaItems = [
+  {
+    title: '幼稚園・保育園の年長です。受講はできますか？',
+    content:
+      '小学1年生の4月から可能となります。小学校にご入学される年の1月以降、年長の方も体験レッスンにご参加いただけますので、ぜひお越しください。'
+  },
+  {
+    title: '質問2',
+    content: '答え2'
+  },
+  {
+    title: '質問3',
+    content: '答え3'
+  }
+]
+
+/**
+// ガリレオについて
+ */
+const aboutItems = [
+  {
+    img: '/images/sample/017.jpg',
+    title: 'scratch プログラミング',
+    text: '小学校低学年向けのscratchを使った楽しい授業です。イラストや音楽を組み合わせてかんたんなアニメや少しむずかしいゲームを作ります。',
+    href: '/'
+  },
+  {
+    img: '/images/sample/017.jpg',
+    title: 'キッズ プログラミング',
+    text: '小学校高学年になったらプログラミングに挑戦！Webサイトを作ったり、かんたんなアプリの作り方をレクチャーします。',
+    href: '/'
+  },
+  {
+    img: '/images/sample/017.jpg',
+    title: 'Unity 3Dプログラミング',
+    text: '本格的なプログラミングで3Dゲームやメタバース世界、アバターを作成！かなり高度な技術もガリレオなら専門スタッフが対応します！',
+    href: '/'
+  }
+]
 </script>
 
 <template>
@@ -151,112 +156,76 @@ function doWhenIntersect(entries) {
               子どもたちの可能性を大切にサポートしていきます。
             </p>
           </div>
-          <div class="first-view__free-lesson card">体験レッスン</div>
+          <compBanner class="first-view__free-lesson">
+            <p>体験レッスンのお申し込みはこちらから！</p>
+          </compBanner>
         </section>
       </section>
 
-      <section id="concept" class="concept section-space">
-        <compHeader class="concept__title animate" data-title="コンセプト">Concept</compHeader>
-
-        <div class="concept__01 animate">
-          <div class="basis-1/2 order-1 relative">
-            <slideSplide :slide-items="slideItems" :slide-options="setSlideStart(3)" />
-          </div>
-          <div class="basis-1/2 order-2 my-auto sentence">
-            <compHeadline class="concept__content-title"> Lorem ipsum dolor sit amet </compHeadline>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </p>
-            <p>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-              laborum.
-            </p>
-          </div>
-        </div>
-
-        <div class="concept__02 animate">
-          <div class="basis-1/2 order-2 relative">
-            <slideSplide :slide-items="slideItems" :slide-options="setSlideStart(5)" />
-          </div>
-          <div class="basis-1/2 order-1 my-auto sentence">
-            <compHeadline class="concept__content-title animate"> Lorem ipsum dolor sit amet </compHeadline>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </p>
-            <p>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-              laborum.
-            </p>
-          </div>
-        </div>
-
-        <div class="concept__03 animate">
-          <div class="basis-1/2 order-1 relative">
-            <slideSplide :slide-items="slideItems" :slide-options="setSlideStart(1)" />
-          </div>
-          <div class="basis-1/2 order-2 my-auto sentence">
-            <compHeadline class="concept__content-title animate"> Lorem ipsum dolor sit amet </compHeadline>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </p>
-            <p>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-              laborum.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="menu" class="menu container mx-auto">
-        <compHeader class="menu__title animate" data-title="メニュー">Menu</compHeader>
-        <ul class="menu__items mb-12 md:mb-36">
-          <li v-for="(menuItem, i) in menuItems" :key="i" class="menu__item">
-            <p class="menu__img">
-              <img :src="menuItem.src" :alt="menuItem.name" />
-            </p>
-            <div class="menu__inner">
-              <p class="menu__name">{{ menuItem.name }}</p>
-              <p class="menu__text">{{ menuItem.text }}</p>
-            </div>
-          </li>
-        </ul>
+      <section class="study-courses section-space">
+        <compHeader class="study-courses__title animate" data-title="Curriculum">カリキュラム</compHeader>
+        <compCard :items="studyCoursesItems" class="mb-12 md:grid md:gap-x-8 md:grid-cols-3 container mx-auto" />
         <p class="text-center">
           <compButton class="mx-auto">More</compButton>
         </p>
       </section>
 
-      <section id="news" class="news">
-        <div class="container mx-auto">
-          <compHeader class="news__title animate" data-title="おしらせ">News</compHeader>
-          <div class="news__inner mx-auto mb-24 sm:grid sm:grid-cols-2 sm:gap-6 md:grid-cols-2 xl:grid-cols-4">
-            <repeatCard
-              outer-class="mb-8 sm:mb-0"
-              inner-class="news__item"
-              :items="newsItems"
-              :img-path="itemsPath"
-              title-class="text-xl my-2"
-            />
+      <section class="trial-lesson sectionSpace">
+        <compHeader class="trial-lesson__title animate" data-title="Trial Lesson">体験レッスン</compHeader>
+        <div class="container mx-auto --u-maxWidthSm mb-12">
+          <p class="text-center">随時体験レッスンを開催しております。</p>
+          <dl class="trial-lesson__summary w-fit mx-auto card">
+            <dt class="trial-lesson__summary-title">概要</dt>
+            <dd>
+              <dl class="trial-lesson__summary-days grid-container">
+                <dt class="left">開催日</dt>
+                <dd class="right1">◯/◯日(土) 15:00~16:00</dd>
+                <dd class="right2">◯/◯日(日) 10:00~11:00 / 15:00~16:00</dd>
+              </dl>
+              <dl class="trial-lesson__summary-contents">
+                <dt>レッスン内容</dt>
+                <dd>scratchで楽しくお絵かき♪（小学校低学年向け）</dd>
+              </dl>
+            </dd>
+          </dl>
+        </div>
+        <form class="card w-fit mx-auto mb-6" action="" method="post">
+          <div class="my-2">
+            <label for="name">名前</label>
+            <input id="name" type="text" name="name" />
           </div>
-          <p class="text-center">
-            <compButton class="mx-auto">More</compButton>
+          <div class="my-2">
+            <label for="email">メールアドレス</label>
+            <input id="email" type="mail" name="email" />
+          </div>
+          <div class="my-2">
+            <label for="message">内容</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+          <input class="c-button__light" type="submit" value="送信する" />
+        </form>
+
+        <p class="text-center">
+          <compButton class="mx-auto">More</compButton>
+        </p>
+      </section>
+
+      <section class="study-courses section-space">
+        <compHeader class="study-courses__title animate" data-title="Q & A">よくある質問</compHeader>
+        <accordionPanel prefix="ac" :items="qaItems" class="u-maxWidthMd mx-auto mb-12" />
+        <p class="text-center">
+          <compButton class="mx-auto">More</compButton>
+        </p>
+      </section>
+      <section class="study-courses section-space">
+        <compHeader class="study-courses__title animate" data-title="About">ガリレオについて</compHeader>
+        <div class="hentry">
+          <p>
+            私たち「ガリレオ」は、子どもたちにプログラミングによる創作活動を通して理解を深めてもらい、その楽しさを存分に味わうことから始まるスクールです。
+          </p>
+          <p>
+            キーボードに触れることからはじめる低学年コースから、 イラストや動画やゲームを作ったりITを学ぶ小学生コース、
+            将来の就職に有利な即戦力を目指す中学生コースまで、 子どもたちの可能性を大切にサポートしていきます。
           </p>
         </div>
       </section>
@@ -268,194 +237,49 @@ function doWhenIntersect(entries) {
 @use '@splidejs/vue-splide/css';
 @use '../assets/css/global' as g;
 
-@mixin c-header--custom01($fc: g.$cBlack) {
-  &__title {
-    @include g.logoTypeSet(g.$josefinSans, 800);
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-    color: $fc;
-    opacity: 0;
-    @include g.mq-sm {
-      margin-bottom: 6rem;
-    }
-    &.active {
-      @include g.fadeLift($delay: 0.3s);
-    }
-    &[data-title]::after {
-      color: $fc;
-      border-bottom: 2px solid $fc;
-    }
-  }
-}
-
-.sample {
-  .section-space {
-    @include g.sectionSpace();
-  }
-
-  .c-button--circle {
-    @include g.buttonCircle;
-  }
-
-  .first-view {
-    margin-top: -64px;
-    @include g.mq-lg {
-      margin-top: -72px;
-    }
-    &__title {
-      @include g.logoTypeSet(g.$josefinSans, 800);
-      margin-bottom: 0;
-      opacity: 0;
-      &.active {
-        @include g.fadeLift($delay: 0.3s);
-      }
-    }
-    &.widthSm {
-      max-width: g.$screenSm;
+.pg-school {
+  //TODO: mixin化する
+  [data-title]::after {
+    content: attr(data-title);
+    display: block;
+    width: fit-content;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-bottom: 3px solid g.$cDarkBlack;
+    line-height: 2rem;
+    margin: 0 auto 2rem auto;
+    @include g.mq-md {
+      margin: 1rem auto 4rem auto;
+      line-height: 4rem;
     }
   }
 
-  .concept {
-    @include g.dataTitle();
-    @include g.sectionSpace();
-    background: g.$cDarkGray;
-    color: g.$cBlack;
+  .sectionSpace--x-free {
+    @include g.sectionSpace($pad: 2rem 0, $padSm: 4rem 0);
+  }
 
-    &__title {
-      @include g.logoTypeSet(g.$josefinSans, 800);
-      margin-top: 2rem;
-      margin-bottom: 3rem;
-      color: g.$cWhite;
-      opacity: 0;
-      @include g.mq-sm {
-        margin-bottom: 6rem;
-      }
-      &.active {
-        @include g.fadeLift($delay: 0.3s);
-      }
-      &[data-title]::after {
-        color: g.$cWhite;
-        border-bottom: 2px solid g.$cWhite;
-      }
-    }
-
-    .splide__track {
-      border-radius: 1rem;
-      box-shadow: 0px 8px 16px -2px rgba(10, 10, 10, 0.4), 0px 0px 0px 1px rgba(10, 10, 10, 0.1);
-    }
-
-    .concept__01,
-    .concept__02,
-    .concept__03 {
-      max-width: g.$screenLg;
-      position: relative;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 6rem;
-      opacity: 0;
-      &.active {
-        @include g.fadeLift($delay: 0.3s);
-      }
-      @include g.mq-md {
-        display: flex;
-      }
-      @include g.mq-md {
-        gap: 6rem;
-      }
-    }
-
-    &__content-title {
-      @include g.logoTypeSet(g.$josefinSans, 800);
-      color: g.$cWhite;
-      @include g.mq-md {
-        font-size: 2rem;
-      }
+  .trial-lesson {
+    &__summary {
     }
   }
 
-  .menu {
-    @include g.dataTitle();
-    @include g.sectionSpace();
-    @include c-header--custom01();
-
-    .menu__items {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      @include g.mq-md {
-        gap: 1.5rem;
-      }
-      @include g.mq-lg {
-        flex-wrap: nowrap;
-      }
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      'left right1'
+      'left right2';
+    .left {
+      grid-area: left;
     }
-    .menu__item {
-      flex: 0 0 calc(50% - 0.5rem);
-      border-radius: 1rem;
-      background: g.$cDarkBlack;
-      position: relative;
-      padding-bottom: 2rem;
-      @include g.mq-md {
-        flex: 0 0 calc(100% / 3 - 1rem);
-      }
-      @include g.mq-lg {
-        flex: 0 1 100%;
-      }
+    .right1 {
+      grid-area: right1;
     }
-    .menu__item:last-child {
-      margin-left: 0;
-      margin-right: auto;
-      @include g.mq-lg {
-        margin-left: auto;
-      }
-    }
-    &__img {
-      position: relative;
-      clip-path: polygon(100% 0, 100% 80%, 0 100%, 0 100%, 0 0);
-      overflow: hidden;
-
-      & > img {
-        border-radius: 1rem 1rem 0 0;
-        object-fit: cover;
-        aspect-ratio: 1 / 1;
-        width: 100%;
-      }
-    }
-    &__inner {
-      color: g.$cWhite;
-      padding: 0 1rem 1rem 1rem;
-      text-align: right;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-    }
-    &__name {
-      font-size: 1.6rem;
-      font-weight: 500;
-      line-height: 1.2;
-    }
-  }
-
-  .news {
-    @include g.sectionSpace();
-    @include g.dataTitle();
-    &__title {
-      @include g.logoTypeSet(g.$josefinSans, 800);
-      opacity: 0;
-      &.active {
-        @include g.fadeLift($delay: 0.3s);
-      }
-    }
-    &__inner {
-      max-width: g.$screenLg;
-    }
-    &__item {
-      img {
-        border-radius: 0.5rem;
-        aspect-ratio: 3/2;
-        width: 100%;
-      }
+    .right2 {
+      grid-area: right2;
     }
   }
 }

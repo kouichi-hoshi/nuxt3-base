@@ -310,10 +310,10 @@ function doWhenIntersect(entries) {
     }
   }
 
-  // section間の余白の共通設定
-  .section-space {
-    @include sectionSpace();
-  }
+  // // section間の余白の共通設定
+  // .section-space {
+  //   @include sectionSpace();
+  // }
 
   // font設定
   .main-font {

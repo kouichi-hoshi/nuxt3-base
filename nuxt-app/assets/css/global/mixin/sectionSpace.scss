@@ -1,10 +1,10 @@
 @use 'mediaQueries' as m;
 
-@mixin sectionSpace($mt: 0, $mb: 0) {
+@mixin sectionSpace($mt: 0, $mb: 0, $pad: 2rem 1rem 2rem 1rem, $padSm: 4rem 2rem 4rem 2rem) {
   margin-top: $mt;
   margin-bottom: $mb;
-  padding: 2rem 1rem 2rem 1rem;
+  padding: $pad;
   @include m.mq-sm {
-    padding: 4rem 2rem 4rem 2rem;
+    padding: $padSm;
   }
 }
