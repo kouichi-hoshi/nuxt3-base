@@ -25,10 +25,41 @@ const props = defineProps({
 })
 
 function accordionBehavior(prefix, i) {
-  const item = document.getElementById(`${prefix}-${i}`)
-  const prevItem = document.getElementById(`${prefix}-${i}-prev`)
-  // item.classList.toggle('is-open')
-  prevItem.classList.toggle('is-active')
+  const details = document.getElementById(`${prefix}-${i}-details`)
+  const summary = document.getElementById(`${prefix}-${i}-summary`)
+  const content = document.getElementById(`${prefix}-${i}-content`)
+
+  summary.classList.toggle('is-active')
+
+  const openingAnimKeyframes = (content) => [
+    {
+      height: 0,
+      opacity: 0
+    },
+    {
+      height: content.offsetHeight + 'px',
+      opacity: 1
+    }
+  ]
+
+  // detailsのopen属性を判定
+  if (details.open) {
+    // アニメーションを実行
+    const closingAnim = content.animate(closingAnimKeyframes(content), animTiming)
+
+    closingAnim.onfinish = () => {
+      // アニメーションの完了後にopen属性を取り除く
+      details.removeAttribute('open')
+    }
+  } else {
+    // アコーディオンを開くときの処理
+    // open属性を付与
+    details.setAttribute('open', 'true')
+
+    // アニメーションを実行
+    const openingAnim = content.animate(openingAnimKeyframes(content), animTiming)
+  }
+  // })
 }
 
 /**
@@ -52,62 +83,15 @@ const closingAnimKeyframes = (content) => [
     opacity: 0
   }
 ]
-
-onMounted(() => {
-  /**
-   * アコーディオンを開くときのキーフレーム
-   */
-  const content = document.querySelector('.js-content')
-  const openingAnimKeyframes = (content) => [
-    {
-      height: 0,
-      opacity: 0
-    },
-    {
-      height: content.offsetHeight + 'px',
-      opacity: 1
-    }
-  ]
-  const details = document.querySelector('.js-details')
-  const summary = document.querySelector('.js-summary')
-
-  summary.addEventListener('click', (event) => {
-    // デフォルトの挙動を無効化
-    event.preventDefault()
-
-    // detailsのopen属性を判定
-    if (details.open) {
-      // アコーディオンを閉じるときの処理
-      // ...略
-
-      // アニメーションを実行
-      const closingAnim = content.animate(closingAnimKeyframes(content), animTiming)
-
-      closingAnim.onfinish = () => {
-        // アニメーションの完了後にopen属性を取り除く
-        details.removeAttribute('open')
-      }
-    } else {
-      // アコーディオンを開くときの処理
-      // open属性を付与
-      details.setAttribute('open', 'true')
-
-      // アニメーションを実行
-      const openingAnim = content.animate(openingAnimKeyframes(content), animTiming)
-
-      // ...略
-    }
-  })
-})
 </script>
 
 <template>
   <div class="accordion">
-    <details v-for="(item, i) in items" :key="i" class="accordion__container js-details">
-      <summary :id="`${prefix}-${i}-prev`" class="accordion__title js-summary" @click="accordionBehavior(prefix, i)">
+    <details v-for="(item, i) in items" :key="i" :id="`${prefix}-${i}-details`" class="accordion__container">
+      <summary :id="`${prefix}-${i}-summary`" class="accordion__title" @click.prevent="accordionBehavior(prefix, i)">
         {{ item.title }}
       </summary>
-      <div :id="`${prefix}-${i}`" class="accordion__content js-content">
+      <div :id="`${prefix}-${i}-content`" class="accordion__content">
         <div class="accordion__content-inner">
           {{ item.content }}
         </div>
@@ -121,17 +105,13 @@ onMounted(() => {
 
 //TODO 以下すべてsass化する
 .accordion {
-  &__container {
-  }
   // Safariで表示されるデフォルトの三角形アイコンを消す
   &__title::-webkit-details-marker {
     display: none;
   }
   &__title {
     display: flex;
-    // background-color: g.$cDarkBlack;
     border: 1px solid transparent;
-    // color: #fff;
     font-size: 1.25rem;
     padding: 0.625em 0.625em 0.625em 2em;
     position: relative;
@@ -176,29 +156,5 @@ onMounted(() => {
 
 .accordion__title.is-active::after {
   transform: rotate(0);
-}
-
-// .accordion__content {
-//   // border-left: 1px solid transparent;
-//   // border-right: 1px solid transparent;
-//   // margin: 0 2rem 0 0;
-//   // line-height: 0;
-//   height: 0;
-//   // overflow: hidden;
-//   opacity: 0;
-//   // transition-duration: 0.3s;
-// }
-
-// .accordion__content.is-open {
-//   // border: 1px solid g.$cDarkGray;
-//   // margin: 1rem 0 1rem 1.5em;
-//   line-height: normal; /* numberに書き換える*/
-//   height: 100%;
-//   opacity: 1;
-// }
-
-.accordion__content {
-}
-.accordion__content.is-open {
 }
 </style>
