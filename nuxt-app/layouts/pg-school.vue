@@ -71,15 +71,15 @@ onMounted(() => {
 
 <template>
   <div class="l-container relative">
-    <header ref="header" class="l-header p-4 flex items-center md:mr-16">
-      <div class="flex items-center">
-        <a href="/" class="flex items-center gap-2">
-          <useSVG class="l-header__logo -mt-2" href="images/common/icon.svg#icon-home" />
-          <logoType class="l-header__title mr-4 josefin text-2xl font-bold">ガリレオ</logoType>
+    <header ref="header" class="l-header">
+      <h1 class="l-header-logo-mark w-fit fixed top-2 left-2">
+        <a href="/">
+          <img class="l-header__logo mx-auto" src="images/pg-page/symbol-mark.svg" alt="シンボルマーク" />
+          <img class="l-header__title" src="images/pg-page/logo-type.svg " alt="ガリレオ" />
         </a>
-        <p class="l-header__site-text hidden xl:block -mt-1">キッズ・ジュニア プログラミングスクール</p>
-      </div>
-      <div class="flex-1">
+        <p v-if="false" class="l-header__site-text">キッズ・ジュニア プログラミングスクール</p>
+      </h1>
+      <div v-if="false" class="flex-1">
         <nav class="hidden lg:flex justify-end">
           <compNavigation outer-class="header flex items-center" :links="linkData" />
         </nav>
@@ -150,5 +150,19 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-// @use '../assets/css/global' as g;
+@use '../assets/css/global' as g;
+
+body {
+  background: g.$cMidWhite;
+}
+.l-header {
+  &__logo {
+    min-width: 60px;
+    max-width: 60px;
+  }
+  &__title {
+    min-width: 100px;
+    max-width: 100px;
+  }
+}
 </style>
