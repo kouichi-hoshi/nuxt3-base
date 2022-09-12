@@ -44,17 +44,6 @@
     }
   }
 }
-// @mixin slideY($duration: 0.6s, $delay: 0s, $yFrom: 0, $yTo: 100%) {
-//   animation: slideY $duration $delay ease-out forwards;
-//   @keyframes slideY {
-//     0% {
-//       height: $yFrom;
-//     }
-//     100% {
-//       height: $yTo;
-//     }
-//   }
-// }
 
 @mixin fadeOut() {
   animation: fadeOut 0.2s ease-in forwards;
@@ -108,6 +97,39 @@
     clip-path: inset(0 0 100% 0);
     &.active {
       clip-path: inset(0 0 0 0);
+    }
+  }
+}
+
+@mixin moveY($moveY, $yFrom: 0, $yTo: 100%) {
+  @keyframes #{$moveY} {
+    0% {
+      transform: translateY($yFrom);
+    }
+    100% {
+      transform: translateY($yTo);
+    }
+  }
+}
+
+@mixin fade($fade: fade, $from: 0, $to: 1) {
+  @keyframes #{$fade} {
+    0% {
+      opacity: $from;
+    }
+    100% {
+      opacity: $to;
+    }
+  }
+}
+
+@mixin slide($name: slide, $from: -100%, $to: 0) {
+  @keyframes #{$name} {
+    0% {
+      transform: translateX($from);
+    }
+    100% {
+      transform: translateX($to);
     }
   }
 }

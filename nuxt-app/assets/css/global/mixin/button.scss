@@ -1,9 +1,9 @@
 @use '../setting' as g;
 
-@mixin button($color: g.$cWhite, $bg: g.$cDarkBlack, $padding: 0.5rem 2rem, $radius: 100vmax) {
+@mixin button($color: g.$cWhite, $bg: g.$cDarkBlack, $display: block, $padding: 0.5rem 2rem, $radius: 100vmax) {
   color: $color;
   background: $bg;
-  display: block;
+  display: $display;
   padding: $padding;
   width: fit-content;
   @if $radius {

@@ -23,7 +23,8 @@ const props = defineProps({
 })
 //TODO: CSS変数を変更する関数に変える
 function setSize(s) {
-  return `width: ${s}px; height: ${s}px;`
+  // return `width: ${s}px; height: ${s}px;`
+  return `width: ${s}px;`
 }
 //TODO: CSS変数を変更する関数に変える
 function setScale(s) {

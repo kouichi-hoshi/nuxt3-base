@@ -48,14 +48,14 @@ const noImage = '/images/common/no-image.png'
 <template>
   <div class="c-card">
     <div v-for="(item, key) in items" :key="key" class="c-card__item" :class="innerClass">
-      <a class="c-card_link" :href="item.href">
-        <p class="c-card_thumbnail">
+      <a class="c-card__link" :href="item.href">
+        <p class="c-card__thumbnail">
           <img class="c-card__img" :class="aspect" :src="item.img ? item.img : noImage" :alt="item.title" />
         </p>
-        <component :is="titleTagName" class="c-card_title" :class="titleClass">
+        <component :is="titleTagName" class="c-card__title" :class="titleClass">
           {{ item.title }}
         </component>
-        <p class="c-card_text">{{ item.text }}</p>
+        <p class="c-card__text">{{ item.text }}</p>
       </a>
     </div>
   </div>

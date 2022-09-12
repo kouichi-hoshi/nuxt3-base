@@ -87,7 +87,7 @@ const closingAnimKeyframes = (content) => [
 
 <template>
   <div class="accordion">
-    <details v-for="(item, i) in items" :key="i" :id="`${prefix}-${i}-details`" class="accordion__container">
+    <details v-for="(item, i) in items" :id="`${prefix}-${i}-details`" :key="i" class="accordion__container">
       <summary :id="`${prefix}-${i}-summary`" class="accordion__title" @click.prevent="accordionBehavior(prefix, i)">
         {{ item.title }}
       </summary>
@@ -111,18 +111,22 @@ const closingAnimKeyframes = (content) => [
   }
   &__title {
     display: flex;
-    border: 1px solid transparent;
     font-size: 1.25rem;
-    padding: 0.625em 0.625em 0.625em 2em;
+    padding: 1rem 1.5rem;
+    padding: 1rem 3rem 1rem 1rem;
     position: relative;
     cursor: pointer;
     user-select: none;
+  }
+  &__container + &__container {
+    border-top: 1px solid g.$cLightGray;
   }
   &__content {
     overflow: hidden;
   }
   &__content-inner {
-    padding: 1rem 0 1rem 1rem;
+    padding: 1rem;
+    line-height: 1.8;
   }
 }
 
@@ -136,7 +140,7 @@ const closingAnimKeyframes = (content) => [
   top: 50%;
   width: 15px;
   height: 2px;
-  right: 25px;
+  right: 1rem;
 }
 
 .accordion__title::after {
@@ -144,10 +148,15 @@ const closingAnimKeyframes = (content) => [
   transition-duration: 0.3s;
 }
 
-.accordion__title:hover,
 .accordion__title:active,
 .accordion__title.is-active {
   background-color: g.$cLightGray;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .accordion__title:hover {
+    background-color: g.$cLightGray;
+  }
 }
 
 .accordion__title.is-active::before {

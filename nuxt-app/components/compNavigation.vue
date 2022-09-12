@@ -77,10 +77,6 @@ const props = defineProps({
   }
 
   &.footer &-menu {
-    border-top: 1px solid #fff;
-    @include g.mq-lg {
-      border: none;
-    }
     & > a {
       display: block;
       padding: 1rem 0;
@@ -90,6 +86,13 @@ const props = defineProps({
     }
     &:first-child {
       margin-left: 0;
+    }
+  }
+
+  &.footer &-menu + &-menu {
+    border-top: 1px solid #fff;
+    @include g.mq-lg {
+      border: none;
     }
   }
 }
