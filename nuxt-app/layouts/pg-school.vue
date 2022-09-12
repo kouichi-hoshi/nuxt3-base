@@ -94,10 +94,10 @@ onMounted(() => {
     <header ref="header" class="l-header">
       <h1
         ref="logoMark"
-        class="l-header__logo-mark w-fit fixed top-2 left-2 isActive"
+        class="l-header__logo-mark w-fit fixed top-2 left-2 z-10 isActive"
         :class="{ 'u-opa-0': initial.header }"
       >
-        <a href="/">
+        <a href="">
           <img class="l-header__logo mx-auto" src="images/pg-page/symbol-mark.svg" alt="シンボルマーク" />
           <img class="l-header__title hidden md:block" src="images/pg-page/logo-type.svg " alt="ガリレオ" />
         </a>
@@ -119,8 +119,12 @@ onMounted(() => {
       class="l-footer mt-12 py-4 lg:p-8 text-center lg:text-left flex flex-col lg:flex-row justify-center lg:justify-start"
     >
       <div class="order-1 lg:order-0 lg:flex lg:items-center lg:gap-2">
-        <img class="l-header__logo mx-auto" src="images/pg-page/symbol-mark.svg" alt="シンボルマーク" />
-        <img class="l-header__title mx-auto" src="images/pg-page/logo-type.svg " alt="ガリレオ" />
+        <a href="">
+          <img class="l-header__logo mx-auto" src="images/pg-page/symbol-mark.svg" alt="シンボルマーク" />
+        </a>
+        <a href="">
+          <img class="l-header__title mx-auto" src="images/pg-page/logo-type.svg " alt="ガリレオ" />
+        </a>
         <useSVG v-if="false" class="l-footer__logo -mt-2 mx-auto" href="images/common/icon.svg#icon-home" />
         <logoType v-if="false" class="l-footer__title josefin text-2xl font-bold lg-2 lg:mb-0">ガリレオ</logoType>
         <p v-if="false" class="l-footer__text block mb-4 lg:mb-0 lg:-mt-1">{{ siteText }}</p>

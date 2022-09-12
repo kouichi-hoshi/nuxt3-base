@@ -291,10 +291,10 @@ const aboutItems = [
       </section>
 
       <section class="about section-space">
-        <div class="mb-12 md:flex md:gap-8 md:flex-row-reverse container mx-auto u-maxWidthXl">
-          <div class="md:w-2/3 lg:w-1/2 about__text md:flex md:flex-col md:items-center md:justify-center">
+        <div class="mb-12 lg:flex lg:gap-8 lg:flex-row-reverse container mx-auto u-maxWidthXl">
+          <div class="lg:w-1/2 about__text lg:flex lg:flex-col lg:items-center lg:justify-center">
             <compHeader class="about__title" data-title="About">ガリレオについて</compHeader>
-            <div class="hentry md:text-center md:px-12">
+            <div class="hentry lg:text-center md:px-12">
               <h3 class="about__sub-title text-center mb-12 text-2xl">
                 はてない好奇心が、 <br />ほんとうの成長をうながす。
               </h3>
@@ -307,7 +307,7 @@ const aboutItems = [
               </p>
             </div>
           </div>
-          <div class="md:w-1/3 lg:w-1/2">
+          <div class="lg:w-1/2">
             <div class="about__img md:grid">
               <p class="img-01">
                 <img src="/images/pg-page/24456820_m.jpg" alt="スタッフの写真" />
@@ -389,6 +389,7 @@ const aboutItems = [
     position: relative;
     background: linear-gradient(#81d9fd 0%, #3cc8ff 100%);
     background: url('/images/pg-page/bg-img-it-light.svg') repeat, linear-gradient(#81d9fd 0%, #3cc8ff 100%);
+    background-size: 70%;
 
     @include g.mq-md {
       &__col-left {
@@ -582,6 +583,9 @@ const aboutItems = [
       border-radius: 6px;
       width: fit-content;
       margin: 4px auto;
+      @include g.mq-xl {
+        padding: 6px 12px;
+      }
     }
   }
 
