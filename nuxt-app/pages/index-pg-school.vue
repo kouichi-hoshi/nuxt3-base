@@ -232,7 +232,9 @@ const aboutItems = [
       </section>
 
       <section class="trial-lesson section-space md:py-12">
-        <compHeader class="trial-lesson__title" data-title="Trial Lesson">体験レッスン</compHeader>
+        <compHeader id="trial-lesson-head" class="trial-lesson__title" data-title="Trial Lesson"
+          >体験レッスン</compHeader
+        >
         <section class="container mx-auto mb-12">
           <h3 class="trial-lesson__text text-center mb-12">随時体験レッスンを開催しております。</h3>
           <div class="trial-lesson__items">
@@ -386,6 +388,8 @@ const aboutItems = [
     overflow: hidden;
     position: relative;
     background: linear-gradient(#81d9fd 0%, #3cc8ff 100%);
+    background: url('/images/pg-page/bg-img-it-light.svg') repeat, linear-gradient(#81d9fd 0%, #3cc8ff 100%);
+
     @include g.mq-md {
       &__col-left {
         flex: 1 1 calc(100% / 3);

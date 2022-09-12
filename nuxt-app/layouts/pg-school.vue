@@ -33,6 +33,11 @@ const linkData = [
     class: 'menu'
   },
   {
+    label: 'アクセス',
+    href: '',
+    class: 'menu'
+  },
+  {
     label: 'ガリレオについて',
     href: '',
     class: 'menu'
@@ -145,6 +150,8 @@ onMounted(() => {
     </div>
 
     <div
+      v-scroll-to="'#trial-lesson-head'"
+      :href="'#'"
       ref="bannerFreeLesson"
       class="banner-free-lesson fixed z-10 left-0 bottom-0 isActive"
       :class="{ 'u-opa-0': initial.header }"
@@ -158,17 +165,17 @@ onMounted(() => {
     </div>
 
     <modalWindow>
-      <ul class="modal-nav text-2xl sm:text-3xl md:text-4xl">
-        <compNavigation outer-class="modal-window modal-window--pg" :links="linkData" />
+      <ul class="modal-nav text-2xl sm:text-2xl md:text-2xl">
+        <compNavigation outer-class="modal-window" :links="linkData" />
       </ul>
-      <div class="card my-2">
+      <div v-if="false" class="card my-2">
         <p>教室情報</p>
         <ul>
           <li>〇〇市〇〇町 1-1-1</li>
           <li>003-xxx-xxxx</li>
         </ul>
       </div>
-      <div class="my-2">
+      <div v-if="false" class="my-2">
         <p>お問い合わせ</p>
         <form action="" method="post">
           <div class="my-2">
@@ -232,6 +239,7 @@ body {
   color: map-get(g.$theme-pg, 'mainColor');
   text-align: center;
   animation: slide 0.4s ease-out forwards;
+  cursor: pointer;
   @include g.slide($name: slide, $from: 0, $to: -100%);
   &.isActive {
     animation: slideIn 0.4s ease-out forwards;

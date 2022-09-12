@@ -2,6 +2,10 @@
 import backfaceFixed from '../functions/backfaceFixed.js'
 
 const props = defineProps({
+  modalStyle: {
+    type: String,
+    default: 'modal-style'
+  },
   innerTagName: {
     type: String,
     default: () => {
@@ -17,7 +21,7 @@ const props = defineProps({
   hbClass: {
     type: String,
     default: () => {
-      return 'top-2 right-2 md:top-4 md:right-4'
+      return 'hamburger-button-style top-2 right-2 md:top-4 md:right-4'
     }
   },
   borderClass: {
@@ -33,16 +37,19 @@ function attachModal() {
   const _body = document.querySelector('body')
   const _modalWindow = document.querySelector('#modalWindow')
   const _btn = document.querySelector('#trigger')
+  const _btnOuter = document.querySelector('#trigger-outer')
 
   _body.classList.toggle('is-scrollLock')
 
   if (_modalWindow.classList.contains('hidden')) {
     backfaceFixed(true)
     _btn.classList.add('active')
+    _btnOuter.classList.add('active')
     _modalWindow.classList.remove('hidden')
   } else {
     backfaceFixed(false)
     _btn.classList.remove('active')
+    _btnOuter.classList.remove('active')
     _modalWindow.classList.add('is-fade-out')
     setTimeout(() => {
       _modalWindow.classList.add('hidden')
@@ -54,7 +61,7 @@ function attachModal() {
 
 <template>
   <hamburgerButton :class="hbClass" :border-class="borderClass" class="fixed u-z-index-10000" @click="attachModal()" />
-  <div id="modalWindow" class="modal-window is-fade-in hidden text-center">
+  <div id="modalWindow" class="modal-window is-fade-in hidden text-center" :class="modalStyle">
     <component :is="innerTagName" :class="innerClass">
       <slot></slot>
       <compButton btn remove-default-class :class="'c-button__light mt-12 mx-auto md:mt-24'" @click="attachModal()">
@@ -74,12 +81,12 @@ body.is-scrollLock {
 .modal-window {
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.75);
+  // background: rgba(0, 0, 0, 0.75);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;
-  color: g.$cWhite;
+  // color: g.$cWhite;
   &__inner--center {
     position: fixed;
     inset: 0;
@@ -87,18 +94,18 @@ body.is-scrollLock {
     width: fit-content;
     height: fit-content;
   }
-  .modal-menu {
-    border: none;
-  }
-  .modal-menu + .modal-menu {
-    margin-top: 0.5rem;
-    @include g.mq-md {
-      margin-top: 1rem;
-    }
-  }
-  .modal-menu:last-child {
-    display: none;
-  }
+  // .modal-menu {
+  //   border: none;
+  // }
+  // .modal-menu + .modal-menu {
+  //   margin-top: 0.5rem;
+  //   @include g.mq-md {
+  //     margin-top: 1rem;
+  //   }
+  // }
+  // .modal-menu:last-child {
+  //   display: none;
+  // }
 }
 
 .modal-window.is-fade-in {
