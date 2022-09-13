@@ -48,6 +48,12 @@
   .isFadeOut > & {
     @include g.fadeOut();
   }
+  .is-up > & {
+    @include g.mq-lg {
+      animation: fixed 0.4s ease-out forwards;
+      @include g.moveY($moveY: fixed, $yTo: -70px);
+    }
+  }
 }
 
 .modal-style {

@@ -35,6 +35,10 @@ const options = {
   threshold: [0, 0.25, 0.5, 0.75, 1],
   rootMargin: '200px'
 }
+const options2 = {
+  threshold: 0.5,
+  rootMargin: '0px'
+}
 const header = ref()
 const footer = ref()
 const topReturnBtn = ref()
@@ -48,14 +52,14 @@ onMounted(() => {
   }, options)
   observerInOut.observe(header.value)
 
-  const observerUpDown = new IntersectionObserver((entries) => {
+  const observerFooter = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
-      topReturnBtn.value.classList.add('up')
+      topReturnBtn.value.classList.add('is-up')
     } else {
-      topReturnBtn.value.classList.remove('up')
+      topReturnBtn.value.classList.remove('is-up')
     }
-  }, options)
-  observerUpDown.observe(footer.value)
+  }, options2)
+  observerFooter.observe(footer.value)
 })
 </script>
 
@@ -103,7 +107,7 @@ onMounted(() => {
         class="top-return-btn fixed right-2 bottom-4 md:right-12 md:bottom-6"
         label=""
       >
-        <useSVG inner-class="use-svg__img--white" size="28" scale="0.6" href="images/common/icon.svg#icon-arrow" />
+        <useSVG inner-class="use-svg__img--white" size="28" scale="0.6" href="/images/common/icon.svg#icon-arrow" />
       </compButton>
     </div>
 
@@ -168,9 +172,10 @@ $main-font: 'Bungee', cursive;
 
 .top-return-btn {
   background: map-get(g.$theme-cafe-colors, 'subColor');
-  .isActive.up > & {
+  .is-up > & {
     @include g.mq-lg {
-      bottom: 70px;
+      animation: fixed 0.4s ease-out forwards;
+      @include g.moveY($moveY: fixed, $yTo: -50px);
     }
   }
 }

@@ -101,17 +101,6 @@
   }
 }
 
-@mixin moveY($moveY, $yFrom: 0, $yTo: 100%) {
-  @keyframes #{$moveY} {
-    0% {
-      transform: translateY($yFrom);
-    }
-    100% {
-      transform: translateY($yTo);
-    }
-  }
-}
-
 @mixin fade($fade: fade, $from: 0, $to: 1) {
   @keyframes #{$fade} {
     0% {
@@ -130,6 +119,17 @@
     }
     100% {
       transform: translateX($to);
+    }
+  }
+}
+
+@mixin moveY($moveY, $yFrom: 0, $yTo: 100%) {
+  @keyframes #{$moveY} {
+    0% {
+      transform: translateY($yFrom);
+    }
+    100% {
+      transform: translateY($yTo);
     }
   }
 }

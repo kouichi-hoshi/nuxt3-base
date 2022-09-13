@@ -55,6 +55,10 @@ const options = {
   threshold: [0, 0.25, 0.5, 0.75, 1],
   rootMargin: '200px'
 }
+const options2 = {
+  threshold: 0.5,
+  rootMargin: '0px'
+}
 const header = ref()
 const footer = ref()
 const logoMark = ref()
@@ -79,12 +83,12 @@ onMounted(() => {
   const observerFooter = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
       bannerFreeLesson.value.classList.remove('isActive')
-      topReturnBtn.value.classList.add('is-fade-out')
+      topReturnBtn.value.classList.add('is-up')
     } else {
       bannerFreeLesson.value.classList.add('isActive')
-      topReturnBtn.value.classList.remove('is-fade-out')
+      topReturnBtn.value.classList.remove('is-up')
     }
-  }, options)
+  }, options2)
   observerFooter.observe(footer.value)
 })
 </script>
@@ -133,12 +137,6 @@ onMounted(() => {
         <compNavigation outer-class="footer" :links="linkData" />
       </nav>
     </footer>
-
-    <div ref="topReturnBtn" class="top-return-btn--fixed">
-      <compButton v-scroll-to="'body'" :href="'#'" remove-default-class class="top-return-btn" label="">
-        <useSVG inner-class="use-svg__img--white" size="28" scale="0.6" href="images/common/icon.svg#icon-arrow" />
-      </compButton>
-    </div>
 
     <div ref="topReturnBtn" class="text-right">
       <compButton
