@@ -41,9 +41,9 @@ const topReturnBtn = ref()
 onMounted(() => {
   const observerInOut = new IntersectionObserver((entries) => {
     if (!entries[0].isIntersecting) {
-      topReturnBtn.value.classList.add('active')
+      topReturnBtn.value.classList.add('isActive')
     } else {
-      topReturnBtn.value.classList.remove('active')
+      topReturnBtn.value.classList.remove('isActive')
     }
   }, options)
   observerInOut.observe(header.value)
@@ -165,7 +165,13 @@ $main-font: 'Bungee', cursive;
     }
   }
 }
+
 .top-return-btn {
   background: map-get(g.$theme-cafe-colors, 'subColor');
+  .isActive.up > & {
+    @include g.mq-lg {
+      bottom: 70px;
+    }
+  }
 }
 </style>

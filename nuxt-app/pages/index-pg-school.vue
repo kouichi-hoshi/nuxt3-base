@@ -325,7 +325,7 @@ const aboutItems = [
     </article>
 
     <aside class="text-center my-12">
-      <compButton removeDefaultClass class="c-button--yellow mx-auto">
+      <compButton remove-default-class class="c-button--yellow mx-auto">
         <p class="md:mr-6">お問い合わせ</p>
         <UseSVG size="24" viewBox="0 0 24 19" href="/images/pg-page/icon-mail.svg#icon-mail" />
       </compButton>

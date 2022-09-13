@@ -154,9 +154,9 @@ onMounted(() => {
     </div>
 
     <div
+      ref="bannerFreeLesson"
       v-scroll-to="'#trial-lesson-head'"
       :href="'#'"
-      ref="bannerFreeLesson"
       class="banner-free-lesson fixed z-10 left-0 bottom-0 isActive"
       :class="{ 'u-opa-0': initial.header }"
     >
