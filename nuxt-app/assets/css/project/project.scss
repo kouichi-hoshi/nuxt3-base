@@ -1,0 +1,66 @@
+@use '../global' as g;
+
+/**
+ * class要素のみスタイルを記述する
+ * html要素は/assets/css/foundation/foundation.scssに記述する
+ */
+
+// ページ遷移時にフェード
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+.hentry,
+.sentence {
+  p,
+  ul,
+  dl,
+  hr {
+    line-height: 2rem;
+    margin-bottom: 1.6rem;
+  }
+}
+.card {
+  @include g.card();
+}
+
+// section間の余白の共通設定
+.section-space {
+  @include g.sectionSpace();
+}
+
+.top-return-btn {
+  @include g.buttonCircle($pad: 10px);
+  animation: ini 0.4s ease-out forwards;
+  @keyframes ini {
+    100% {
+      transform: translateY(5rem);
+    }
+  }
+  .isActive > & {
+    @include g.fadeLift();
+  }
+  .isFadeOut > & {
+    @include g.fadeOut();
+  }
+}
+
+.modal-style {
+  @include g.modal-style();
+}
+
+.hamburger-button-style {
+  //TODO: mixin化する
+  &.active {
+    color: g.$cWhite;
+  }
+}
+
+.modal-nav {
+  color: g.$cWhite;
+}

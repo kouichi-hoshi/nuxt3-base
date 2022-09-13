@@ -1,6 +1,7 @@
 @use 'mediaQueries' as m;
 
 @mixin header() {
+  //TODO:値を変数化する
   width: fit-content;
   margin: 0 auto 1.5rem auto;
   font-size: 2.25rem;
@@ -8,6 +9,7 @@
   @include m.mq-md {
     font-size: 3.75rem;
     line-height: 1;
-    margin: 0 auto 3rem auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

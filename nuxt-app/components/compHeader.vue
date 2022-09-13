@@ -4,10 +4,6 @@ const props = defineProps({
     type: String,
     default: 'h2'
   },
-  // class: {
-  //   type: String,
-  //   default: 'mb-6 md:mb-12'
-  // },
   innerClass: {
     type: String,
     default: ''

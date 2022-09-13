@@ -5,15 +5,25 @@ $screenLg: 1024px;
 $screenXl: 1280px;
 $screen2xl: 1536px;
 
-$logoFontFamily: 'Josefin Sans', sans-serif;
-$notoSerif: 'Noto Serif JP', serif;
+// font-family
+$notoSansJP: 'Noto Sans JP', sans-serif;
+$notoSerifJP: 'Noto Serif JP', serif;
+$josefinSans: 'Josefin Sans', sans-serif;
+$bungee: 'Bungee', cursive;
+$dosis: 'Dosis', sans-serif;
+$mPlusRounded1c: 'M PLUS Rounded 1c', sans-serif;
+
+// font-size
+$defaultFontSize: 1rem;
 
 // default color
 $cWhite: #fff;
+$cMidWhite: #fdfdfd;
+$cLightGray: rgba(#7e7e7e, 0.4);
+$cGray: rgba(#7e7e7e, 0.8);
+$cDarkGray: #7e7e7e;
+$cDarkBlack: rgba(#000, 0.8);
 $cBlack: #000;
-$cGray: #333333;
-$cLightGray: #d2d2d2;
-$cDarkGray: rgba(#000, 0.8);
 
 // Theme base
 $theme-base-colors: (
@@ -29,6 +39,18 @@ $theme-cafe-colors: (
   accentColor: #744c39,
   color4: #e6e3cb,
   color5: #c2ddda
+);
+
+// Theme pg-school
+$theme-pg: (
+  baseColor: #81d9ff,
+  baseColor-mid: #00aaf4,
+  baseColor-light: #e6f8ff,
+  mainColor: #ffe59c,
+  mainColor-light: #fff8e5,
+  mainColor-dark: #c3b389,
+  subColor: #ff7474,
+  accentColor: #0e2a3b
 );
 
 // #744c39,#da8b79,#edd0af,#e6e3cb,#c2ddda

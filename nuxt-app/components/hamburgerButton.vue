@@ -1,5 +1,5 @@
 <template>
-  <component :is="tagName" class="hamburger-button">
+  <component :is="tagName" :id="btnId + '-outer'" class="hamburger-button" :class="{ active: hamburgerActive }">
     <svg
       :id="btnId"
       viewBox="0 0 48 48"

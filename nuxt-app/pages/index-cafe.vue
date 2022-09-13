@@ -1,6 +1,4 @@
 <script setup>
-// import { ref, onMounted } from 'vue'
-
 import itemsSample from '../models/itemsSample.js'
 
 const postData = {
@@ -16,14 +14,6 @@ definePageMeta({
  * Web font
  */
 useHead({
-  link: [
-    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-    {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Bungee&family=Noto+Sans+JP:wght@400;500;700&display=swap'
-    }
-  ],
   title: postData.title,
   bodyAttrs: {
     class: 'cafe'
@@ -320,10 +310,10 @@ function doWhenIntersect(entries) {
     }
   }
 
-  // section間の余白の共通設定
-  .section-space {
-    @include sectionSpace();
-  }
+  // // section間の余白の共通設定
+  // .section-space {
+  //   @include sectionSpace();
+  // }
 
   // font設定
   .main-font {

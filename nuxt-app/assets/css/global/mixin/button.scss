@@ -1,14 +1,24 @@
 @use '../setting' as g;
 
-@mixin button($color: g.$cWhite, $bg: g.$cGray, $padding: 0.5rem 2rem, $radius: 100vmax) {
+@mixin button($color: g.$cWhite, $bg: g.$cDarkBlack, $display: block, $padding: 0.5rem 2rem, $radius: 100vmax) {
   color: $color;
   background: $bg;
-  display: block;
+  display: $display;
   padding: $padding;
   width: fit-content;
   @if $radius {
     border-radius: $radius;
   }
+}
+
+@mixin buttonCircle($pad: 0.5rem, $bg: g.$cDarkBlack) {
+  //TODO:値を変数化する
+  border-radius: 999px;
+  width: fit-content;
+  text-align: center;
+  background: $bg;
+  padding: $pad;
+  line-height: 1.8;
 }
 
 //https://getcssscan.com/css-buttons-examples

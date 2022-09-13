@@ -1,5 +1,20 @@
 export default [
   {
+    label: 'Template',
+    href: '/index-template',
+    class: 'menu-template'
+  },
+  {
+    label: 'Component',
+    href: '/index-component',
+    class: 'menu-component'
+  },
+  {
+    label: 'PG-School',
+    href: '/index-pg-school',
+    class: 'menu-cafe'
+  },
+  {
     label: 'Cafe',
     href: '/index-cafe',
     class: 'menu-cafe'
@@ -11,8 +26,7 @@ export default [
   },
   {
     label: 'Home',
-    href: '',
+    href: '/',
     class: 'menu-home'
-    // svgIcon: 'home-icon.svg'
   }
 ]

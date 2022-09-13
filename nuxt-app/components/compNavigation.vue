@@ -30,6 +30,10 @@ const props = defineProps({
     default: () => {
       return ''
     }
+  },
+  nLink: {
+    type: Boolean,
+    default: false
   }
 })
 </script>
@@ -37,9 +41,12 @@ const props = defineProps({
 <template>
   <component :is="outerTagName" class="c-navigation" :class="outerClass">
     <component :is="innerTagName" v-for="(link, key) in links" :key="key" class="c-navigation-menu" :class="innerClass">
-      <a :href="link.href" :target="checkLinkType(link.href) ? '_self' : '_blank'">
-        {{ link.label }}
-      </a>
+      <template v-if="nLink === true">
+        <NuxtLink :to="link.href" :target="checkLinkType(link.href) ? '_self' : '_blank'">{{ link.label }}</NuxtLink>
+      </template>
+      <template v-else>
+        <a :href="link.href" :target="checkLinkType(link.href) ? '_self' : '_blank'">{{ link.label }}</a>
+      </template>
     </component>
   </component>
 </template>
@@ -70,10 +77,6 @@ const props = defineProps({
   }
 
   &.footer &-menu {
-    border-top: 1px solid #fff;
-    @include g.mq-lg {
-      border: none;
-    }
     & > a {
       display: block;
       padding: 1rem 0;
@@ -83,6 +86,13 @@ const props = defineProps({
     }
     &:first-child {
       margin-left: 0;
+    }
+  }
+
+  &.footer &-menu + &-menu {
+    border-top: 1px solid #fff;
+    @include g.mq-lg {
+      border: none;
     }
   }
 }
