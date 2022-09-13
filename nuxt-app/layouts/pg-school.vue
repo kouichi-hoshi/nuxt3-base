@@ -98,8 +98,8 @@ onMounted(() => {
         :class="{ 'u-opa-0': initial.header }"
       >
         <a href="">
-          <img class="l-header__logo mx-auto" src="images/pg-page/symbol-mark.svg" alt="シンボルマーク" />
-          <img class="l-header__title hidden md:block" src="images/pg-page/logo-type.svg " alt="ガリレオ" />
+          <img class="l-header__logo mx-auto" src="/images/pg-page/symbol-mark.svg" alt="シンボルマーク" />
+          <img class="l-header__title hidden md:block" src="/images/pg-page/logo-type.svg " alt="ガリレオ" />
         </a>
         <p v-if="false" class="l-header__site-text">キッズ・ジュニア プログラミングスクール</p>
       </h1>
@@ -120,10 +120,10 @@ onMounted(() => {
     >
       <div class="order-1 lg:order-0 lg:flex lg:items-center lg:gap-2">
         <a href="">
-          <img class="l-header__logo mx-auto" src="images/pg-page/symbol-mark.svg" alt="シンボルマーク" />
+          <img class="l-header__logo mx-auto" src="/images/pg-page/symbol-mark.svg" alt="シンボルマーク" />
         </a>
         <a href="">
-          <img class="l-header__title mx-auto" src="images/pg-page/logo-type.svg " alt="ガリレオ" />
+          <img class="l-header__title mx-auto" src="/images/pg-page/logo-type.svg " alt="ガリレオ" />
         </a>
         <useSVG v-if="false" class="l-footer__logo -mt-2 mx-auto" href="images/common/icon.svg#icon-home" />
         <logoType v-if="false" class="l-footer__title josefin text-2xl font-bold lg-2 lg:mb-0">ガリレオ</logoType>
@@ -149,7 +149,7 @@ onMounted(() => {
         :class="{ 'u-opa-0': initial.header }"
         label=""
       >
-        <useSVG inner-class="use-svg__img--white" size="28" scale="0.6" href="images/common/icon.svg#icon-arrow" />
+        <useSVG inner-class="use-svg__img--white" size="28" scale="0.6" href="/images/common/icon.svg#icon-arrow" />
       </compButton>
     </div>
 

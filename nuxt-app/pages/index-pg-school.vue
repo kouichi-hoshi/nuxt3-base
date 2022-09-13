@@ -152,7 +152,7 @@ const aboutItems = [
             />
             <img
               class="first-view__telescope mb-6 lg:mb-0 order-1 lg:order-2"
-              src="images/pg-page/telescope.svg "
+              src="/images/pg-page/telescope.svg "
               alt="望遠鏡のイラスト"
             />
           </p>
