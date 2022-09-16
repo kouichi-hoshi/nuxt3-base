@@ -8,7 +8,7 @@ let showModal = ref(false)
   <vue-final-modal v-model="showModal" classes="modal-container" content-class="modal-content">
     <div class="modal__content comp-modal">
       <slot>content</slot>
-      <button class="modal__close comp-modal__btn-close" @click="showModal = false">close</button>
+      <button class="modal__close comp-modal__btn-close z-10" @click="showModal = false">close</button>
     </div>
   </vue-final-modal>
   <button class="comp-modal-btn mx-auto my-12" @click="showModal = true">Open modal</button>

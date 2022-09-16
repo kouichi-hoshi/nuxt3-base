@@ -60,7 +60,7 @@ function attachModal() {
 </script>
 
 <template>
-  <hamburgerButton :class="hbClass" :border-class="borderClass" class="fixed u-z-index-10000" @click="attachModal()" />
+  <hamburgerButton :class="hbClass" :border-class="borderClass" class="fixed" @click="attachModal()" />
   <div id="modalWindow" class="modal-window is-fade-in hidden text-center" :class="modalStyle">
     <component :is="innerTagName" :class="innerClass">
       <slot></slot>
@@ -81,12 +81,10 @@ body.is-scrollLock {
 .modal-window {
   width: 100vw;
   height: 100vh;
-  // background: rgba(0, 0, 0, 0.75);
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
-  // color: g.$cWhite;
+  z-index: 99;
   &__inner--center {
     position: fixed;
     inset: 0;
@@ -94,18 +92,6 @@ body.is-scrollLock {
     width: fit-content;
     height: fit-content;
   }
-  // .modal-menu {
-  //   border: none;
-  // }
-  // .modal-menu + .modal-menu {
-  //   margin-top: 0.5rem;
-  //   @include g.mq-md {
-  //     margin-top: 1rem;
-  //   }
-  // }
-  // .modal-menu:last-child {
-  //   display: none;
-  // }
 }
 
 .modal-window.is-fade-in {
