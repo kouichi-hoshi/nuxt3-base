@@ -29,6 +29,7 @@
     "sass": "^1.52.3",
     "sass-loader": "^13.0.0",
     "vue-eslint-parser": "^9.0.3",
+    "vue-final-modal": "^3.4.4",
     "vue-scrollto": "^2.20.0"
   }
 }

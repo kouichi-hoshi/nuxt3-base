@@ -57,6 +57,12 @@ const slideItems = [
 <template>
   <NuxtLayout>
     <article>
+
+      <section class="container mx-auto my-24 md:my-48">
+        <compHeader>Modal Window</compHeader>
+        <compModal>modal</compModal>
+      </section>
+
       <section class="container mx-auto my-24 md:my-48">
         <compHeader>compPicture</compHeader>
         <compPicture
