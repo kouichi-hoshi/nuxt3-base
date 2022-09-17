@@ -151,7 +151,7 @@ function doWhenIntersect(entries) {
       </section>
 
       <section id="concept" class="concept section-space px-4 xl:px-0">
-        <compHeader class="concept__title animate" data-title="コンセプト">Concept</compHeader>
+        <compHeader class="concept__title animate text-center" data-title="コンセプト">Concept</compHeader>
 
         <div class="concept__01 animate">
           <div class="basis-1/2 order-1 relative">
@@ -230,7 +230,7 @@ function doWhenIntersect(entries) {
       </section>
 
       <section id="menu" class="menu container mx-auto px-4">
-        <compHeader class="menu__title animate" data-title="メニュー">Menu</compHeader>
+        <compHeader class="menu__title text-center animate" data-title="メニュー">Menu</compHeader>
         <ul class="menu__items mb-12 md:mb-36">
           <li v-for="(menuItem, i) in menuItems" :key="i" class="menu__item">
             <p class="menu__img">
@@ -249,7 +249,7 @@ function doWhenIntersect(entries) {
 
       <section id="news" class="news px-4">
         <div class="container mx-auto">
-          <compHeader class="news__title animate" data-title="おしらせ">News</compHeader>
+          <compHeader class="news__title text-center animate" data-title="おしらせ">News</compHeader>
           <div class="news__inner mx-auto mb-24 sm:grid sm:grid-cols-2 sm:gap-6 md:grid-cols-2 xl:grid-cols-4">
             <repeatCard
               outer-class="mb-8 sm:mb-0"

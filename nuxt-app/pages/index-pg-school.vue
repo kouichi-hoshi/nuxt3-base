@@ -218,7 +218,7 @@ const aboutItems = [
       </section>
 
       <section class="curriculum section-space">
-        <compHeader class="curriculum__title" data-title="Curriculum">
+        <compHeader class="curriculum__title w-fit mx-auto" data-title="Curriculum">
           <img class="curriculum__title-icon" src="/images/pg-page/icon-document.svg" alt="書類のアイコン画像" />
           カリキュラム
         </compHeader>
@@ -232,7 +232,7 @@ const aboutItems = [
       </section>
 
       <section class="trial-lesson section-space md:py-12">
-        <compHeader id="trial-lesson-head" class="trial-lesson__title" data-title="Trial Lesson"
+        <compHeader id="trial-lesson-head" class="trial-lesson__title w-fit mx-auto" data-title="Trial Lesson"
           >体験レッスン</compHeader
         >
         <section class="container mx-auto mb-12">
@@ -283,7 +283,7 @@ const aboutItems = [
       </section>
 
       <section class="faq section-space">
-        <compHeader class="faq__title" data-title="Q & A">よくある質問</compHeader>
+        <compHeader class="faq__title w-fit mx-auto" data-title="Q & A">よくある質問</compHeader>
         <accordionPanel prefix="ac" :items="qaItems" class="faq__accordion u-maxWidthMd mx-auto mb-12 p-6 rounded-lg" />
         <p class="text-center">
           <compButton class="c-button--blue mx-auto">他の質問を見る</compButton>
@@ -338,7 +338,7 @@ const aboutItems = [
 
 .pg-school {
   .section-space {
-    @include g.sectionSpace($pad: 4rem 1rem 2rem 1rem);
+    @include g.sectionSpace($pad: 4rem 1rem 2rem 1rem, $padSm: 12rem 0);
   }
 
   //TODO: mixin化する
@@ -559,7 +559,6 @@ const aboutItems = [
       }
     }
     &__summary-title {
-      // border-bottom: 2px solid map-get(g.$theme-pg, 'accentColor');
       font-family: g.$mPlusRounded1c;
       font-weight: 500;
       font-size: clamp(1.25rem, 3.2vw, 1.5rem);
@@ -592,6 +591,17 @@ const aboutItems = [
   .faq {
     [data-title]::after {
       color: map-get(g.$theme-pg, 'baseColor');
+    }
+    &.section-space {
+      @include g.mq-md {
+        padding: 8rem 0;
+      }
+      @include g.mq-lg {
+        padding: 8rem 0;
+      }
+      @include g.mq-xl {
+        padding: 8rem 0;
+      }
     }
     &__title {
       .c-header__inner {

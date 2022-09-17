@@ -2,19 +2,23 @@
 @use 'mediaQueries' as m;
 
 // 見出しのサブタイトル用スタイル
-// 対象の下層の要素に適用される
-@mixin dataTitle($position: after, $fontSize: 30%, $borderLineWidth: 3px, $borderColor: g.$cBlack) {
-  [data-title]::#{$position} {
+@mixin dataTitle(
+  $position: after,
+  $ff: inherit,
+  $fontSize: 2.25rem,
+  $lineHeigh: 2.5rem,
+  $fontSizeM: 3.75rem,
+  $lineHeighM: 1
+) {
+  &[data-title]::#{$position} {
     content: attr(data-title);
     display: block;
-    width: fit-content;
+    font-family: $ff;
     font-size: $fontSize;
-    border-bottom: $borderLineWidth solid $borderColor;
-    line-height: 2rem;
-    margin: 0 auto;
+    line-height: $lineHeigh;
     @include m.mq-md {
-      margin: 1rem auto;
-      line-height: 4rem;
+      font-size: $fontSizeM;
+      line-height: $lineHeighM;
     }
   }
 }

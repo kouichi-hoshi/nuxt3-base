@@ -15,6 +15,13 @@
   opacity: 0;
 }
 
+// セクショニングコンテンツ間のスペースを統一するためのスタイル
+.area {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+// blogなど文章が続く箇所のためのスタイル
 .hentry,
 .sentence {
   p,
@@ -23,6 +30,9 @@
   hr {
     line-height: 2rem;
     margin-bottom: 1.6rem;
+  }
+  & *:last-child {
+    margin-bottom: 0;
   }
 }
 .card {
