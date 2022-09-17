@@ -16,14 +16,12 @@
 }
 
 // セクショニングコンテンツ間のスペースを統一するためのスタイル
-.area {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+.p-space {
+  padding: 2rem;
 }
 
 // blogなど文章が続く箇所のためのスタイル
-.hentry,
-.sentence {
+.p-sentence {
   p,
   ul,
   dl,
@@ -35,14 +33,15 @@
     margin-bottom: 0;
   }
 }
+
 .card {
   @include g.card();
 }
 
-// section間の余白の共通設定
-.section-space {
-  @include g.sectionSpace();
-}
+// // section間の余白の共通設定
+// .section-space {
+//   @include g.sectionSpace();
+// }
 
 .top-return-btn {
   @include g.buttonCircle($pad: 10px);

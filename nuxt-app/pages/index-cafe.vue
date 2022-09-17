@@ -273,6 +273,9 @@ function doWhenIntersect(entries) {
 @use '../assets/css/global' as g;
 
 .cafe {
+  .l-header {
+    margin-bottom: 0;
+  }
   // font
   $main-font: 'Bungee', cursive;
   $sub-font: 'Noto Sans JP', sans-serif;

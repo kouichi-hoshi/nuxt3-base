@@ -13,10 +13,6 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  tagName: {
-    type: String,
-    default: 'div'
-  },
   href: {
     type: String,
     default: ''

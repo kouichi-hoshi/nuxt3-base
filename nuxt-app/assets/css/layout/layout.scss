@@ -1,0 +1,8 @@
+@use '../global' as g;
+
+.l-header {
+  margin-bottom: 2rem;
+  @include g.mq-md {
+    margin-bottom: 4rem;
+  }
+}

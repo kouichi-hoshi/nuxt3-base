@@ -337,6 +337,9 @@ const aboutItems = [
 @use '../assets/css/global' as g;
 
 .pg-school {
+  .l-header {
+    margin-bottom: 0;
+  }
   .section-space {
     @include g.sectionSpace($pad: 4rem 1rem 2rem 1rem, $padSm: 12rem 0);
   }
