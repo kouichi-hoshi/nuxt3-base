@@ -68,24 +68,25 @@ const bannerFreeLesson = ref()
 onMounted(() => {
   const observerHeader = new IntersectionObserver((entries) => {
     if (!entries[0].isIntersecting) {
-      bannerFreeLesson.value.classList.add('isActive')
-      logoMark.value.classList.add('isActive')
-      topReturnBtn.value.classList.add('isActive')
+      bannerFreeLesson.value.classList.add('is-active')
+      logoMark.value.classList.add('is-active')
+      topReturnBtn.value.classList.add('is-active')
+      topReturnBtn.value.classList.remove('hidden')
       initial.header = false
     } else {
-      bannerFreeLesson.value.classList.remove('isActive')
-      logoMark.value.classList.remove('isActive')
-      topReturnBtn.value.classList.remove('isActive')
+      bannerFreeLesson.value.classList.remove('is-active')
+      logoMark.value.classList.remove('is-active')
+      topReturnBtn.value.classList.remove('is-active')
     }
   }, options)
   observerHeader.observe(header.value)
 
   const observerFooter = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
-      bannerFreeLesson.value.classList.remove('isActive')
+      bannerFreeLesson.value.classList.remove('is-active')
       topReturnBtn.value.classList.add('is-up')
     } else {
-      bannerFreeLesson.value.classList.add('isActive')
+      bannerFreeLesson.value.classList.add('is-active')
       topReturnBtn.value.classList.remove('is-up')
     }
   }, options2)
@@ -113,6 +114,7 @@ onMounted(() => {
         </nav>
       </div>
     </header>
+    <span ref="headerMarker" class="header-marker"></span>
 
     <main class="l-main">
       <slot />
@@ -120,33 +122,25 @@ onMounted(() => {
 
     <footer
       ref="footer"
-      class="l-footer mt-12 py-4 lg:p-8 text-center lg:text-left flex flex-col lg:flex-row justify-center lg:justify-start"
+      class="l-footer p-footer md:p-8 text-center md:text-left flex flex-col md:flex-row justify-center md:justify-start"
     >
-      <div class="order-1 lg:order-0 lg:flex lg:items-center lg:gap-2">
+      <div class="order-1 md:order-0 md:flex md:items-center md:gap-2">
         <a href="">
           <img class="l-header__logo mx-auto" src="/images/pg-page/symbol-mark.svg" alt="シンボルマーク" />
         </a>
         <a href="">
           <img class="l-header__title mx-auto" src="/images/pg-page/logo-type.svg " alt="ガリレオ" />
         </a>
-        <useSVG v-if="false" class="l-footer__logo -mt-2 mx-auto" href="images/common/icon.svg#icon-home" />
-        <logoType v-if="false" class="l-footer__title josefin text-2xl font-bold lg-2 lg:mb-0">ガリレオ</logoType>
-        <p v-if="false" class="l-footer__text block mb-4 lg:mb-0 lg:-mt-1">{{ siteText }}</p>
       </div>
-      <nav class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-12 lg:mb-0">
-        <compNavigation outer-class="footer" :links="linkData" />
-      </nav>
+      <div
+        class="l-footer__navigation order-0 md:order-1 md:flex md:justify-end flex-1 mb-12 md:mr-24 md:mb-0 md:items-center"
+      >
+        <compNavigation outer-class="footer md:flex" inner-class="p-navigation-menu" :links="linkData" />
+      </div>
     </footer>
 
-    <div ref="topReturnBtn" class="text-right">
-      <compButton
-        v-scroll-to="'body'"
-        :href="'#'"
-        remove-default-class
-        class="top-return-btn fixed right-2 bottom-4 md:right-12 md:bottom-6"
-        :class="{ 'u-opa-0': initial.header }"
-        label=""
-      >
+    <div ref="topReturnBtn" class="top-return-btn hidden">
+      <compButton v-scroll-to="'body'" :href="'#'" remove-default-class class="" label="">
         <useSVG inner-class="use-svg__img--white" size="28" scale="0.6" href="/images/common/icon.svg#icon-arrow" />
       </compButton>
     </div>
@@ -228,7 +222,6 @@ body {
   }
 }
 .l-footer {
-  // background: map-get(g.$theme-pg, 'baseColor-mid');
   background: linear-gradient(#81d9fd 0%, #3cc8ff 100%);
   font-family: g.$mPlusRounded1c;
   font-weight: 500;
@@ -243,7 +236,7 @@ body {
   animation: slide 0.4s ease-out forwards;
   cursor: pointer;
   @include g.slide($name: slide, $from: 0, $to: -100%);
-  &.isActive {
+  &.is-active {
     animation: slideIn 0.4s ease-out forwards;
     @include g.slide($name: slideIn, $from: -200%, $to: 0);
   }
@@ -257,23 +250,6 @@ body {
   }
   &__svg {
     width: 24px;
-  }
-}
-
-.is-fade-out {
-  @include g.fadeOut();
-}
-
-.top-return-btn--fixed {
-  .top-return-btn {
-    display: block;
-    position: absolute;
-    right: 0.5rem;
-    bottom: 8rem;
-    @include g.mq-md {
-      right: 3rem;
-      bottom: 11rem;
-    }
   }
 }
 

@@ -44,6 +44,8 @@ function setScale(s) {
 @use '../assets/css/global' as g;
 
 .use-svg {
+  margin-left: auto;
+  margin-right: auto;
   transform-origin: center;
   &__img {
     fill: g.$cBlack;

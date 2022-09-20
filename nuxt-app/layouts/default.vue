@@ -21,30 +21,40 @@ const options = {
   threshold: [0, 0.25, 0.5, 0.75, 1],
   rootMargin: '200px'
 }
-const header = ref()
+const headerMarker = ref()
 const footer = ref()
+const header = ref()
 const topReturnBtn = ref()
 
 onMounted(() => {
   const observerInOut = new IntersectionObserver((entries) => {
     if (!entries[0].isIntersecting) {
-      topReturnBtn.value.classList.add('active')
+      topReturnBtn.value.classList.add('is-active')
+      topReturnBtn.value.classList.remove('hidden')
+      if (isHome) {
+        header.value.classList.add('is-active')
+        header.value.classList.remove('hidden')
+      }
     } else {
-      topReturnBtn.value.classList.remove('active')
+      topReturnBtn.value.classList.remove('is-active')
+      if (isHome) {
+        header.value.classList.remove('is-active')
+      }
     }
   }, options)
-  observerInOut.observe(header.value)
+  observerInOut.observe(headerMarker.value)
 
-  const observerUpDown = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      topReturnBtn.value.classList.add('up')
-    } else {
-      topReturnBtn.value.classList.remove('up')
-    }
-  }, options)
-  observerUpDown.observe(footer.value)
+  // const observerUpDown = new IntersectionObserver((entries) => {
+  //   if (entries[0].isIntersecting) {
+  //     topReturnBtn.value.classList.add('is-up')
+  //   } else {
+  //     topReturnBtn.value.classList.remove('is-up')
+  //   }
+  // }, options)
+  // observerUpDown.observe(footer.value)
 })
 
+//TODO:
 const isHome = () => {
   if (useRoute().fullPath === '/') {
     return true
@@ -70,35 +80,29 @@ const isHome = () => {
         </nav>
       </div>
     </header>
+    <span ref="headerMarker" class="header-marker"></span>
 
     <main class="l-main">
       <slot />
     </main>
 
     <footer
-      v-show="!isHome"
       ref="footer"
-      class="l-footer mt-24 pt-4 lg:p-8 text-center lg:text-left flex flex-col lg:flex-row justify-center lg:justify-start"
+      class="l-footer p-footer md:p-8 text-center md:text-left flex flex-col md:flex-row justify-center md:justify-start"
     >
-      <div class="order-1 lg:order-0 lg:flex lg:items-center lg:gap-2">
-        <useSVG class="l-footer__logo -mt-2 mx-auto" href="images/common/icon.svg#icon-home" />
+      <div class="order-1 md:order-0 md:flex md:items-center md:gap-2">
+        <useSVG view-box="0 0 829.1 896.1" size="32" class="mb-4 md:mb-0" href="/images/common/logo-v5.svg#logo-v5" />
         <logoType class="l-footer__title josefin text-2xl font-bold lg-2 lg:mb-0">{{ siteTitle }}</logoType>
-        <p class="l-footer__text block mb-4 lg:mb-0 lg:-mt-1">{{ siteText }}</p>
+        <p class="l-footer__text block mb-4 md:mb-0 md:-mt-1">{{ siteText }}</p>
       </div>
-      <nav class="l-footer__navigation order-0 lg:order-1 lg:flex lg:justify-end flex-1 mb-12 lg:mb-0">
-        <compNavigation outer-class="footer" :links="LinkGlobal" />
-      </nav>
+      <div class="l-footer__navigation order-0 md:order-1 md:flex md:justify-end flex-1 mb-12 md:mr-24 md:mb-0">
+        <compNavigation outer-class="footer md:flex" inner-class="p-navigation-menu" :links="LinkGlobal" />
+      </div>
     </footer>
 
-    <div ref="topReturnBtn" class="text-right">
-      <compButton
-        v-scroll-to="'body'"
-        :href="'#'"
-        remove-default-class
-        class="top-return-btn fixed right-2 bottom-4 md:right-12 md:bottom-6"
-        label=""
-      >
-        <useSVG inner-class="use-svg__img--white" size="28" scale="0.6" href="images/common/icon.svg#icon-arrow" />
+    <div ref="topReturnBtn" class="top-return-btn hidden">
+      <compButton v-scroll-to="'body'" :href="'#'" remove-default-class class="" label="">
+        <useSVG inner-class="use-svg__img--white" size="28" scale="0.6" href="/images/common/icon.svg#icon-arrow" />
       </compButton>
     </div>
 

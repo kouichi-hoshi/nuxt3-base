@@ -70,29 +70,13 @@ const props = defineProps({
     margin-left: 0.5rem;
   }
 
-  &.footer {
-    @include g.mq-lg {
-      display: flex;
-    }
-  }
-
   &.footer &-menu {
     & > a {
       display: block;
-      padding: 1rem 0;
-      @include g.mq-lg {
-        margin-left: 1.4rem;
-      }
+      padding: 0.5rem;
     }
     &:first-child {
       margin-left: 0;
-    }
-  }
-
-  &.footer &-menu + &-menu {
-    border-top: 1px solid #fff;
-    @include g.mq-lg {
-      border: none;
     }
   }
 }

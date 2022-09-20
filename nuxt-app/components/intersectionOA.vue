@@ -1,9 +1,5 @@
 <template>
-  <component
-    :is="tagName"
-    ref="target"
-    :class="[isIntersecting ? 'active' : '']"
-  >
+  <component :is="tagName" ref="target" :class="[isIntersecting ? 'active' : '']">
     <slot></slot>
   </component>
 </template>
@@ -19,7 +15,7 @@ export default {
       }
     },
     observe: {
-      // trueの場合 scrollメソッドが実行される
+      // trueの場合 scrollメソッドは実行されない
       type: Boolean,
       default: () => {
         return false
@@ -29,11 +25,12 @@ export default {
   data: () => ({
     isIntersecting: false,
     options: {
+      rootMargin: '-20px',
       threshold: [0, 0.25, 0.5, 0.75, 1]
     }
   }),
   mounted() {
-    if (this.observe) {
+    if (!this.observe) {
       const target = this.$refs.target
       this.scroll(target, this.options)
     }

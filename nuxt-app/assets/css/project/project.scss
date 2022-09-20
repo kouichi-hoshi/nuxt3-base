@@ -1,27 +1,17 @@
 @use '../global' as g;
 
-/**
- * class要素のみスタイルを記述する
- * html要素は/assets/css/foundation/foundation.scssに記述する
- */
-
-// ページ遷移時にフェード
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0.5s;
-}
-.page-enter,
-.page-leave-active {
-  opacity: 0;
+.p-default-font-family-en {
+  $defaultFontFamilyEn: g.$josefinSans;
 }
 
 // セクショニングコンテンツ間のスペースを統一するためのスタイル
 .p-space {
-  padding: 2rem;
+  padding: 0 2rem;
+  margin-bottom: 4rem;
 }
 
 // blogなど文章が続く箇所のためのスタイル
-.p-sentence {
+.p-hentry {
   p,
   ul,
   dl,
@@ -34,35 +24,62 @@
   }
 }
 
-.card {
-  @include g.card();
+.p-footer {
+  background: g.$cLightGray;
 }
 
-// // section間の余白の共通設定
-// .section-space {
-//   @include g.sectionSpace();
-// }
+.p-navigation-menu {
+  & + & {
+    border-top: 1px solid #fff;
+    @include g.mq-md {
+      border: none;
+    }
+  }
+}
 
-.top-return-btn {
-  @include g.buttonCircle($pad: 10px);
-  animation: ini 0.4s ease-out forwards;
-  @keyframes ini {
-    100% {
-      transform: translateY(5rem);
-    }
+// TODO: 以下 リファクタリング対象
+
+.p-column-layout--wide {
+  @include g.mq-md {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6rem 2rem;
+    margin-bottom: 3rem;
   }
-  .isActive > & {
-    @include g.fadeLift();
+  @include g.mq-lg {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8rem 2rem;
   }
-  .isFadeOut > & {
-    @include g.fadeOut();
+  @include g.mq-xl {
+    gap: 12rem 4rem;
   }
-  .is-up > & {
-    @include g.mq-lg {
-      animation: fixed 0.4s ease-out forwards;
-      @include g.moveY($moveY: fixed, $yTo: -70px);
-    }
+}
+
+.p-column-layout-narrow {
+  grid-template-columns: repeat(auto-fill, max(14rem));
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  @include g.mq-md {
+    grid-template-columns: repeat(auto-fill, max(13rem));
   }
+  @include g.mq-lg {
+    grid-template-columns: repeat(auto-fill, max(17rem));
+  }
+}
+
+// ページ遷移時にフェード
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+.card {
+  @include g.card();
 }
 
 .modal-style {
@@ -70,7 +87,6 @@
 }
 
 .hamburger-button-style {
-  //TODO: mixin化する
   &.active {
     color: g.$cWhite;
   }
@@ -78,4 +94,33 @@
 
 .modal-nav {
   color: g.$cWhite;
+}
+
+.top-return-btn {
+  position: fixed;
+  right: 2rem;
+  bottom: 0;
+  z-index: 20;
+  transform-origin: right bottom;
+  @include g.buttonCircle($pad: 10px);
+  animation: footer-up 0.4s ease forwards;
+  @keyframes footer-up {
+    0% {
+      transform: translateY(-3rem);
+    }
+    100% {
+      transform: translateY(3rem);
+    }
+  }
+  &.is-active {
+    animation: footer-down 0.4s ease forwards;
+    @keyframes footer-down {
+      0% {
+        transform: translateY(3rem);
+      }
+      100% {
+        transform: translateY(-3rem);
+      }
+    }
+  }
 }

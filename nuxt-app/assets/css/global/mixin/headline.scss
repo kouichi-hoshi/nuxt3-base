@@ -1,8 +1,6 @@
 @use 'mediaQueries' as m;
 
-@mixin c-headline($fs: 1.875rem, $lh: 2.25rem) {
+@mixin c-headline($fs: clamp(1.5rem, 3.2vw, 1.75rem)) {
   width: fit-content;
-  margin-bottom: 1rem;
   font-size: $fs;
-  line-height: $lh;
 }
