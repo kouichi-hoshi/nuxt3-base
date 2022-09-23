@@ -355,7 +355,8 @@ function doWhenIntersect(entries) {
     &__title-wrap {
       opacity: 0;
       &.active {
-        @include g.fadeLift();
+        // @include g.fadeLift();
+        @include g.translate($name: up);
       }
       @include g.mq-md {
         flex: 0 1 50vw;
@@ -381,7 +382,8 @@ function doWhenIntersect(entries) {
     &__wood {
       opacity: 0;
       &.active {
-        @include g.fadeLift($delay: 0.1s);
+        // @include g.fadeLift($delay: 0.1s);
+        @include g.translate($name: up);
       }
       @include g.mq-md {
         flex: 0 1 20vw;
@@ -402,7 +404,8 @@ function doWhenIntersect(entries) {
     &__img-photo {
       opacity: 0;
       &.active {
-        @include g.fadeLift($delay: 0.3s);
+        // @include g.fadeLift($delay: 0.3s);
+        @include g.translate($name: up);
       }
       @include g.mq-md {
         flex: 0 1 30vw;
@@ -434,7 +437,8 @@ function doWhenIntersect(entries) {
       color: g.$cWhite;
       opacity: 0;
       &.active {
-        @include g.fadeLift($delay: 0.3s);
+        // @include g.fadeLift($delay: 0.3s);
+        @include g.translate($name: up);
       }
       &[data-title]::after {
         color: map-get(g.$theme-cafe-colors, 'color4');
@@ -457,7 +461,8 @@ function doWhenIntersect(entries) {
       margin-bottom: 6rem;
       opacity: 0;
       &.active {
-        @include g.fadeLift($delay: 0.3s);
+        // @include g.fadeLift($delay: 0.3s);
+        @include g.translate($name: up);
       }
       @include g.mq-md {
         display: flex;
@@ -526,7 +531,8 @@ function doWhenIntersect(entries) {
       font-family: $main-font;
       opacity: 0;
       &.active {
-        @include g.fadeLift($delay: 0.3s);
+        // @include g.fadeLift($delay: 0.3s);
+        @include g.translate($name: up);
       }
       &[data-title]::after {
         color: map-get(g.$theme-cafe-colors, 'subColor');
@@ -603,7 +609,8 @@ function doWhenIntersect(entries) {
       font-family: $main-font;
       opacity: 0;
       &.active {
-        @include g.fadeLift($delay: 0.3s);
+        // @include g.fadeLift($delay: 0.3s);
+        @include g.translate($name: up);
       }
       &[data-title]::after {
         color: map-get(g.$theme-cafe-colors, 'subColor');

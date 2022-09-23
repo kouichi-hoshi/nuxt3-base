@@ -195,6 +195,16 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @use '../assets/css/global' as g;
+@mixin moveY($moveY, $yFrom: 0, $yTo: 100%) {
+  @keyframes #{$moveY} {
+    0% {
+      transform: translateY($yFrom);
+    }
+    100% {
+      transform: translateY($yTo);
+    }
+  }
+}
 
 body {
   background: g.$cMidWhite;
@@ -213,12 +223,12 @@ body {
   }
   &__logo-mark {
     animation: animeUp 0.4s ease-out forwards;
-    @include g.moveY(animeUp, $yFrom: 0%, $yTo: -120%);
+    @include moveY(animeUp, $yFrom: 0%, $yTo: -120%);
   }
 
   &__logo-mark.isActive {
     animation: animeDown 0.4s ease-out forwards;
-    @include g.moveY(animeDown, $yFrom: -120%, $yTo: 0%);
+    @include moveY(animeDown, $yFrom: -120%, $yTo: 0%);
   }
 }
 .l-footer {
