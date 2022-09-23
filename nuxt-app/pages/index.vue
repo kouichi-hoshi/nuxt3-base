@@ -5,8 +5,11 @@ const postData = {
   title: import.meta.env.VITE_SITE_TITLE,
   subtitle: import.meta.env.VITE_SITE_SUB_TITLE
 }
+
 useHead({
-  title: postData.title,
+  titleTemplate: () => {
+    return postData.title
+  },
   bodyAttrs: {
     class: 'home'
   }

@@ -25,9 +25,6 @@ export default defineNuxtConfig({
   //     return { x: 0, y: 0 }
   //   }
   // },
-  bodyAttrs: {
-    class: 'body'
-  },
   css: ['~/assets/css/bundle.scss'],
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxtjs/dayjs'],
   tailwindcss: {

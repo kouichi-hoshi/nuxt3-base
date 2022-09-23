@@ -8,7 +8,9 @@ const siteTitle = import.meta.env.VITE_SITE_TITLE
 const siteText = import.meta.env.VITE_SITE_TEXT
 
 useHead({
-  //titleタグ
+  htmlAttrs: {
+    lang: 'ja'
+  },
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} - ` + siteTitle : siteTitle
   }
@@ -69,7 +71,12 @@ const isHome = () => {
     <header ref="header" class="l-header p-4 flex items-center md:mr-16">
       <div class="flex items-center">
         <a href="/" class="flex items-center gap-2">
-          <useSVG class="l-header__logo -mt-2" href="images/common/icon.svg#icon-home" />
+          <useSVG
+            class="l-header__logo -mt-2"
+            view-box="0 0 829.1 896.1"
+            size="32"
+            href="/images/common/logo-v5.svg#logo-v5"
+          />
           <logoType class="l-header__title mr-4 josefin text-2xl font-bold">{{ siteTitle }}</logoType>
         </a>
         <p class="l-header__site-text hidden xl:block -mt-1">{{ siteText }}</p>
