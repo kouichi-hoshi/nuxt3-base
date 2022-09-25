@@ -1,17 +1,33 @@
 <script setup>
 //TODO: propsで親コンポーネントからshowModal変数の値を受け取れる仕組みを入れて、親側のボタンから開閉できるオプションを付ける
 //TODO: デフォルトのスタイルをremoveするオプションを付ける
+const props = defineProps({
+  btnClass: {
+    type: String,
+    default: 'c-modal-btn'
+  },
+  textOpen: {
+    type: String,
+    default: 'Open'
+  },
+  textClose: {
+    type: String,
+    default: 'Close'
+  }
+})
 let showModal = ref(false)
 </script>
 
 <template>
   <vue-final-modal v-model="showModal" classes="modal-container" content-class="modal-content">
-    <div class="modal__content comp-modal">
+    <div class="modal__content">
       <slot>content</slot>
-      <button class="modal__close comp-modal__btn-close z-10" @click="showModal = false">close</button>
+      <button :class="btnClass" class="c-modal-btn__close z-10 fixed top-4 right-4" @click="showModal = false">
+        {{ textClose }}
+      </button>
     </div>
   </vue-final-modal>
-  <button class="comp-modal-btn mx-auto my-12" @click="showModal = true">Open modal</button>
+  <button :class="btnClass" class="c-modal-btn__open" @click="showModal = true">{{ textOpen }}</button>
 </template>
 
 <style lang="scss" scoped>
@@ -27,28 +43,7 @@ let showModal = ref(false)
   flex-direction: column;
 }
 
-// TODO: cssはmixin化する
-.comp-modal {
-  max-width: 300px;
-  background: g.$cWhite;
-  padding: 2rem;
-  &__btn-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    color: g.$cWhite;
-    background: g.$cDarkBlack;
-    border-radius: 100vmax;
-    display: block;
-    padding: 1rem;
-  }
-}
-.comp-modal-btn {
-  color: g.$cWhite;
-  background: g.$cDarkBlack;
-  border-radius: 100vmax;
-  display: block;
-  width: fit-content;
-  padding: 1rem;
+.c-modal-btn {
+  @include g.button();
 }
 </style>

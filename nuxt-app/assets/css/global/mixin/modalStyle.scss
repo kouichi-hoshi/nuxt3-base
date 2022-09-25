@@ -1,6 +1,0 @@
-@use '../setting' as s;
-@use 'mediaQueries' as m;
-
-@mixin modal-style($bg: s.$cDarkBlack) {
-  background: $bg;
-}

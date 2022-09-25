@@ -1,7 +1,7 @@
 @use '../global' as g;
 
 .p-default-font-family-en {
-  $defaultFontFamilyEn: g.$josefinSans;
+  font-family: g.$defaultFontFamilyEn;
 }
 
 // セクショニングコンテンツ間のスペースを統一するためのスタイル
@@ -80,10 +80,6 @@
 
 .card {
   @include g.card();
-}
-
-.modal-style {
-  @include g.modal-style();
 }
 
 .hamburger-button-style {

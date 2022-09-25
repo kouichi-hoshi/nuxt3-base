@@ -57,10 +57,9 @@ const slideItems = [
 <template>
   <NuxtLayout>
     <article>
-
       <section class="container mx-auto my-24 md:my-48">
-        <compHeader>Modal Window</compHeader>
-        <compModal>modal</compModal>
+        <compHeader>compModal</compHeader>
+        <compModal btn-class="c-modal-btn my-4" text-open="開く" text-close="閉じる">modal</compModal>
       </section>
 
       <section class="container mx-auto my-24 md:my-48">

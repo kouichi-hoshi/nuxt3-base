@@ -79,6 +79,7 @@ body.is-scrollLock {
 }
 
 .modal-window {
+  @include g.modalWindow();
   width: 100vw;
   height: 100vh;
   position: fixed;
