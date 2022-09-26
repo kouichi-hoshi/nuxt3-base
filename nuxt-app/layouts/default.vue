@@ -107,7 +107,7 @@ const isHome = () => {
       </div>
     </footer>
 
-    <div ref="topReturnBtn" class="top-return-btn hidden">
+    <div ref="topReturnBtn" class="p-top-return-btn hidden">
       <compButton v-scroll-to="'body'" :href="'#'" remove-default-class>
         <useSVG inner-class="use-svg__img--white" size="28" scale="0.6" href="/images/common/icon.svg#icon-arrow" />
       </compButton>

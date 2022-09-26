@@ -100,7 +100,7 @@ onMounted(() => {
       </div>
     </footer>
 
-    <div ref="topReturnBtn" class="top-return-btn hidden">
+    <div ref="topReturnBtn" class="p-top-return-btn hidden">
       <compButton v-scroll-to="'body'" :href="'#'" remove-default-class class="" label="">
         <useSVG inner-class="use-svg__img--white" size="28" scale="0.6" href="/images/common/icon.svg#icon-arrow" />
       </compButton>
@@ -164,7 +164,7 @@ $main-font: 'Bungee', cursive;
     }
   }
 }
-.top-return-btn {
+.p-top-return-btn {
   background: map-get(g.$theme-cafe-colors, 'subColor');
 }
 </style>

@@ -37,6 +37,35 @@
   }
 }
 
+.p-top-return-btn {
+  position: fixed;
+  right: 2rem;
+  bottom: 0;
+  z-index: 20;
+  transform-origin: right bottom;
+  @include g.buttonCircle($pad: 10px);
+  animation: footer-up 0.4s ease forwards;
+  @keyframes footer-up {
+    0% {
+      transform: translateY(-3rem);
+    }
+    100% {
+      transform: translateY(3rem);
+    }
+  }
+  &.is-active {
+    animation: footer-down 0.4s ease forwards;
+    @keyframes footer-down {
+      0% {
+        transform: translateY(3rem);
+      }
+      100% {
+        transform: translateY(-3rem);
+      }
+    }
+  }
+}
+
 // TODO: 以下 リファクタリング対象
 
 .p-column-layout--wide {
@@ -90,33 +119,4 @@
 
 .modal-nav {
   color: g.$cWhite;
-}
-
-.top-return-btn {
-  position: fixed;
-  right: 2rem;
-  bottom: 0;
-  z-index: 20;
-  transform-origin: right bottom;
-  @include g.buttonCircle($pad: 10px);
-  animation: footer-up 0.4s ease forwards;
-  @keyframes footer-up {
-    0% {
-      transform: translateY(-3rem);
-    }
-    100% {
-      transform: translateY(3rem);
-    }
-  }
-  &.is-active {
-    animation: footer-down 0.4s ease forwards;
-    @keyframes footer-down {
-      0% {
-        transform: translateY(3rem);
-      }
-      100% {
-        transform: translateY(-3rem);
-      }
-    }
-  }
 }
