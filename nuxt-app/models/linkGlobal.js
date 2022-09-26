@@ -10,6 +10,11 @@ export default [
     class: 'menu-component'
   },
   {
+    label: 'Animation',
+    href: '/index-animation',
+    class: 'menu-animation'
+  },
+  {
     label: 'Blog',
     href: '/blog',
     class: 'menu-blog'
