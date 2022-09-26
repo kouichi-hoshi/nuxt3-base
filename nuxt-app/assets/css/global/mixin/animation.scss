@@ -1,3 +1,11 @@
+
+/**
+ * 上下左右に移動させることを想定したスタイル
+ * 対象DOM要素が画面内に表示されたときに適用する
+ * 例：
+ * 1.IntersectionObserverで検知させる（別途実装で実現）
+ * 2.is-activeクラスを脱着
+ */
 @mixin translate($name, $duration:0.6s, $delay:0.4s, $from: #{0, 1rem}, $to: #{0, 0rem}) {
   animation: $name $duration $delay ease-out forwards;
   @keyframes #{$name} {

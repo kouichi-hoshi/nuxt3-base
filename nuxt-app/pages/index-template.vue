@@ -2,7 +2,7 @@
 import itemsSample from '../models/itemsSample.js'
 
 const postData = {
-  title: import.meta.env.VITE_SITE_TITLE,
+  title: 'Template',
   subtitle: import.meta.env.VITE_SITE_SUB_TITLE
 }
 

@@ -2,9 +2,10 @@
 import keyWords from '../models/keyWords.js'
 
 const postData = {
-  title: import.meta.env.VITE_SITE_TITLE,
+  title: 'Component',
   subtitle: import.meta.env.VITE_SITE_SUB_TITLE
 }
+
 useHead({
   title: postData.title,
   bodyAttrs: {
