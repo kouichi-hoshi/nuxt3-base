@@ -1,10 +1,10 @@
 @use '../global' as g;
 
 body {
-  color: g.$cDarkBlack;
-  font-family: g.$notoSansJP;
+  color: g.$defaultColor;
+  font-family: g.$defaultFontFamily;
   font-size: g.$defaultFontSize;
-  background: g.$cMidWhite;
+  background: g.$defaultBackgroundColor;
   word-break: break-word;
 }
 

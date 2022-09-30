@@ -5,6 +5,15 @@ $screenLg: 1024px;
 $screenXl: 1280px;
 $screen2xl: 1536px;
 
+// color
+$cWhite: #fff;
+$cMidWhite: #fdfdfd;
+$cLightGray: #e4e4e4;
+$cGray: rgba(#7e7e7e, 0.8);
+$cDarkGray: #7e7e7e;
+$cDarkBlack: rgba(#000, 0.8);
+$cBlack: #000;
+
 // font-family
 $notoSansJP: 'Noto Sans JP', sans-serif;
 $notoSerifJP: 'Noto Serif JP', serif;
@@ -55,4 +64,15 @@ $theme-pg: (
   accentColor: #0e2a3b
 );
 
-// #744c39,#da8b79,#edd0af,#e6e3cb,#c2ddda
+/**
+ * default setting
+ */
+
+// default font size
+$defaultFontSize: 1rem;
+
+// default font family
+$defaultFontFamily: $notoSansJP !default;
+$defaultFontFamilyEn: $josefinSans !default;
+$defaultBackgroundColor: $cMidWhite !default;
+$defaultColor: $cDarkBlack !default;
